@@ -1,0 +1,75 @@
+# kirby-fotoalbum — Claude Code context
+
+## What this project is
+
+A Kirby CMS site for a photographer. Clients receive a private, password-protected gallery link and can select images they want. The selection is emailed to the photographer and logged in the Panel. After submission, selection is automatically disabled until the photographer re-enables it.
+
+## Tech stack
+
+- **Kirby CMS 4** — flat-file CMS, no database
+- **Tailwind CSS v4** via `@tailwindcss/vite`
+- **Vite** for asset bundling (entry: `src/main.js`, output: `assets/`)
+- **Bun** as package manager and script runner
+
+## Running locally
+
+```bash
+# Terminal 1 — PHP dev server
+php -S localhost:8888 kirby/router.php
+
+# Terminal 2 — CSS/JS watch
+bun run dev
+```
+
+Panel: `http://localhost:8888/panel`
+
+Always run `bun run build` after changing CSS classes or JS.
+
+## Project structure
+
+```
+site/
+  blueprints/pages/   ← Panel field definitions per template
+  config/config.php   ← email transport, debug flag
+  controllers/        ← PHP controllers (same name as template)
+  plugins/            ← kirby-locked-pages (password protection)
+  snippets/           ← header.php, footer.php
+  templates/          ← one .php per page type
+src/
+  main.js             ← JS entry (imports main.css, mobile menu, selection counter)
+  main.css            ← @import "tailwindcss"
+assets/               ← Vite build output (gitignored)
+logs/                 ← email-debug.log when debug mode is on (gitignored)
+```
+
+## Key conventions
+
+- **Blueprint section keys must be unique** across the entire blueprint file, including across columns. Duplicate keys cause Kirby to merge sections and render fields in multiple places.
+- **Column names** (`sidebar`, `main`, etc.) are fine to reuse — only section keys must be unique.
+- Layout container: `max-w-5xl mx-auto px-4` — used in header, footer, and all `<main>` elements to keep everything aligned.
+- Button style: `border px-4 py-2 text-sm hover:bg-black hover:text-white transition-colors`
+- Input style: `border px-3 py-2 text-sm rounded focus:outline-none focus:ring-1 focus:ring-current`
+
+## Private gallery feature
+
+**Blueprint fields on `gallery.yml`:**
+- `lockedPagesEnable` / `lockedPagesPassword` — from kirby-locked-pages plugin (Security tab)
+- `selectionOpen` (toggle) — enables the image selection UI (Security tab)
+- `selections` (structure) — logs of past submissions (Submissions tab)
+
+**Flow:**
+1. Admin enables `selectionOpen` in Panel
+2. Client visits password-protected gallery, selects images, submits form
+3. Controller (`site/controllers/gallery.php`) sends email, sets `selectionOpen = false`, appends to `selections` log
+4. Gallery shows submitted images highlighted; non-selected images dimmed; contact message shown
+5. Admin re-enables `selectionOpen` to allow a new round
+
+**Email debug mode** (`site/config/config.php`):
+- `'fotoalbum.email.debug' => true` — writes to `logs/email-debug.log` instead of sending
+- Set to `false` for production and configure SMTP transport
+
+## Site-level fields (site.yml)
+
+- `tagline`, `about` — shown on home page
+- `email` — used as recipient for selection emails and in footer
+- `logo` — shown in header (falls back to site title text)

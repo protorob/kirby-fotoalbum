@@ -50,8 +50,58 @@ site/
   snippets/     ← reusable template partials
 ```
 
+## Private galleries and image selection
+
+### 1. Password-protect a gallery
+
+In the Panel, open a gallery → **Security** tab. Enable **Page Protection** and set a password. Share the URL and password with the client directly.
+
+### 2. Open the gallery for image selection
+
+On the same **Security** tab, enable the **Image selection** toggle. This shows a selection UI to anyone who has access to the gallery. The client can click images to select them, optionally add a name, email and message, then submit.
+
+### 3. After the client submits
+
+- The **Image selection** toggle is automatically disabled, preventing further submissions.
+- The submitted images are highlighted in the gallery (full opacity + checkmark). Non-selected images are dimmed.
+- A message is shown prompting the client to contact the photographer to request a new selection.
+- The submission is logged in the **Submissions** tab of the gallery in the Panel (date, name, email, message, list of selected filenames).
+
+### 4. To allow a new selection
+
+Re-enable the **Image selection** toggle in the Security tab. Previous submission logs are preserved.
+
+### 5. Email configuration
+
+Outgoing emails use the **Contact email** set in the Panel under **Site settings**.
+
+In `site/config/config.php`:
+
+```php
+// Set to true to skip sending and write to logs/email-debug.log instead
+'fotoalbum.email.debug' => false,
+
+// Sender address (defaults to noreply@yourdomain.com)
+'fotoalbum.email.from' => 'noreply@yourdomain.com',
+
+// Switch to SMTP for production
+'email' => [
+    'transport' => [
+        'type'     => 'smtp',
+        'host'     => 'smtp.yourdomain.com',
+        'port'     => 587,
+        'security' => 'tls',
+        'auth'     => true,
+        'username' => 'you@yourdomain.com',
+        'password' => 'yourpassword',
+    ],
+],
+```
+
+During local development, keep `fotoalbum.email.debug` set to `true` and inspect `logs/email-debug.log` to verify submissions without needing a working mail server.
+
 ## Notes
 
 - `vendor/` and `kirby/` are not committed — they are restored by `composer install`
 - Never commit `site/accounts/`, `site/sessions/`, or `site/cache/`
-- Copy `site/config/config.php` settings for SMTP and admin email before running in production
+- `logs/` is gitignored — it only contains local debug output
