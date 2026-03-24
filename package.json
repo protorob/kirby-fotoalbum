@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.2.2",
+    "vite": "^8.0.2"
+  }
+}
