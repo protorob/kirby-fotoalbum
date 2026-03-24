@@ -1,0 +1,23 @@
+title: Home
+
+columns:
+  main:
+    width: 2/3
+    sections:
+      fields:
+        type: fields
+        fields:
+          intro:
+            type: textarea
+            label: Intro text
+            size: medium
+  sidebar:
+    width: 1/3
+    sections:
+      fields:
+        type: fields
+        fields:
+          hero:
+            type: files
+            label: Hero image
+            max: 1

@@ -1,0 +1,10 @@
+title: Galleries
+
+sections:
+  galleries:
+    type: pages
+    label: Galleries
+    template: gallery
+    create: gallery
+    info: "{{ page.images.count }} images"
+    sortBy: date desc

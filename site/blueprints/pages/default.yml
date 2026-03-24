@@ -9,6 +9,7 @@ columns:
         fields:
           text:
             type: textarea
+            label: Text
             size: huge
   sidebar:
     width: 1/3
@@ -18,4 +19,3 @@ columns:
         template: default
       files:
         type: files
-

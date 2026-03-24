@@ -1,0 +1,21 @@
+Title: Galleria Pubblica
+
+----
+
+Description: Questa galleria non è ne protetta da password ne nascosta, quindi appare nell'elenco delle gallerie.
+
+----
+
+Date: 2026-03-24
+
+----
+
+Lockedpagesenable: false
+
+----
+
+Lockedpagespassword: 
+
+----
+
+Uuid: rwsdgl4hn3rwvlrc

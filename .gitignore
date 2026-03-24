@@ -23,6 +23,11 @@ Icon
 /media/*
 !/media/index.html
 
+# Debug email log
+# ---------------
+
+/logs/
+
 # Lock files
 # ---------------
 

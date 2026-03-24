@@ -1,0 +1,74 @@
+title: Gallery
+
+tabs:
+  content:
+    label: Gallery
+    icon: image
+    columns:
+      main:
+        width: 2/3
+        sections:
+          images:
+            type: files
+            label: Images
+            template: image
+            layout: cards
+      sidebar:
+        width: 1/3
+        sections:
+          gallery_fields:
+            type: fields
+            fields:
+              description:
+                type: textarea
+                label: Description
+                size: medium
+              date:
+                type: date
+                label: Date
+                default: today
+
+  security:
+    label: Security
+    icon: lock
+    sections:
+      security_fields:
+        type: fields
+        fields:
+          security:
+            extends: fields/locked-pages
+          selectionOpen:
+            type: toggle
+            label: Image selection
+            text: Allow clients to select and submit images
+            default: false
+
+  submissions:
+    label: Submissions
+    icon: email
+    sections:
+      submissions_fields:
+        type: fields
+        fields:
+          selections:
+            type: structure
+            label: Received selections
+            fields:
+              date:
+                type: text
+                label: Date
+                width: 1/4
+              sender:
+                type: text
+                label: Name
+                width: 1/4
+              senderEmail:
+                type: email
+                label: Email
+                width: 1/2
+              message:
+                type: textarea
+                label: Message
+              images:
+                type: textarea
+                label: Selected images

@@ -1,5 +1,44 @@
 title: Site
 
-sections:
+tabs:
+  main:
+    label: Site
+    icon: home
+    columns:
+      content:
+        width: 2/3
+        sections:
+          content:
+            type: fields
+            fields:
+              tagline:
+                type: text
+                label: Tagline
+              about:
+                type: textarea
+                label: About text
+                size: medium
+      sidebar:
+        width: 1/3
+        sections:
+          meta:
+            type: fields
+            fields:
+              email:
+                type: email
+                label: Contact email
+              logo:
+                type: files
+                label: Logo
+                max: 1
+
   pages:
-    type: pages
+    label: Pages
+    icon: page
+    sections:
+      pages:
+        type: pages
+        templates:
+          - home
+          - galleries
+          - default

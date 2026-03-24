@@ -1,0 +1,38 @@
+Title: Galleria Demo - Privata
+
+----
+
+Description: Questa galleria è impostata per non essere vista dal sito ma solo dall'URL. Inoltre è impostata la protezione con password.
+
+----
+
+Date: 2026-03-24
+
+----
+
+Lockedpagesenable: true
+
+----
+
+Lockedpagespassword: 123456
+
+----
+
+Selectionopen: false
+
+----
+
+Selections:
+
+- 
+  date: 2026-03-24 11:39
+  sender: John
+  senderemail: info@robertobriceno.eu
+  message: Hola!!
+  images: >
+    private-2.jpg, private-3.jpg,
+    private-6.jpg, private-7.jpg
+
+----
+
+Uuid: mjjxut6uqunehotz

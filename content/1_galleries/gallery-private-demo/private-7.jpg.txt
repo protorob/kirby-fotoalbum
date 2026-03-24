@@ -1,0 +1,9 @@
+Sort: 7
+
+----
+
+Uuid: gxospt01tro94g5l
+
+----
+
+Template: image
