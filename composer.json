@@ -23,7 +23,8 @@
   "require": {
     "php": "~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0",
     "getkirby/cms": "^5.2",
-    "johannschopplich/kirby-locked-pages": "^2.2"
+    "johannschopplich/kirby-locked-pages": "^2.2",
+    "tobimori/kirby-seo": "^2.0.0-beta"
   },
   "config": {
     "allow-plugins": {

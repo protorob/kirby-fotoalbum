@@ -100,6 +100,24 @@ In `site/config/config.php`:
 
 During local development, keep `fotoalbum.email.debug` set to `true` and inspect `logs/email-debug.log` to verify submissions without needing a working mail server.
 
+## SEO
+
+SEO is handled by the [kirby-seo](https://github.com/tobimori/kirby-seo) plugin (`tobimori/kirby-seo`). It provides an **SEO tab** on every page and on the site, with fields for:
+
+- Meta title and description
+- Open Graph image and tags
+- Twitter Card tags
+- Robots directives (per-page noindex, nofollow, etc.)
+- JSON-LD / Schema.org markup
+
+The plugin also automatically exposes:
+- `/sitemap.xml` — pages are included only if their robots settings allow indexing
+- `/robots.txt` — generated from panel settings
+
+The SEO `<head>` tags are output in `site/snippets/header.php` via `snippet('seo/head', slots: true)`. The stylesheet is passed as the slot content so that priority tags (`<title>`, canonical) render before it. JSON-LD schemas are output in `footer.php` via `snippet('seo/schemas')`.
+
+No extra configuration is required for basic use. To disable the sitemap, set `'tobimori.seo.sitemap.active' => false` in `site/config/config.php`.
+
 ## Notes
 
 - `vendor/` and `kirby/` are not committed — they are restored by `composer install`

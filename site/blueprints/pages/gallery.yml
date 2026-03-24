@@ -43,6 +43,9 @@ tabs:
             text: Allow clients to select and submit images
             default: false
 
+  seo:
+    extends: seo
+
   submissions:
     label: Submissions
     icon: email

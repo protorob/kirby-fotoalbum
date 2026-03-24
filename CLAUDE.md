@@ -6,7 +6,7 @@ A Kirby CMS site for a photographer. Clients receive a private, password-protect
 
 ## Tech stack
 
-- **Kirby CMS 4** — flat-file CMS, no database
+- **Kirby CMS 5** — flat-file CMS, no database
 - **Tailwind CSS v4** via `@tailwindcss/vite`
 - **Vite** for asset bundling (entry: `src/main.js`, output: `assets/`)
 - **Bun** as package manager and script runner
@@ -32,7 +32,7 @@ site/
   blueprints/pages/   ← Panel field definitions per template
   config/config.php   ← email transport, debug flag
   controllers/        ← PHP controllers (same name as template)
-  plugins/            ← kirby-locked-pages (password protection)
+  plugins/            ← kirby-locked-pages (password protection), kirby-seo (SEO/meta)
   snippets/           ← header.php, footer.php
   templates/          ← one .php per page type
 src/
@@ -67,6 +67,15 @@ logs/                 ← email-debug.log when debug mode is on (gitignored)
 **Email debug mode** (`site/config/config.php`):
 - `'fotoalbum.email.debug' => true` — writes to `logs/email-debug.log` instead of sending
 - Set to `false` for production and configure SMTP transport
+
+## SEO plugin (tobimori/kirby-seo)
+
+Installed as a composer dependency (`^2.0.0-beta`). Requires Kirby 5.
+
+- `snippet('seo/head', slots: true)` in `header.php` — outputs `<title>`, meta, OG, canonical tags. The stylesheet is passed as the slot so priority tags render before it.
+- `snippet('seo/schemas')` in `footer.php` — outputs JSON-LD Schema.org markup.
+- Every page blueprint and `site.yml` has a `seo` tab added via `extends: seo`.
+- Automatically handles `/sitemap.xml` and `/robots.txt` routes — no extra config needed.
 
 ## Site-level fields (site.yml)
 

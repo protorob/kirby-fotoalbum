@@ -1,0 +1,50 @@
+{
+	"name": "tobimori/kirby-seo",
+	"description": "The default choice for SEO on Kirby: Implement technical SEO & Meta best practices with ease and provide an easy-to-use editor experience",
+	"type": "kirby-plugin",
+	"version": "2.0.0-beta.3",
+	"license": "proprietary",
+	"homepage": "https://github.com/tobimori/kirby-seo#readme",
+	"authors": [
+		{
+			"name": "Tobias Möritz",
+			"email": "tobias@moeritz.io"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"tobimori\\Seo\\": "classes"
+		}
+	},
+	"minimum-stability": "RC",
+	"require": {
+		"php": ">=8.3.0",
+		"getkirby/composer-installer": "^1.2.1"
+	},
+	"suggest": {
+		"ext-imagick": "Rasterize non-resizable images (SVG, etc.) for AI alt text generation",
+		"tobimori/kirby-queues": "Enable background processing support",
+		"getkirby/cli": "Enable background processing support",
+		"spatie/schema-org": "Enable the Schema.org support"
+	},
+	"require-dev": {
+		"getkirby/cli": "^1.8.0",
+		"tobimori/kirby-queues": "^1.0.0-beta.1",
+		"friendsofphp/php-cs-fixer": "^3.48",
+		"spatie/schema-org": "^3.23",
+		"getkirby/cms": "^5.0.0"
+	},
+	"scripts": {
+		"dist": "composer install --no-dev --optimize-autoloader",
+		"fix": "php-cs-fixer fix"
+	},
+	"config": {
+		"optimize-autoloader": true,
+		"allow-plugins": {
+			"getkirby/composer-installer": true
+		}
+	},
+	"extra": {
+		"kirby-cms-path": false
+	}
+}

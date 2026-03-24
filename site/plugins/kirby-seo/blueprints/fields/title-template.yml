@@ -1,0 +1,6 @@
+type: seo-writer
+nodes:
+  - seoTemplateTitle
+  - seoTemplateSiteTitle
+toolbar:
+  inline: false
