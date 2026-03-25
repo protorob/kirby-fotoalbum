@@ -1,1 +1,122 @@
 @import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/zoom";
+@import "swiper/css/navigation";
+@import "swiper/css/keyboard";
+
+@theme {
+  --font-serif: "Lora", Georgia, serif;
+  --font-sans: "Montserrat", sans-serif;
+  --color-cream: #f5f4f0;
+}
+
+/* Scroll fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Lightbox modal */
+@keyframes lightbox-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes lightbox-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+#lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #f5f4f0;
+}
+#lightbox.open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: lightbox-in 0.3s ease forwards;
+}
+#lightbox.open.closing {
+  animation: lightbox-out 0.3s ease forwards;
+}
+#lightbox .swiper {
+  width: 100%;
+  height: 100%;
+}
+#lightbox .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#lightbox .swiper-slide img {
+  max-height: 90vh;
+  max-width: 90vw;
+  object-fit: contain;
+  user-select: none;
+}
+#lightbox .swiper-zoom-container img {
+  cursor: zoom-in;
+}
+#lightbox .swiper-zoom-container.is-zoomed img {
+  cursor: zoom-out;
+}
+#lightbox-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  z-index: 10;
+  color: #1a1a1a;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  background: none;
+  border: none;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+#lightbox-close:hover {
+  opacity: 1;
+}
+#lightbox-prev,
+#lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #1a1a1a;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+  padding: 0.5rem 1rem;
+  line-height: 1;
+}
+#lightbox-prev { left: 0.5rem; }
+#lightbox-next { right: 0.5rem; }
+#lightbox-prev:hover,
+#lightbox-next:hover {
+  opacity: 1;
+}

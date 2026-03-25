@@ -28,6 +28,11 @@ Icon
 
 /logs/
 
+# Local reference / mockup files
+# --------------------------------
+
+/example/
+
 # Lock files
 # ---------------
 

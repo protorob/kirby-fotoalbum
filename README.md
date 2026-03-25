@@ -7,6 +7,28 @@ A Kirby CMS project for photographer client galleries with per-gallery password 
 - PHP 8.3+ with extensions: `mbstring`, `xml`, `gd`, `curl`, `zip`, `intl`
 - Composer
 
+## Installing PHP 8.3 (Ubuntu / WSL2)
+
+```bash
+sudo apt update && sudo apt install -y software-properties-common
+sudo add-apt-repository ppa:ondrej/php
+sudo apt update
+sudo apt install -y php8.3 php8.3-cli php8.3-mbstring php8.3-xml php8.3-curl php8.3-zip php8.3-gd php8.3-intl
+```
+
+Make `php` point to 8.3 if needed:
+
+```bash
+sudo update-alternatives --set php /usr/bin/php8.3
+```
+
+## Installing Composer
+
+```bash
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+```
+
 ## Setup
 
 ```bash
@@ -99,6 +121,23 @@ In `site/config/config.php`:
 ```
 
 During local development, keep `fotoalbum.email.debug` set to `true` and inspect `logs/email-debug.log` to verify submissions without needing a working mail server.
+
+## Gallery lightbox
+
+Clicking any image in a gallery opens a fullscreen lightbox powered by [Swiper](https://swiperjs.com/).
+
+**Navigation**
+- Previous / next image: click the `←` / `→` arrows or use the keyboard arrow keys
+- Close: click the `×` button, press `Escape`, or click anywhere outside the image
+
+**Zoom**
+- Click the image once to zoom in (2.5×, centred)
+- Click again to zoom out
+- Cursor changes to a magnifying glass when hovering the image
+
+**Animations**
+- Opening: fade-in + slight scale-up
+- Closing: fade-out + slight scale-down (reverse)
 
 ## SEO
 
