@@ -129,15 +129,22 @@ Clicking any image in a gallery opens a fullscreen lightbox powered by [Swiper](
 **Navigation**
 - Previous / next image: click the `←` / `→` arrows or use the keyboard arrow keys
 - Close: click the `×` button, press `Escape`, or click anywhere outside the image
+- Zoom resets automatically when navigating to another image or closing
 
 **Zoom**
-- Click the image once to zoom in (2.5×, centred)
+- Click the image once to zoom in
 - Click again to zoom out
-- Cursor changes to a magnifying glass when hovering the image
+- Cursor shows `zoom-in` / `zoom-out` depending on state
 
 **Animations**
 - Opening: fade-in + slight scale-up
 - Closing: fade-out + slight scale-down (reverse)
+
+## Private gallery layout
+
+When a gallery has password protection (`lockedPagesEnable`) enabled — whether or not image selection is currently open — it uses a uniform square-grid layout instead of masonry. This keeps the visual experience consistent for the client across both the selection and review phases.
+
+Public galleries always use the masonry layout.
 
 ## SEO
 

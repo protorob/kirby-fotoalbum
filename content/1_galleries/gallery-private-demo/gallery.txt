@@ -1,4 +1,4 @@
-Title: Galleria Demo - Privata
+Title: Galleria Privata
 
 ----
 
@@ -18,7 +18,7 @@ Lockedpagespassword: 123456
 
 ----
 
-Selectionopen: true
+Selectionopen: false
 
 ----
 
@@ -58,6 +58,24 @@ Cropogimage:
 
 ----
 
+Metainherit: 
+
+----
+
+Selections:
+
+- 
+  date: 2026-03-25 16:53
+  sender: Roberto
+  senderemail: info@robertobriceno.eu
+  message: Hello!
+  images: >
+    private-2.jpg, private-5.jpg,
+    private-6.jpg, private-7.jpg,
+    private-8.jpg
+
+----
+
 Robotsindex: default
 
 ----
@@ -75,14 +93,6 @@ Robotsimageindex: default
 ----
 
 Robotssnippet: default
-
-----
-
-Metainherit: 
-
-----
-
-Selections: 
 
 ----
 

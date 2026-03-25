@@ -97,6 +97,32 @@
 #lightbox-close:hover {
   opacity: 1;
 }
+#lightbox-select {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  background: none;
+  border: 1px solid rgba(26, 26, 26, 0.35);
+  cursor: pointer;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  padding: 0.5rem 1.5rem;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+#lightbox-select:hover {
+  border-color: #1a1a1a;
+  background: rgba(26, 26, 26, 0.06);
+}
+#lightbox-select.is-selected {
+  background: #1a1a1a;
+  color: #f5f4f0;
+  border-color: #1a1a1a;
+}
 #lightbox-prev,
 #lightbox-next {
   position: absolute;

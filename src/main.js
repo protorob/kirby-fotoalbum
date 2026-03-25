@@ -36,11 +36,62 @@ if (fadeEls.length) {
 // Lightbox with Swiper
 const lightbox = document.getElementById('lightbox')
 const lightboxClose = document.getElementById('lightbox-close')
+const lightboxSelectBtn = document.getElementById('lightbox-select')
 const galleryItems = document.querySelectorAll('[data-lightbox]')
 
 if (lightbox && galleryItems.length) {
   let swiper = null
   let isClosing = false
+
+  function updateSelectBtn() {
+    if (!lightboxSelectBtn || !swiper) return
+    const filename = swiper.slides[swiper.activeIndex]?.dataset.filename
+    const checkbox = form?.querySelector(`input[value="${CSS.escape(filename)}"]`)
+    const isSelected = checkbox?.checked ?? false
+    lightboxSelectBtn.classList.toggle('is-selected', isSelected)
+    lightboxSelectBtn.textContent = isSelected ? '✓ Selected' : 'Select'
+  }
+
+  function initZoom(sw) {
+    let isZoomed = false
+
+    function activeContainer() { return sw.slides[sw.activeIndex]?.querySelector('.swiper-zoom-container') ?? null }
+
+    function resetAllSlides() {
+      sw.slides.forEach(s => {
+        const c = s.querySelector('.swiper-zoom-container')
+        if (c) c.classList.remove('is-zoomed')
+      })
+    }
+
+    function zoomOut() {
+      sw.zoom.out()
+      isZoomed = false
+      resetAllSlides()
+    }
+
+    sw.slides.forEach(slide => {
+      const zoomContainer = slide.querySelector('.swiper-zoom-container')
+      if (!zoomContainer) return
+      zoomContainer.addEventListener('click', (e) => {
+        if (isClosing) return
+        if (isZoomed) {
+          zoomOut()
+        } else if (e.target.tagName === 'IMG') {
+          sw.zoom.in()
+          isZoomed = true
+          zoomContainer.classList.add('is-zoomed')
+        } else {
+          closeLightbox()
+        }
+      })
+    })
+
+    sw.on('slideChange', () => {
+      if (isZoomed) zoomOut()
+      updateSelectBtn()
+    })
+  }
 
   function openLightbox(index) {
     isClosing = false
@@ -60,31 +111,8 @@ if (lightbox && galleryItems.length) {
       keyboard: { enabled: true },
     })
 
-    // Single-click zoom + click-on-background-to-close
-    swiper.slides.forEach(slide => {
-      const zoomContainer = slide.querySelector('.swiper-zoom-container')
-      if (!zoomContainer) return
-      zoomContainer.addEventListener('click', (e) => {
-        if (isClosing) return
-        if (e.target.tagName === 'IMG') {
-          if (swiper.zoom.scale > 1) {
-            swiper.zoom.out()
-            zoomContainer.classList.remove('is-zoomed')
-          } else {
-            swiper.zoom.in()
-            zoomContainer.classList.add('is-zoomed')
-          }
-        } else {
-          closeLightbox()
-        }
-      })
-    })
-
-    // Reset zoom class on slide change
-    swiper.on('slideChange', () => {
-      document.querySelectorAll('#lightbox-swiper .swiper-zoom-container.is-zoomed')
-        .forEach(el => el.classList.remove('is-zoomed'))
-    })
+    initZoom(swiper)
+    updateSelectBtn()
   }
 
   function closeLightbox() {
@@ -102,6 +130,21 @@ if (lightbox && galleryItems.length) {
   galleryItems.forEach((el, i) => {
     el.addEventListener('click', () => openLightbox(i))
   })
+
+  if (lightboxSelectBtn) {
+    lightboxSelectBtn.addEventListener('click', () => {
+      if (!swiper) return
+      const filename = swiper.slides[swiper.activeIndex]?.dataset.filename
+      const checkbox = form?.querySelector(`input[value="${CSS.escape(filename)}"]`)
+      if (checkbox) {
+        checkbox.checked = !checkbox.checked
+        checkbox.dispatchEvent(new Event('change', { bubbles: true }))
+      }
+      updateSelectBtn()
+    })
+    // Keep button in sync when grid checkboxes are toggled directly
+    if (form) form.addEventListener('change', updateSelectBtn)
+  }
 
   lightboxClose.addEventListener('click', closeLightbox)
   document.addEventListener('keydown', (e) => {
