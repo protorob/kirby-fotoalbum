@@ -11,6 +11,9 @@ tabs:
           fields:
             type: fields
             fields:
+              tagline:
+                type: text
+                label: Tagline
               text:
                 type: blocks
                 label: Text

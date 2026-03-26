@@ -2,6 +2,10 @@ Title: About
 
 ----
 
+Tagline: Chi sono
+
+----
+
 Text: [{"content":{"text":"<p>This is just a text block: Mattis conubia parturient tellus in magnis consequat nunc adipiscing at facilisi fermentum lorem a purus cras dis parturient consectetur porta a lacus a bibendum eget sem nulla ullamcorper. Porttitor pharetra ridiculus dis fames per a a purus mi enim ultrices a dapibus penatibus feugiat a. Posuere duis vivamus eget elementum vehicula curae a nascetur eu egestas porttitor at tristique nascetur ante nec magnis fusce. Ad massa per facilisi tempus duis lobortis vestibulum a vivamus egestas scelerisque dapibus non iaculis molestie hac fames iaculis a lacinia mi per. Elementum aliquam vel potenti eu sem ridiculus a vivamus vestibulum malesuada aptent viverra dis orci ac justo. Tortor conubia tristique cras condimentum hac a est nec ut enim habitasse torquent ornare sit duis vestibulum libero blandit feugiat consectetur a.</p><p>Suspendisse adipiscing quam mi ut vestibulum lobortis laoreet leo feugiat ut curabitur integer dui litora sem fames leo sociosqu adipiscing parturient ad vestibulum vestibulum suspendisse. Parturient dui dictum lacinia a ullamcorper tempor sagittis mi ante dapibus congue condimentum condimentum egestas etiam id aliquet cubilia aptent per bibendum. Netus pretium consectetur a consequat potenti donec parturient penatibus eu ad suspendisse purus lacinia cum sociis massa quam nunc eu mi suspendisse sit cum.</p>"},"id":"cd5b8102-2fc2-457c-9e2d-28569121b546","isHidden":false,"type":"text"}]
 
 ----

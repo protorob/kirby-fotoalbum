@@ -1,9 +1,0 @@
-Sort: 6
-
-----
-
-Uuid: lxxft7q4m7gqwevj
-
-----
-
-Template: image

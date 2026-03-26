@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500&display=optional" rel="stylesheet">
   <?php snippet('seo/head', slots: true) ?>
     <link rel="stylesheet" href="<?= url('assets/css/main.css') ?>">
   <?php endsnippet() ?>
@@ -13,7 +13,7 @@
 <body class="min-h-screen flex flex-col bg-cream font-sans text-neutral-800">
 
 <header class="border-b border-neutral-200 bg-cream">
-  <div class="max-w-5xl mx-auto px-4 h-16 relative flex items-center justify-between sm:justify-normal">
+  <div class="max-w-8/10 mx-auto px-4 h-16 relative flex items-center justify-between sm:justify-normal">
 
     <?php
       $navItems = $site->children()->listed();

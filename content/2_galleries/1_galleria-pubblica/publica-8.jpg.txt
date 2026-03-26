@@ -1,9 +1,0 @@
-Sort: 8
-
-----
-
-Uuid: ipvkc5vo6g9msaj1
-
-----
-
-Template: image

@@ -1,8 +1,8 @@
-Title: Simona Gioè
+Title: Simona Gioè Photography
 
 ----
 
-Tagline: Simona Gioè
+Tagline: Simona Gioè Photography
 
 ----
 
@@ -13,8 +13,60 @@ Per info non esitate a contattarmi.
 
 ----
 
-Email: fotografa@ilsuosito.it
+Email: info@simonagioe.it
 
 ----
 
-Logo: 
+Logo: - file://9l2ii7n81ifkhrey
+
+----
+
+Metatemplate: 
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Ogdescription: 
+
+----
+
+Ogsitename: 
+
+----
+
+Ogimage: 
+
+----
+
+Cropogimage: true
+
+----
+
+Robotsindex: 
+
+----
+
+Robotsfollow: 
+
+----
+
+Robotsarchive: 
+
+----
+
+Robotsimageindex: 
+
+----
+
+Robotssnippet: 
+
+----
+
+Socialmediaaccounts: 

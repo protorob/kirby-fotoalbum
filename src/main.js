@@ -51,6 +51,7 @@ if (galleryItems.length) {
     dataSource,
     pswpModule: PhotoSwipe,
     bgOpacity: 1,
+    padding: { top: 40, bottom: 40, left: 40, right: 40 },
     getThumbBoundsFn: (index) => {
       const el = galleryItems[index]?.querySelector('img')
       if (!el) return
