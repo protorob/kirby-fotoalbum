@@ -1,6 +1,6 @@
 import './main.css'
-import Swiper from 'swiper'
-import { Zoom, Navigation, Keyboard } from 'swiper/modules'
+import PhotoSwipeLightbox from 'photoswipe/lightbox'
+import PhotoSwipe from 'photoswipe'
 
 // Mobile menu toggle
 const toggle = document.getElementById('menu-toggle')
@@ -9,8 +9,10 @@ if (toggle && menu) {
   toggle.addEventListener('click', () => menu.classList.toggle('hidden'))
 }
 
-// Image selection counter
+// Shared selection form reference
 const form = document.getElementById('selection-form')
+
+// Image selection counter
 if (form) {
   const countEl = document.getElementById('selection-count')
   form.addEventListener('change', () => {
@@ -33,121 +35,68 @@ if (fadeEls.length) {
   fadeEls.forEach(el => observer.observe(el))
 }
 
-// Lightbox with Swiper
-const lightbox = document.getElementById('lightbox')
-const lightboxClose = document.getElementById('lightbox-close')
-const lightboxSelectBtn = document.getElementById('lightbox-select')
+// Lightbox with PhotoSwipe
 const galleryItems = document.querySelectorAll('[data-lightbox]')
 
-if (lightbox && galleryItems.length) {
-  let swiper = null
-  let isClosing = false
+if (galleryItems.length) {
+  const dataSource = Array.from(galleryItems).map(el => ({
+    src: el.dataset.pswpSrc,
+    width: parseInt(el.dataset.pswpWidth),
+    height: parseInt(el.dataset.pswpHeight),
+    msrc: el.querySelector('img')?.src,
+    filename: el.dataset.filename || null,
+  }))
 
-  function updateSelectBtn() {
-    if (!lightboxSelectBtn || !swiper) return
-    const filename = swiper.slides[swiper.activeIndex]?.dataset.filename
-    const checkbox = form?.querySelector(`input[value="${CSS.escape(filename)}"]`)
-    const isSelected = checkbox?.checked ?? false
-    lightboxSelectBtn.classList.toggle('is-selected', isSelected)
-    lightboxSelectBtn.textContent = isSelected ? '✓ Selected' : 'Select'
-  }
-
-  function initZoom(sw) {
-    let isZoomed = false
-
-    function activeContainer() { return sw.slides[sw.activeIndex]?.querySelector('.swiper-zoom-container') ?? null }
-
-    function resetAllSlides() {
-      sw.slides.forEach(s => {
-        const c = s.querySelector('.swiper-zoom-container')
-        if (c) c.classList.remove('is-zoomed')
-      })
-    }
-
-    function zoomOut() {
-      sw.zoom.out()
-      isZoomed = false
-      resetAllSlides()
-    }
-
-    sw.slides.forEach(slide => {
-      const zoomContainer = slide.querySelector('.swiper-zoom-container')
-      if (!zoomContainer) return
-      zoomContainer.addEventListener('click', (e) => {
-        if (isClosing) return
-        if (isZoomed) {
-          zoomOut()
-        } else if (e.target.tagName === 'IMG') {
-          sw.zoom.in()
-          isZoomed = true
-          zoomContainer.classList.add('is-zoomed')
-        } else {
-          closeLightbox()
-        }
-      })
-    })
-
-    sw.on('slideChange', () => {
-      if (isZoomed) zoomOut()
-      updateSelectBtn()
-    })
-  }
-
-  function openLightbox(index) {
-    isClosing = false
-    lightbox.classList.add('open')
-    document.body.style.overflow = 'hidden'
-
-    if (swiper) swiper.destroy(true, true)
-
-    swiper = new Swiper('#lightbox-swiper', {
-      modules: [Zoom, Navigation, Keyboard],
-      initialSlide: index,
-      zoom: { toggle: false },
-      navigation: {
-        nextEl: '#lightbox-next',
-        prevEl: '#lightbox-prev',
-      },
-      keyboard: { enabled: true },
-    })
-
-    initZoom(swiper)
-    updateSelectBtn()
-  }
-
-  function closeLightbox() {
-    if (isClosing) return
-    isClosing = true
-    lightbox.classList.add('closing')
-    setTimeout(() => {
-      lightbox.classList.remove('open', 'closing')
-      document.body.style.overflow = ''
-      if (swiper) { swiper.destroy(true, true); swiper = null }
-      isClosing = false
-    }, 300)
-  }
-
-  galleryItems.forEach((el, i) => {
-    el.addEventListener('click', () => openLightbox(i))
+  const lightbox = new PhotoSwipeLightbox({
+    dataSource,
+    pswpModule: PhotoSwipe,
+    bgOpacity: 1,
+    getThumbBoundsFn: (index) => {
+      const el = galleryItems[index]?.querySelector('img')
+      if (!el) return
+      const rect = el.getBoundingClientRect()
+      return { x: rect.left, y: rect.top + window.scrollY, w: rect.width }
+    },
   })
 
-  if (lightboxSelectBtn) {
-    lightboxSelectBtn.addEventListener('click', () => {
-      if (!swiper) return
-      const filename = swiper.slides[swiper.activeIndex]?.dataset.filename
-      const checkbox = form?.querySelector(`input[value="${CSS.escape(filename)}"]`)
-      if (checkbox) {
-        checkbox.checked = !checkbox.checked
-        checkbox.dispatchEvent(new Event('change', { bubbles: true }))
-      }
-      updateSelectBtn()
+  if (form) {
+    function updateSelectBtn() {
+      const btn = document.querySelector('.pswp__select-btn')
+      if (!btn || !lightbox.pswp) return
+      const filename = dataSource[lightbox.pswp.currIndex]?.filename
+      const checkbox = form.querySelector(`input[value="${CSS.escape(filename)}"]`)
+      const isSelected = checkbox?.checked ?? false
+      btn.textContent = isSelected ? '✓ Selected' : 'Select'
+      btn.classList.toggle('is-selected', isSelected)
+    }
+
+    lightbox.on('uiRegister', () => {
+      lightbox.pswp.ui.registerElement({
+        name: 'select-button',
+        appendTo: 'root',
+        isButton: true,
+        html: 'Select',
+        className: 'pswp__select-btn',
+        onClick: () => {
+          const filename = dataSource[lightbox.pswp.currIndex]?.filename
+          const checkbox = form.querySelector(`input[value="${CSS.escape(filename)}"]`)
+          if (checkbox) {
+            checkbox.checked = !checkbox.checked
+            checkbox.dispatchEvent(new Event('change', { bubbles: true }))
+          }
+          updateSelectBtn()
+        },
+      })
     })
-    // Keep button in sync when grid checkboxes are toggled directly
-    if (form) form.addEventListener('change', updateSelectBtn)
+
+    lightbox.on('slideActivate', updateSelectBtn)
+    lightbox.on('openComplete', updateSelectBtn)
+    form.addEventListener('change', updateSelectBtn)
   }
 
-  lightboxClose.addEventListener('click', closeLightbox)
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeLightbox()
+  lightbox.init()
+
+  galleryItems.forEach((el, i) => {
+    el.addEventListener('click', () => lightbox.loadAndOpen(i))
   })
 }

@@ -124,21 +124,23 @@ During local development, keep `fotoalbum.email.debug` set to `true` and inspect
 
 ## Gallery lightbox
 
-Clicking any image in a gallery opens a fullscreen lightbox powered by [Swiper](https://swiperjs.com/).
+Clicking any image in a gallery opens a fullscreen lightbox powered by [PhotoSwipe v5](https://photoswipe.com/).
 
 **Navigation**
-- Previous / next image: click the `←` / `→` arrows or use the keyboard arrow keys
-- Close: click the `×` button, press `Escape`, or click anywhere outside the image
-- Zoom resets automatically when navigating to another image or closing
+- Previous / next image: click the arrows or use the keyboard arrow keys
+- Close: click the `×` button or press `Escape`
 
 **Zoom**
-- Click the image once to zoom in
-- Click again to zoom out
-- Cursor shows `zoom-in` / `zoom-out` depending on state
+- Double-click to zoom in / out
+- Pinch-to-zoom on mobile / trackpad
 
 **Animations**
-- Opening: fade-in + slight scale-up
-- Closing: fade-out + slight scale-down (reverse)
+- Opening and closing animate from/to the thumbnail position in the grid
+
+**Image selection (private galleries)**
+- When selection is open, a **Select** button appears at the bottom of the lightbox
+- Clicking it toggles the image's checkbox in the underlying form
+- The button updates to **✓ Selected** when the image is selected
 
 ## Private gallery layout
 

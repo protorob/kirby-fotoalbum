@@ -1,8 +1,5 @@
 @import "tailwindcss";
-@import "swiper/css";
-@import "swiper/css/zoom";
-@import "swiper/css/navigation";
-@import "swiper/css/keyboard";
+@import "photoswipe/style.css";
 
 @theme {
   --font-serif: "Lora", Georgia, serif;
@@ -21,89 +18,24 @@
   transform: translateY(0);
 }
 
-/* Lightbox modal */
-@keyframes lightbox-in {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-@keyframes lightbox-out {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: scale(0.96);
-  }
+/* PhotoSwipe — match site's cream palette */
+.pswp {
+  --pswp-bg: #f5f4f0;
+  --pswp-icon-color: #1a1a1a;
+  --pswp-icon-color-secondary: #f5f4f0;
+  --pswp-error-text-color: #1a1a1a;
 }
 
-#lightbox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: #f5f4f0;
-}
-#lightbox.open {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: lightbox-in 0.3s ease forwards;
-}
-#lightbox.open.closing {
-  animation: lightbox-out 0.3s ease forwards;
-}
-#lightbox .swiper {
-  width: 100%;
-  height: 100%;
-}
-#lightbox .swiper-slide {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#lightbox .swiper-slide img {
-  max-height: 90vh;
-  max-width: 90vw;
-  object-fit: contain;
-  user-select: none;
-}
-#lightbox .swiper-zoom-container img {
-  cursor: zoom-in;
-}
-#lightbox .swiper-zoom-container.is-zoomed img {
-  cursor: zoom-out;
-}
-#lightbox-close {
-  position: absolute;
-  top: 1.25rem;
-  right: 1.5rem;
-  z-index: 10;
-  color: #1a1a1a;
-  font-size: 2rem;
-  line-height: 1;
-  cursor: pointer;
-  background: none;
-  border: none;
-  opacity: 0.5;
-  transition: opacity 0.2s;
-}
-#lightbox-close:hover {
-  opacity: 1;
-}
-#lightbox-select {
+/* Select button in lightbox */
+.pswp__select-btn {
   position: absolute;
   bottom: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
-  background: none;
+  width: auto;
+  height: auto;
+  background: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(26, 26, 26, 0.35);
   cursor: pointer;
   font-size: 0.7rem;
@@ -114,35 +46,21 @@
   white-space: nowrap;
   transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
-#lightbox-select:hover {
-  border-color: #1a1a1a;
-  background: rgba(26, 26, 26, 0.06);
+.pswp__select-btn:hover,
+.pswp__select-btn:active,
+.pswp__select-btn:focus {
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #1a1a1a;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: none;
 }
-#lightbox-select.is-selected {
+.pswp__select-btn.is-selected,
+.pswp__select-btn.is-selected:hover,
+.pswp__select-btn.is-selected:active,
+.pswp__select-btn.is-selected:focus {
+  padding: 0.5rem 1.5rem;
   background: #1a1a1a;
   color: #f5f4f0;
-  border-color: #1a1a1a;
-}
-#lightbox-prev,
-#lightbox-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.5rem;
-  font-weight: 300;
-  color: #1a1a1a;
-  opacity: 0.5;
-  transition: opacity 0.2s;
-  padding: 0.5rem 1rem;
-  line-height: 1;
-}
-#lightbox-prev { left: 0.5rem; }
-#lightbox-next { right: 0.5rem; }
-#lightbox-prev:hover,
-#lightbox-next:hover {
-  opacity: 1;
+  border: 1px solid #1a1a1a;
+  box-shadow: none;
 }

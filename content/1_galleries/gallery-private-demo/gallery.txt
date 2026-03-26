@@ -65,12 +65,13 @@ Metainherit:
 Selections:
 
 - 
-  date: 2026-03-25 16:53
-  sender: Roberto
-  senderemail: info@robertobriceno.eu
-  message: Hello!
+  date: 2026-03-26 07:52
+  sender: Giovanni
+  senderemail: info@giovanigay.it
+  message: Holambertin!
   images: >
-    private-2.jpg, private-5.jpg,
+    private-1.jpg, private-2.jpg,
+    private-4.jpg, private-5.jpg,
     private-6.jpg, private-7.jpg,
     private-8.jpg
 

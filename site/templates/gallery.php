@@ -45,7 +45,12 @@
             <div class="group/item group relative fade-in" style="transition-delay: <?= ($i % 3) * 80 ?>ms">
               <input type="checkbox" id="img-<?= $i ?>" name="images[]" value="<?= $image->filename() ?>" class="sr-only peer">
 
-              <div class="overflow-hidden cursor-pointer" data-lightbox="<?= $i ?>">
+              <div class="overflow-hidden cursor-pointer"
+                   data-lightbox="<?= $i ?>"
+                   data-pswp-src="<?= $image->url() ?>"
+                   data-pswp-width="<?= $image->width() ?>"
+                   data-pswp-height="<?= $image->height() ?>"
+                   data-filename="<?= $image->filename() ?>">
                 <img src="<?= $image->url() ?>" alt="<?= $image->filename() ?>"
                   class="w-full aspect-square object-cover transition-transform duration-500 group-hover/item:scale-[1.02]">
               </div>
@@ -103,7 +108,10 @@
             <?php $isSubmitted = in_array($image->filename(), $submittedImages) ?>
             <div class="fade-in <?= $isPrivate ? 'relative group cursor-pointer' : 'break-inside-avoid relative group cursor-pointer' ?>"
                  style="transition-delay: <?= ($i % 3) * 80 ?>ms"
-                 data-lightbox="<?= $i ?>">
+                 data-lightbox="<?= $i ?>"
+                 data-pswp-src="<?= $image->url() ?>"
+                 data-pswp-width="<?= $image->width() ?>"
+                 data-pswp-height="<?= $image->height() ?>">
               <img
                 src="<?= $image->url() ?>"
                 alt="<?= $image->filename() ?>"
@@ -131,26 +139,6 @@
       <?php endif ?>
 
     <?php endif ?>
-
-    <div id="lightbox">
-      <button id="lightbox-close" aria-label="Close">&times;</button>
-      <button id="lightbox-prev" aria-label="Previous">←</button>
-      <button id="lightbox-next" aria-label="Next">→</button>
-      <?php if ($selectionOpen): ?>
-        <button id="lightbox-select">Select</button>
-      <?php endif ?>
-      <div id="lightbox-swiper" class="swiper">
-        <div class="swiper-wrapper">
-          <?php foreach ($images as $image): ?>
-            <div class="swiper-slide" data-filename="<?= $image->filename() ?>">
-              <div class="swiper-zoom-container">
-                <img src="<?= $image->url() ?>" alt="<?= $image->filename() ?>">
-              </div>
-            </div>
-          <?php endforeach ?>
-        </div>
-      </div>
-    </div>
 
   <?php endif ?>
 </main>
