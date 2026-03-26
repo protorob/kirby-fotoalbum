@@ -4,9 +4,9 @@
 
   <?php if ($sent): ?>
 
-    <div class="max-w-5xl mx-auto px-4 py-16 flex flex-col gap-4 items-start">
-      <p class="border border-neutral-300 px-4 py-3 text-sm">Your selection has been sent successfully. Thank you!</p>
-      <a href="<?= $page->url() ?>" class="border border-neutral-800 px-4 py-2 text-xs tracking-widest uppercase hover:bg-black hover:text-white transition-colors">
+    <div class="max-w-5xl mx-auto px-4 py-16 flex flex-col gap-4 items-center fade-in">
+      <p class="border border-neutral-300 px-4 py-3 text-sm fade-in">Your selection has been sent successfully. Thank you!</p>
+      <a href="<?= $page->url() ?>" class="border border-neutral-800 px-4 py-2 text-xs tracking-widest uppercase hover:bg-black hover:text-white transition-colors fade-in">
         Back to gallery
       </a>
     </div>
@@ -24,10 +24,10 @@
       $images = $page->images();
     ?>
 
-    <div class="py-16 text-center border-b border-neutral-200">
-      <h1 class="font-serif text-3xl tracking-wide"><?= $page->title() ?></h1>
+    <div class="py-16 text-center border-b border-neutral-200 fade-in">
+      <h1 class="font-serif text-3xl tracking-wide fade-in"><?= $page->title() ?></h1>
       <?php if ($page->description()->isNotEmpty()): ?>
-        <p class="mt-4 text-sm text-neutral-500 max-w-md mx-auto leading-relaxed"><?= $page->description()->html() ?></p>
+        <p class="mt-4 text-sm text-neutral-500 max-w-md mx-auto leading-relaxed fade-in"><?= $page->description()->html() ?></p>
       <?php endif ?>
     </div>
 
