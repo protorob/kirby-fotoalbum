@@ -11,8 +11,8 @@
 </head>
 <body class="min-h-screen flex flex-col bg-cream font-sans text-neutral-800">
 
-<header class="border-b border-neutral-200 bg-cream">
-  <div class="max-w-8/10 mx-auto px-4 h-16 relative flex items-center justify-between sm:justify-normal">
+<header class="border-b border-neutral-200 bg-cream relative">
+  <div class="max-w-5xl md:max-w-8/10 mx-auto px-4 h-16 relative flex items-center justify-between sm:justify-normal">
 
     <?php
       $navItems = $site->children()->listed();
@@ -52,7 +52,7 @@
     </button>
   </div>
 
-  <nav id="mobile-menu" class="hidden border-t border-neutral-200 sm:hidden">
+  <nav id="mobile-menu" class="absolute top-full left-0 right-0 z-50 bg-cream border-b border-neutral-200 sm:hidden opacity-0 -translate-y-1 pointer-events-none transition-all duration-200">
     <div class="max-w-5xl mx-auto px-4 py-4 flex flex-col gap-4 text-xs tracking-widest uppercase">
       <?php foreach ($site->children()->listed() as $item): ?>
         <a href="<?= $item->url() ?>" class="<?= $item->isActive() ? 'font-medium' : '' ?>">

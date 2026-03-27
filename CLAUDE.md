@@ -72,7 +72,7 @@ logs/                 ← email-debug.log when debug mode is on (gitignored)
 
 Installed as a composer dependency (`^2.0.0-beta`). Requires Kirby 5.
 
-- `snippet('seo/head', slots: true)` in `header.php` — outputs `<title>`, meta, OG, canonical tags. The stylesheet is passed as the slot so priority tags render before it.
+- `snippet('seo/head')` in `header.php` — outputs `<title>`, meta, OG, canonical tags. The main stylesheet is loaded directly before this snippet (not via a slot) to ensure it is render-blocking from the first byte and avoids FOUC.
 - `snippet('seo/schemas')` in `footer.php` — outputs JSON-LD Schema.org markup.
 - Every page blueprint and `site.yml` has a `seo` tab added via `extends: seo`.
 - Automatically handles `/sitemap.xml` and `/robots.txt` routes — no extra config needed.

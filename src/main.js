@@ -6,7 +6,15 @@ import PhotoSwipe from 'photoswipe'
 const toggle = document.getElementById('menu-toggle')
 const menu = document.getElementById('mobile-menu')
 if (toggle && menu) {
-  toggle.addEventListener('click', () => menu.classList.toggle('hidden'))
+  toggle.addEventListener('click', () => {
+    const isOpen = !menu.classList.contains('pointer-events-none')
+    menu.classList.toggle('opacity-0', isOpen)
+    menu.classList.toggle('opacity-100', !isOpen)
+    menu.classList.toggle('-translate-y-1', isOpen)
+    menu.classList.toggle('translate-y-0', !isOpen)
+    menu.classList.toggle('pointer-events-none', isOpen)
+    menu.classList.toggle('pointer-events-auto', !isOpen)
+  })
 }
 
 // Shared selection form reference
@@ -19,6 +27,36 @@ if (form) {
     const checked = form.querySelectorAll('input[name="images[]"]:checked').length
     if (countEl) countEl.textContent = checked
   })
+}
+
+// Hero slideshow
+const slides = document.querySelectorAll('.slide')
+if (slides.length) {
+  const firstImg = document.getElementById('hero-first-img')
+  const overlay = document.getElementById('hero-overlay')
+
+  function onFirstImageReady() {
+    if (overlay) {
+      overlay.classList.remove('opacity-0')
+      overlay.classList.add('opacity-100')
+    }
+    if (slides.length > 1) {
+      let current = 0
+      setInterval(() => {
+        slides[current].classList.remove('opacity-100')
+        slides[current].classList.add('opacity-0')
+        current = (current + 1) % slides.length
+        slides[current].classList.remove('opacity-0')
+        slides[current].classList.add('opacity-100')
+      }, 3000)
+    }
+  }
+
+  if (!firstImg || firstImg.complete) {
+    onFirstImageReady()
+  } else {
+    firstImg.addEventListener('load', onFirstImageReady)
+  }
 }
 
 // Scroll fade-in

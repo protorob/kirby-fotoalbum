@@ -10,6 +10,16 @@ About:
 
 Disponibile per eventi, servizi fotografici e collaborazioni.
 Per info non esitate a contattarmi.
+(link: page://ydidiay4xliesw3z text: Contatti →)
+
+----
+
+Slideshow:
+
+- file://ywduizn1wbfvu9ax
+- file://d07zjinvqdga0zxe
+- file://k0belrng6twhg3iy
+- file://dyxb3jaupbpqlmrq
 
 ----
 
@@ -18,6 +28,35 @@ Email: info@simonagioe.it
 ----
 
 Logo: - file://9l2ii7n81ifkhrey
+
+----
+
+Social-items:
+
+- 
+  icon:
+    - file://z1m3ambmdhdrqze0
+  label: Instagram
+  url: https://instagram.com
+  inblank: 'true'
+- 
+  icon:
+    - file://ek6wjbkuygcae1jv
+  label: Facebook
+  url: https://facebook.com
+  inblank: 'true'
+- 
+  icon:
+    - file://wi6ldvr5cnkm9woj
+  label: Telegram
+  url: https://telegram.com
+  inblank: 'true'
+- 
+  icon:
+    - file://uv1xsfcase2ffhlf
+  label: WhatsApp
+  url: https://whatsapp.com
+  inblank: 'true'
 
 ----
 

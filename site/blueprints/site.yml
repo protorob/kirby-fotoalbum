@@ -18,6 +18,9 @@ tabs:
                 type: textarea
                 label: About text
                 size: medium
+              slideshow:
+                type: files
+                label: Slideshow photos
       sidebar:
         width: 1/3
         sections:
@@ -31,6 +34,27 @@ tabs:
                 type: files
                 label: Logo
                 max: 1
+          social:
+            type: fields
+            label: Social media
+            fields:
+              social_items:
+                type: structure
+                label: Social media items
+                fields:
+                  icon:
+                    type: files
+                    label: Icon
+                    max: 1
+                  label:
+                    type: text
+                    label: Label
+                  url:
+                    type: url
+                    label: URL
+                  inblank:
+                    type: toggle
+                    label: Open in new tab
 
 
   pages:
