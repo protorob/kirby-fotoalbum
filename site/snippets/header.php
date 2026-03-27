@@ -6,9 +6,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500&display=optional" rel="stylesheet">
-  <?php snippet('seo/head', slots: true) ?>
-    <link rel="stylesheet" href="<?= url('assets/css/main.css') ?>">
-  <?php endsnippet() ?>
+  <link rel="stylesheet" href="<?= url('assets/css/main.css') ?>">
+  <?php snippet('seo/head'); ?>
 </head>
 <body class="min-h-screen flex flex-col bg-cream font-sans text-neutral-800">
 

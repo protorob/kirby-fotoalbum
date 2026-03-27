@@ -43,6 +43,7 @@ rsync -avz --progress \
   --exclude='logs/' \
   --exclude='vendor/' \
   --exclude='kirby/' \
+  --exclude='example/' \
   --exclude='deploy.sh' \
   --exclude='deploy-example.sh' \
   --exclude='CLAUDE.md' \
