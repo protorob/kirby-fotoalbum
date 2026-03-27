@@ -3,7 +3,7 @@
 <main class="flex-1 flex items-center justify-center px-4 py-8">
   <div class="w-full max-w-sm">
 
-    <h1 class="text-xl font-semibold mb-6">This page is protected</h1>
+    <h1 class="text-xl font-semibold mb-6">Questa pagina è privata</h1>
 
     <form method="post" class="flex flex-col gap-4">
       <div class="flex flex-col gap-1">
@@ -24,7 +24,7 @@
       <input type="hidden" name="csrf" value="<?= csrf() ?>">
 
       <button type="submit" class="border px-4 py-2 text-sm hover:bg-black hover:text-white transition-colors">
-        Open page
+        Accedi
       </button>
     </form>
 

@@ -53,6 +53,79 @@ Then open `http://localhost:8888` in your browser.
 
 The Kirby Panel is available at `http://localhost:8888/panel` — you will be prompted to create an admin account on first visit.
 
+## Deploying to a live server
+
+A deploy script is included to push the site to any server via SSH/rsync.
+
+### First-time setup (local)
+
+```bash
+cp deploy-example.sh deploy.sh
+chmod +x deploy.sh
+```
+
+Open `deploy.sh` and fill in your server details:
+
+```bash
+SSH_USER="your-user"
+SSH_HOST="your-server.com"
+REMOTE_PATH="/var/www/your-site"
+SSH_PORT=22
+PHP_BIN="/usr/bin/php"       # path to PHP on the server
+COMPOSER_BIN="~/composer"   # path to Composer on the server
+```
+
+`deploy.sh` is gitignored — your credentials will never be committed.
+
+### First-time setup (server)
+
+`vendor/` and `kirby/` are never uploaded — Composer runs on the server after each deploy so dependencies are always built for the server's PHP version. You need Composer installed on the server once:
+
+```bash
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar ~/composer
+```
+
+On **DreamHost** the default CLI `php` may differ from the web PHP version. Find the right binary:
+
+```bash
+ls /usr/local/php*/bin/php
+```
+
+Then set `PHP_BIN` in `deploy.sh` accordingly (e.g. `/usr/local/php83/bin/php`).
+
+Also create Kirby's writable directories if they don't exist yet:
+
+```bash
+mkdir -p ~/your-site/site/cache ~/your-site/site/sessions ~/your-site/site/accounts
+```
+
+### Running a deploy
+
+```bash
+./deploy.sh
+```
+
+This will:
+1. Run `bun run build` to compile CSS and JS
+2. Upload all required files via rsync (only changed files are transferred)
+3. Run `composer install` on the server to build `vendor/` and `kirby/`
+4. Set correct write permissions on Kirby's data directories
+
+### What is excluded from the upload
+
+- `.git`, `.gitignore`, `node_modules`, `src/`
+- `vendor/`, `kirby/` — installed on the server via Composer
+- `deploy.sh`, `deploy-example.sh`, `CLAUDE.md`, `PLAN.md`
+- `site/accounts`, `site/sessions`, `site/cache`, `logs/`
+
+### Before the first deploy
+
+- Set `'fotoalbum.email.debug' => false` in `site/config/config.php`
+- Configure your SMTP transport in the same file
+- Make sure PHP 8.1+ is installed on the server with extensions: `mbstring`, `gd` (or `imagick`), `curl`, `zip`
+- For Nginx servers, add a rewrite rule to route all requests through `index.php` (Apache is handled automatically via Kirby's `.htaccess`)
+
 ## Frontend build
 
 ```bash

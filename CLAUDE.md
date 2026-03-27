@@ -36,7 +36,7 @@ site/
   snippets/           ← header.php, footer.php
   templates/          ← one .php per page type
 src/
-  main.js             ← JS entry (imports main.css, mobile menu, selection counter)
+  main.js             ← JS entry (imports main.css, mobile menu, selection counter, PhotoSwipe lightbox)
   main.css            ← @import "tailwindcss"
 assets/               ← Vite build output (gitignored)
 logs/                 ← email-debug.log when debug mode is on (gitignored)

@@ -49,6 +49,11 @@ Icon
 # NEVER publish these files via Git!
 # -------------SECURITY-------------
 
+# Deployment script (contains server credentials)
+# ---------------
+
+/deploy.sh
+
 # Cache Files
 # ---------------
 
