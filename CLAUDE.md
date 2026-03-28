@@ -10,6 +10,8 @@ A Kirby CMS site for a photographer. Clients receive a private, password-protect
 - **Tailwind CSS v4** via `@tailwindcss/vite`
 - **Vite** for asset bundling (entry: `src/main.js`, output: `assets/`)
 - **Bun** as package manager and script runner
+- **Splide.js** — hero slideshow on home page (fade, autoplay, no arrows/pagination)
+- **PhotoSwipe v5** — lightbox for gallery images
 
 ## Running locally
 
@@ -80,5 +82,16 @@ Installed as a composer dependency (`^2.0.0-beta`). Requires Kirby 5.
 ## Site-level fields (site.yml)
 
 - `tagline`, `about` — shown on home page
+- `slideshow` — files field; images used as the full-screen hero slideshow on the home page
 - `email` — used as recipient for selection emails and in footer
 - `logo` — shown in header (falls back to site title text)
+- `social_items` — structure field (icon file, label, url, inblank toggle); rendered as icon links in the footer
+
+## Home page layout
+
+The home page uses a full-viewport hero slideshow (Splide.js, fade mode) that fills the space between header and footer with no scrollbar.
+
+- `header.php` accepts an optional `$bodyClass` variable on `<body>`: `<?php snippet('header', ['bodyClass' => 'h-svh overflow-y-auto']) ?>`
+- `h-svh` locks the body to the small viewport height; `overflow-y-auto` allows scroll if accessibility zoom causes overflow
+- `<main>` uses `flex-1 min-h-0` to fill remaining space between header and footer
+- Splide CSS is imported as `@splidejs/splide/css/core` (minimal, no theme chrome); slide images use `absolute inset-0 object-cover` inside `position: relative` slides
