@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="<?= url('assets/css/main.css') ?>">
   <?php snippet('seo/head'); ?>
 </head>
-<body class="min-h-screen flex flex-col bg-cream font-sans text-neutral-800">
+<body class="min-h-screen flex flex-col bg-cream font-sans text-neutral-800 <?= $bodyClass ?? '' ?>">
 
 <header class="border-b border-neutral-200 bg-cream relative">
   <div class="max-w-5xl md:max-w-8/10 mx-auto px-4 h-16 relative flex items-center justify-between sm:justify-normal">

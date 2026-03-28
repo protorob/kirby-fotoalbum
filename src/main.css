@@ -1,5 +1,16 @@
 @import "tailwindcss";
 @import "photoswipe/style.css";
+@import "@splidejs/splide/css/core";
+
+/* Hero splide fills available height without overflowing */
+#hero-splide .splide__track,
+#hero-splide .splide__list,
+#hero-splide .splide__slide {
+  height: 100%;
+}
+#hero-splide .splide__slide {
+  position: relative;
+}
 
 @theme {
   --font-serif: "Lora", Georgia, serif;

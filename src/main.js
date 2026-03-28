@@ -1,4 +1,5 @@
 import './main.css'
+import Splide from '@splidejs/splide'
 import PhotoSwipeLightbox from 'photoswipe/lightbox'
 import PhotoSwipe from 'photoswipe'
 
@@ -30,33 +31,18 @@ if (form) {
 }
 
 // Hero slideshow
-const slides = document.querySelectorAll('.slide')
-if (slides.length) {
-  const firstImg = document.getElementById('hero-first-img')
-  const overlay = document.getElementById('hero-overlay')
-
-  function onFirstImageReady() {
-    if (overlay) {
-      overlay.classList.remove('opacity-0')
-      overlay.classList.add('opacity-100')
-    }
-    if (slides.length > 1) {
-      let current = 0
-      setInterval(() => {
-        slides[current].classList.remove('opacity-100')
-        slides[current].classList.add('opacity-0')
-        current = (current + 1) % slides.length
-        slides[current].classList.remove('opacity-0')
-        slides[current].classList.add('opacity-100')
-      }, 3000)
-    }
-  }
-
-  if (!firstImg || firstImg.complete) {
-    onFirstImageReady()
-  } else {
-    firstImg.addEventListener('load', onFirstImageReady)
-  }
+const heroEl = document.getElementById('hero-splide')
+if (heroEl) {
+  new Splide('#hero-splide', {
+    type      : 'fade',
+    rewind    : true,
+    autoplay  : true,
+    interval  : 4000,
+    pauseOnHover: false,
+    arrows    : false,
+    pagination: false,
+    drag      : false,
+  }).mount()
 }
 
 // Scroll fade-in
