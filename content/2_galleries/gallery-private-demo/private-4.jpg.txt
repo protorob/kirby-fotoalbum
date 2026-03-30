@@ -1,9 +1,0 @@
-Sort: 4
-
-----
-
-Uuid: kt5gtkcopl1stsla
-
-----
-
-Template: image

@@ -1,9 +1,0 @@
-Sort: 2
-
-----
-
-Uuid: x2hlntwdeot78pvb
-
-----
-
-Template: image

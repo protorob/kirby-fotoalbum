@@ -1,9 +1,0 @@
-Sort: 3
-
-----
-
-Uuid: thsylqvwwuj8zfax
-
-----
-
-Template: image

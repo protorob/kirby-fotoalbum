@@ -1,9 +1,0 @@
-Sort: 4
-
-----
-
-Uuid: w071er18yqwbf4bo
-
-----
-
-Template: image

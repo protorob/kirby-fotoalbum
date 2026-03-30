@@ -1,9 +1,0 @@
-Sort: 5
-
-----
-
-Uuid: 36q0l5nuq34suljs
-
-----
-
-Template: image

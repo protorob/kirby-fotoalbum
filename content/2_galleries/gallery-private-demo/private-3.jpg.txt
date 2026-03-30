@@ -1,9 +1,0 @@
-Sort: 3
-
-----
-
-Uuid: ldmv15z8xtll4r2k
-
-----
-
-Template: image

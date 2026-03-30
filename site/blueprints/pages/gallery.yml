@@ -8,17 +8,29 @@ tabs:
       main:
         width: 2/3
         sections:
-          images:
-            type: files
-            label: Images
-            template: image
-            layout: cards
+          gallery_images:
+            type: fields
+            fields:
+              galleryImages:
+                label: Gallery images
+                type: files
+                template: image
+                layout: cards
+                image:
+                  cover: true
+                  ratio: 6/4
+                multiple: true
+                uploads: true
       sidebar:
         width: 1/3
         sections:
           gallery_fields:
             type: fields
             fields:
+              coverImage:
+                label: Cover image
+                type: files
+                maxFiles: 1
               description:
                 type: textarea
                 label: Description
@@ -42,6 +54,16 @@ tabs:
             label: Image selection
             text: Allow clients to select and submit images
             default: false
+
+  files:
+    label: Files
+    icon: upload
+    sections:
+      all_files:
+        type: files
+        label: All uploaded files
+        layout: cards
+        batch: true
 
   seo:
     extends: seo

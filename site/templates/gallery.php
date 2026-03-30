@@ -21,7 +21,7 @@
       if ($isPrivate && $lastSubmission) {
         $submittedImages = array_map('trim', explode(',', $lastSubmission->images()->value()));
       }
-      $images = $page->images();
+      $images = $page->galleryImages()->toFiles();
     ?>
 
     <div class="py-16 text-center border-b border-neutral-200 fade-in">

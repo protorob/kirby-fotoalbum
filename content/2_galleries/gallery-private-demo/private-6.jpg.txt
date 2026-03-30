@@ -1,9 +1,0 @@
-Sort: 6
-
-----
-
-Uuid: 0mlnaz6l52elfghh
-
-----
-
-Template: image

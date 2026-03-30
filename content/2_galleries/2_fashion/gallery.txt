@@ -1,0 +1,104 @@
+Title: Fashion
+
+----
+
+Galleryimages:
+
+- file://v2iewczhignlueri
+- file://jz9mdgm11nnlbokm
+- file://ffzusx6d1qalzy2z
+- file://uozksjwteh6k8yus
+- file://scf1ycwiclahsldc
+- file://0ahkltfunw6lam6f
+
+----
+
+Coverimage: - file://scf1ycwiclahsldc
+
+----
+
+Description: Galleria pubblica
+
+----
+
+Date: 2026-03-30
+
+----
+
+Lockedpagesenable: false
+
+----
+
+Lockedpagespassword: 
+
+----
+
+Selectionopen: false
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Cropogimage: 
+
+----
+
+Robotsindex: default
+
+----
+
+Robotsfollow: default
+
+----
+
+Robotsarchive: default
+
+----
+
+Robotsimageindex: default
+
+----
+
+Robotssnippet: default
+
+----
+
+Metainherit: 
+
+----
+
+Selections: 
+
+----
+
+Uuid: omhjdad9gfcann2d

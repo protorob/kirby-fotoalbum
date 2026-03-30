@@ -1,9 +1,0 @@
-Sort: 8
-
-----
-
-Uuid: qdqfqzj2c22gdecn
-
-----
-
-Template: image

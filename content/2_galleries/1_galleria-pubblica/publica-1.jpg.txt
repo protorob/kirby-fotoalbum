@@ -1,9 +1,0 @@
-Sort: 1
-
-----
-
-Uuid: t7giwgcwh8j3e5i7
-
-----
-
-Template: image

@@ -1,9 +1,0 @@
-Sort: 1
-
-----
-
-Uuid: xf2gtsfs8ualls2y
-
-----
-
-Template: image

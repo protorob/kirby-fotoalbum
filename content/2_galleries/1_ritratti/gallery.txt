@@ -1,12 +1,26 @@
-Title: Galleria Pubblica
+Title: Ritratti
 
 ----
 
-Description: Questa galleria non è ne protetta da password ne nascosta, quindi appare nell'elenco delle gallerie.
+Galleryimages:
+
+- file://sti5skusryvdp1rr
+- file://hoculjb6byoa8lzn
+- file://wzytepingdwheswp
+- file://ljrp0s7te47jnjtv
+- file://rdzbsyah9cgypidi
 
 ----
 
-Date: 2026-03-24
+Coverimage: - file://h5hmcngffnovaaoa
+
+----
+
+Description: Galleria Pubblica
+
+----
+
+Date: 2026-03-30
 
 ----
 
@@ -86,4 +100,4 @@ Selections:
 
 ----
 
-Uuid: rwsdgl4hn3rwvlrc
+Uuid: mrooxbxdn0jszxup

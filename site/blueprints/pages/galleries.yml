@@ -10,8 +10,8 @@ tabs:
         label: Galleries
         template: gallery
         create: gallery
+        image: page.coverImage.toFile
         info: "{{ page.images.count }} images"
-        sortBy: date desc
 
   seo:
     extends: seo
