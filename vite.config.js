@@ -1,12 +1,12 @@
 import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [tailwindcss()],
   build: {
-    watch: {
+    watch: mode === 'development' ? {
       include: ['src/**', 'site/templates/**/*.php', 'site/snippets/**/*.php'],
-    },
+    } : null,
     outDir: 'assets',
     emptyOutDir: false,
     rollupOptions: {
@@ -18,4 +18,4 @@ export default defineConfig({
       },
     },
   },
-})
+}))

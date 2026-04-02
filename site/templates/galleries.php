@@ -15,7 +15,7 @@
       <?php $i = 0; foreach ($page->children()->listed() as $gallery): ?>
         <?php $cover = $gallery->coverImage() ?>
         <a href="<?= $gallery->url() ?>"
-           class="fade-in block overflow-hidden group relative aspect-[4/5]"
+           class="fade-in block overflow-hidden group relative aspect-4/5"
            style="transition-delay: <?= ($i % 2) * 100 ?>ms">
           <?php if ($cover): ?>
             <img

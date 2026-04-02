@@ -63,8 +63,8 @@
                        bg-white/70 border border-white/80 shadow-sm select-none
                        peer-checked:bg-black peer-checked:border-black
                        hover:bg-white transition-all">
-                <span class="text-neutral-600 text-base leading-none group-has-[:checked]/item:hidden">+</span>
-                <span class="text-white text-xs hidden group-has-[:checked]/item:flex items-center justify-center">✓</span>
+                <span class="text-neutral-600 text-base leading-none group-has-checked/item:hidden">+</span>
+                <span class="text-white text-xs hidden group-has-checked/item:flex items-center justify-center">✓</span>
               </label>
             </div>
           <?php $i++; endforeach ?>
