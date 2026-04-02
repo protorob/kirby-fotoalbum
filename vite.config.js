@@ -4,6 +4,9 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [tailwindcss()],
   build: {
+    watch: {
+      include: ['src/**', 'site/templates/**/*.php', 'site/snippets/**/*.php'],
+    },
     outDir: 'assets',
     emptyOutDir: false,
     rollupOptions: {
