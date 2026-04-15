@@ -25,9 +25,9 @@
           <?php else: ?>
             <div class="absolute inset-0 bg-neutral-100"></div>
           <?php endif ?>
-          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-2 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-            <h2 class="font-serif text-white text-lg tracking-wide"><?= $gallery->title() ?></h2>
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/35 transition-colors duration-300"></div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <h2 class="text-white text-lg tracking-wide uppercase"><?= $gallery->title() ?></h2>
           </div>
         </a>
       <?php $i++; endforeach ?>

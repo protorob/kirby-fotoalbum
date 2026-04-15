@@ -17,7 +17,7 @@ A Kirby CMS site for a photographer. Clients receive a private, password-protect
 
 ```bash
 # Terminal 1 — PHP dev server
-php -S localhost:8888 kirby/router.php
+composer start
 
 # Terminal 2 — CSS/JS watch
 bun run dev

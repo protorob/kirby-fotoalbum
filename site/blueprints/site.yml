@@ -68,5 +68,15 @@ tabs:
           - galleries
           - default
 
+  files:
+    label: Homepage Files
+    icon: image
+    sections:
+      all_files:
+        type: files
+        label: All files
+        layout: cards
+        batch: true
+
   seo:
     extends: seo

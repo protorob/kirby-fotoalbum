@@ -43,7 +43,7 @@ In two separate terminals:
 
 ```bash
 # Terminal 1 — PHP dev server
-php -S localhost:8888 kirby/router.php
+composer start
 
 # Terminal 2 — CSS/JS watch mode
 bun run dev
