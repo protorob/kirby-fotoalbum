@@ -31,6 +31,18 @@ Logo: - file://idhhsorky7fzi14i
 
 ----
 
+Logo-light: - file://zxo4awvnvud1zeyq
+
+----
+
+Logo-mobile: - file://9ssbb0fj8gwopgd5
+
+----
+
+Logo-mobile-light: - file://ohxs1mw9r38460p5
+
+----
+
 Social-items:
 
 - 

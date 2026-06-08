@@ -2,7 +2,7 @@
 @import "photoswipe/style.css";
 @import "@splidejs/splide/css/core";
 
-/* Hero splide fills available height without overflowing */
+/* Hero splide fills its h-screen container */
 #hero-splide .splide__track,
 #hero-splide .splide__list,
 #hero-splide .splide__slide {
@@ -10,6 +10,64 @@
 }
 #hero-splide .splide__slide {
   position: relative;
+}
+
+/* ─── Scroll-aware header ────────────────────────────────────────── */
+
+#site-header {
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+
+#site-header.header--hero:not(.is-scrolled) {
+  background-color: transparent;
+  border-bottom-color: transparent;
+  color: white;
+}
+
+#site-header.header--hero.is-scrolled {
+  background-color: var(--color-cream);
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Large logo: below nav bar, desktop hero initial state */
+#logo-large {
+  transition: opacity 0.4s ease;
+}
+
+#site-header.is-scrolled #logo-large {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Small logo: always visible on mobile; hidden on desktop until scrolled */
+#logo-small {
+  transition: opacity 0.4s ease;
+}
+
+@media (min-width: 640px) {
+  #site-header.header--hero:not(.is-scrolled) #logo-small {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* Logo variants: light shown in transparent state, dark shown otherwise */
+.logo-light-img {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.logo-dark-img {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+#site-header.header--hero:not(.is-scrolled) .logo-light-img {
+  opacity: 1;
+}
+
+#site-header.header--hero:not(.is-scrolled) .logo-dark-img {
+  opacity: 0;
 }
 
 @theme {

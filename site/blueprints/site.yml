@@ -32,7 +32,19 @@ tabs:
                 label: Contact email
               logo:
                 type: files
-                label: Logo
+                label: Logo — dark (for light backgrounds)
+                max: 1
+              logo_light:
+                type: files
+                label: Logo — light (for dark backgrounds)
+                max: 1
+              logo_mobile:
+                type: files
+                label: Mobile logo — dark (sticky header & mobile)
+                max: 1
+              logo_mobile_light:
+                type: files
+                label: Mobile logo — light (transparent mobile header)
                 max: 1
           social:
             type: fields
