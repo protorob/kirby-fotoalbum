@@ -38,6 +38,26 @@
 
   </div>
 
+  <div class="max-w-5xl mx-auto px-4 py-24 grid grid-cols-1 md:grid-cols-3 gap-12">
+    <?php foreach (['Editorial', 'Portrait', 'Commercial'] as $label): ?>
+      <div class="flex flex-col gap-4">
+        <div class="bg-neutral-500 aspect-[4/5]"></div>
+        <p class="text-xs tracking-widest uppercase"><?= $label ?></p>
+        <p class="text-sm text-neutral-500 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+      </div>
+    <?php endforeach ?>
+  </div>
+
+  <div class="border-t border-neutral-200 max-w-5xl mx-auto px-4 py-24 text-center">
+    <h2 class="font-serif text-3xl tracking-wide mb-6">Selected Work</h2>
+    <p class="text-sm text-neutral-500 max-w-md mx-auto leading-relaxed">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <?php foreach (range(1, 8) as $i): ?>
+        <div class="bg-neutral-500 aspect-square"></div>
+      <?php endforeach ?>
+    </div>
+  </div>
+
 </main>
 
 <?php snippet('footer') ?>

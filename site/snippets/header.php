@@ -16,10 +16,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500&display=optional" rel="stylesheet">
-  <link rel="stylesheet" href="<?= url('assets/css/main.css') ?>">
+<link rel="stylesheet" href="<?= url('assets/css/main.css') ?>">
   <?php snippet('seo/head'); ?>
 </head>
 <body class="min-h-screen flex flex-col bg-cream font-sans text-neutral-800 <?= $bodyClass ?? '' ?>">
@@ -42,10 +39,10 @@
       <?php if ($smallLogoLight || $smallLogoDark): ?>
         <div class="relative flex items-center h-10">
           <?php if ($smallLogoLight): ?>
-            <img src="<?= $smallLogoLight->url() ?>" alt="<?= $site->title() ?>" class="logo-light-img h-10 w-auto">
+            <img src="<?= $smallLogoLight->url() ?>" alt="<?= $site->title() ?>" class="logo-light-img h-9 w-auto">
           <?php endif ?>
           <?php if ($smallLogoDark): ?>
-            <img src="<?= $smallLogoDark->url() ?>" alt="<?= $site->title() ?>" class="logo-dark-img h-10 w-auto<?= $smallLogoLight ? ' absolute top-0 left-0' : '' ?>">
+            <img src="<?= $smallLogoDark->url() ?>" alt="<?= $site->title() ?>" class="logo-dark-img h-9 w-auto<?= $smallLogoLight ? ' absolute top-0 left-0' : '' ?>">
           <?php endif ?>
         </div>
       <?php else: ?>
@@ -69,14 +66,14 @@
   </div>
 
   <?php if ($isHero): ?>
-  <div id="logo-large" class="hidden sm:flex absolute top-8 left-1/2 -translate-x-1/2">
+  <a href="<?= $site->url() ?>" id="logo-large" class="hidden sm:flex absolute top-8 left-1/2 -translate-x-1/2">
     <?php $heroLogo = $logoLight ?: $logoDark; ?>
     <?php if ($heroLogo): ?>
       <img src="<?= $heroLogo->url() ?>" alt="<?= $site->title() ?>" class="h-28 w-auto">
     <?php else: ?>
       <span class="font-serif text-4xl tracking-widest uppercase"><?= $site->title() ?></span>
     <?php endif ?>
-  </div>
+  </a>
   <?php endif ?>
 
   <nav id="mobile-menu" class="absolute top-full left-0 right-0 z-50 bg-cream border-b border-neutral-200 sm:hidden opacity-0 -translate-y-1 pointer-events-none transition-all duration-200">

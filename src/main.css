@@ -2,6 +2,24 @@
 @import "photoswipe/style.css";
 @import "@splidejs/splide/css/core";
 
+@font-face {
+  font-family: "IvyOraDisplay";
+  src: url('./fonts/IvyOraDisplay-Bold.woff2') format('woff2'),
+       url('./fonts/IvyOraDisplay-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IvyOraText";
+  src: url('./fonts/IvyOraText-Regular.woff2') format('woff2'),
+       url('./fonts/IvyOraText-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Hero splide fills its h-screen container */
 #hero-splide .splide__track,
 #hero-splide .splide__list,
@@ -71,8 +89,8 @@
 }
 
 @theme {
-  --font-serif: "Lora", Georgia, serif;
-  --font-sans: "Montserrat", sans-serif;
+  --font-serif: "IvyOraDisplay", Georgia, serif;
+  --font-sans: "IvyOraText", sans-serif;
   --color-cream: #f5f4f0;
 }
 

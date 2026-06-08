@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig(({ mode }) => ({
+  base: '/assets/',
   plugins: [tailwindcss()],
   build: {
     watch: mode === 'development' ? {
