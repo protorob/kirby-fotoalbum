@@ -1,0 +1,106 @@
+Title: Galleria privata - Immagini Già Selezionate
+
+----
+
+Galleryimages:
+
+- file://i5qqkizlcpcoaxxd
+- file://xqc0pvdc5vonovch
+- file://omzbh7oit7vgti1b
+- file://wy9r3ipjis4fiwlc
+- file://gcpfren7pueentkt
+- file://arldhng6ap05gppt
+- file://kcrlbvqkporftcsi
+- file://r6gaoaubckysgi8l
+
+----
+
+Coverimage: - file://kcrlbvqkporftcsi
+
+----
+
+Description: In questa galleria le immagini sono già sttae selezionate e non è più possibile effettuare una nuova selezione a meno che non venga riattivata manualmente dal pannello di controllo.
+
+----
+
+Date: 2026-03-30
+
+----
+
+Lockedpagesenable: true
+
+----
+
+Lockedpagespassword: 123456
+
+----
+
+Selectionopen: true
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Cropogimage: 
+
+----
+
+Robotsindex: default
+
+----
+
+Robotsfollow: default
+
+----
+
+Robotsarchive: default
+
+----
+
+Robotsimageindex: default
+
+----
+
+Robotssnippet: default
+
+----
+
+Metainherit: 
+
+----
+
+Selections: 
+
+----
+
+Uuid: v5lem9zd2crpilwh

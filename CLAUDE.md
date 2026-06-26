@@ -70,6 +70,22 @@ logs/                 ← email-debug.log when debug mode is on (gitignored)
 - `'fotoalbum.email.debug' => true` — writes to `logs/email-debug.log` instead of sending
 - Set to `false` for production and configure SMTP transport
 
+## Known gotchas
+
+### `$page->update()` from unauthenticated front-end context
+
+Calling `$page->update()` in a front-end controller (e.g. after a visitor submits the gallery selection form) triggers Kirby to instantiate all fields on the page for validation — including SEO fields. The kirby-seo plugin checks `App::instance()->user()->role()` during field instantiation, which throws `Call to a member function role() on null` because no Panel user is logged in.
+
+**Fix:** always wrap `$page->update()` in `$kirby->impersonate('kirby', ...)` when called from a front-end/unauthenticated context:
+
+```php
+$kirby->impersonate('kirby', function () use ($kirby, $page, $data) {
+    $page->update($data);
+});
+```
+
+This is already applied in `site/controllers/gallery.php`. Apply the same pattern anywhere else a controller needs to write content without a logged-in Panel user.
+
 ## SEO plugin (tobimori/kirby-seo)
 
 Installed as a composer dependency (`^2.0.0-beta`). Requires Kirby 5.

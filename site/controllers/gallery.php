@@ -74,10 +74,12 @@ return function ($page, $kirby, $site) {
                         'images'      => implode(', ', $images),
                     ];
 
-                    $page->update([
-                        'selectionOpen' => false,
-                        'selections'    => $existing,
-                    ]);
+                    $kirby->impersonate('kirby', function () use ($kirby, $page, $existing) {
+                        $page->update([
+                            'selectionOpen' => false,
+                            'selections'    => $existing,
+                        ]);
+                    });
 
                     $sent = true;
                 } catch (Exception $e) {

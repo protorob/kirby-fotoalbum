@@ -1,0 +1,113 @@
+Title: Galleria Privata - Modalità Selezione Immagini
+
+----
+
+Galleryimages:
+
+- file://a1nwh0c4cjgedegj
+- file://bueiarmkfb2x5blo
+- file://zheae8teghz2egcl
+- file://jnb68p1fduykdyeh
+- file://aueni7pugokvdszq
+- file://3hyiogpgv1getmyu
+- file://nubln9q6lr23dlh6
+- file://k5fkn8luhzdpeanq
+
+----
+
+Coverimage: - file://aueni7pugokvdszq
+
+----
+
+Description: Questa galleria è aperta per selezionare i files e inviare una notifica via email all'amministratore. Questa operazione può essere fatta una volta sola.
+
+----
+
+Date: 2026-03-30
+
+----
+
+Lockedpagesenable: true
+
+----
+
+Lockedpagespassword: 123456
+
+----
+
+Selectionopen: true
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Cropogimage: 
+
+----
+
+Robotsindex: default
+
+----
+
+Robotsfollow: default
+
+----
+
+Robotsarchive: default
+
+----
+
+Robotsimageindex: default
+
+----
+
+Robotssnippet: default
+
+----
+
+Metainherit: 
+
+----
+
+Selections:
+
+- 
+  date: 2026-06-26 01:12
+  sender: Roberto
+  senderemail: info@robertobriceno.eu
+  message: lidfgzjhxdfglvk
+  images: 1.jpg, 2.jpg, 3.jpg, 7.jpg
+
+----
+
+Uuid: pndtnqegflxxcyln

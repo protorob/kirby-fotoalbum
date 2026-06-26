@@ -7,12 +7,11 @@ Galleryimages:
 - file://sti5skusryvdp1rr
 - file://hoculjb6byoa8lzn
 - file://wzytepingdwheswp
-- file://ljrp0s7te47jnjtv
 - file://rdzbsyah9cgypidi
 
 ----
 
-Coverimage: - file://h5hmcngffnovaaoa
+Coverimage: - file://ljrp0s7te47jnjtv
 
 ----
 
