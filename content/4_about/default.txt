@@ -1,0 +1,73 @@
+Title: Chi sono
+
+----
+
+Tagline: Chi sono
+
+----
+
+Text: [{"content":{"text":"## La mia passione per la fotografia nasce molti anni fa, quando ero ancora una bambina.\n\nFin da piccola ero affascinata dalle macchine fotografiche e sentivo il bisogno di fermare il tempo attraverso un’immagine. Mi piaceva fotografare tutto ciò che mi circondava: paesaggi, persone, momenti di vita quotidiana. Ogni scatto era un modo per custodire un ricordo e dare valore a ciò che stavo vivendo.\n\nCon il passare degli anni questa passione è cresciuta insieme a me. Con l’arrivo del digitale ho iniziato a portare la macchina fotografica ovunque andassi, diventando quasi la reporter ufficiale della mia classe durante gli anni del liceo. Sentivo già allora quanto fosse importante conservare la memoria di un istante: un sorriso, uno sguardo, un abbraccio, momenti destinati a non ripetersi mai più nello stesso modo.\n\nLa voglia di approfondire questo linguaggio mi ha portata a studiare fotografia e a specializzarmi nel settore della moda, frequentando un master presso l’ISFCI di Roma. È stata un’esperienza fondamentale che mi ha permesso di conoscere nuove tecniche, nuovi punti di vista e un modo diverso di raccontare attraverso le immagini.\n\nDopo il mio ritorno a Palermo ho lavorato per diversi anni nel campo della fotografia di moda, collaborando con negozi e brand. Un percorso che mi ha insegnato molto e che mi ha permesso di crescere professionalmente. Con il tempo, però, ho sentito il desiderio di tornare all’essenza della fotografia: quella capace di raccontare emozioni autentiche e storie vere.\n\nÈ da questa esigenza che nasce il mio studio fotografico. Un luogo pensato per accogliere persone, emozioni e legami, trasformandoli in ricordi che possano durare nel tempo. Amo raccontare la bellezza delle storie reali, quelle fatte di piccoli gesti, sorrisi spontanei, abbracci e sguardi che parlano più di mille parole. Ogni storia è unica, proprio come le persone che la vivono.\n\nCredo profondamente nel valore delle fotografie stampate. In un mondo in cui le immagini scorrono veloci sugli schermi e spesso finiscono dimenticate in una cartella digitale, una fotografia stampata diventa qualcosa di concreto: un ricordo da toccare, custodire e tramandare. È un frammento di vita che attraversa il tempo e che può emozionare oggi come tra molti anni.\n\n**La mia sensibilità è ciò che guida il mio lavoro ogni giorno. Mi permette di cogliere dettagli, emozioni e connessioni che spesso passano inosservati, trasformandoli in immagini autentiche e senza tempo.**\n\nPerché una fotografia non è semplicemente un’immagine: è una storia, un’emozione, una parte della nostra vita che merita di essere ricordata. E il mio compito è custodirla per voi, affinché possiate riviverla ogni volta che lo desiderate."},"id":"13a89c6a-28b7-4f5a-a828-dde3b4487cfb","isHidden":false,"type":"markdown"},{"content":{"location":"kirby","image":["file://ucrx3o5vwcgtek67"],"src":"","alt":"","caption":"","link":"","ratio":"1/1","crop":"true"},"id":"64c831f1-bbba-4414-94ab-bc936b318ba6","isHidden":false,"type":"image"}]
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Cropogimage: 
+
+----
+
+Robotsindex: default
+
+----
+
+Robotsfollow: default
+
+----
+
+Robotsarchive: default
+
+----
+
+Robotsimageindex: default
+
+----
+
+Robotssnippet: default
+
+----
+
+Metainherit: 
+
+----
+
+Uuid: 9s8aczmqhvnl1rlw

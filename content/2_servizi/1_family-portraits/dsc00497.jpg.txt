@@ -1,0 +1,5 @@
+Uuid: ip9z1dpenomdkqke
+
+----
+
+Template: blocks/image

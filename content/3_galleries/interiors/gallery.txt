@@ -1,0 +1,103 @@
+Title: Interiors
+
+----
+
+Galleryimages:
+
+- file://fjs6wssveepbsqem
+- file://ddcaarlc8vgv2e2m
+- file://th5fzyauufuwfz6o
+- file://qxiidkiv397zibzu
+- file://fulypkeiopb8ljzy
+
+----
+
+Coverimage: - file://qxiidkiv397zibzu
+
+----
+
+Description: Galleria Hola!
+
+----
+
+Date: 2026-06-26
+
+----
+
+Lockedpagesenable: true
+
+----
+
+Lockedpagespassword: 1234
+
+----
+
+Selectionopen: true
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Cropogimage: 
+
+----
+
+Robotsindex: default
+
+----
+
+Robotsfollow: default
+
+----
+
+Robotsarchive: default
+
+----
+
+Robotsimageindex: default
+
+----
+
+Robotssnippet: default
+
+----
+
+Metainherit: 
+
+----
+
+Selections: 
+
+----
+
+Uuid: lp9ut9xgytoidfr0

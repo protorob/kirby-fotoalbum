@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 @import "photoswipe/style.css";
 @import "@splidejs/splide/css/core";
 
@@ -161,3 +162,11 @@ body {
   border: 1px solid #1a1a1a;
   box-shadow: none;
 }
+
+/* Prose tweaks */
+
+.page-content.prose :is(p, h2, h3, h4, h5, h6, ul, ol, blockquote) {
+    max-width: var(--prose-measure);
+    margin-left:auto;
+    margin-right:auto;
+  }

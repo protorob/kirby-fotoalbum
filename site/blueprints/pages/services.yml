@@ -1,0 +1,15 @@
+title: Services
+
+tabs:
+  content:
+    label: Content
+    icon: image
+    sections:
+      galleries:
+        type: pages
+        label: Services
+        template: service
+        create: service
+
+  seo:
+    extends: seo

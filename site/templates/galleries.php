@@ -13,13 +13,13 @@
   <div class="max-w-5xl mx-auto px-4 py-12">
     <div class="grid grid-cols-2 gap-3">
       <?php $i = 0; foreach ($page->children()->listed() as $gallery): ?>
-        <?php $cover = $gallery->coverImage() ?>
+        <?php $cover = $gallery->coverImage()->toFile() ?>
         <a href="<?= $gallery->url() ?>"
            class="fade-in block overflow-hidden group relative aspect-4/5"
            style="transition-delay: <?= ($i % 2) * 100 ?>ms">
           <?php if ($cover): ?>
             <img
-              src="<?= $cover->toFile()->url() ?>"
+              src="<?= $cover->url() ?>"
               alt="<?= $gallery->title() ?>"
               class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
           <?php else: ?>

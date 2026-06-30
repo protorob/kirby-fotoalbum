@@ -1,0 +1,44 @@
+title: Service
+
+tabs:
+  content:
+    label: Service
+    icon: image
+    columns:
+      main:
+        width: 2/3
+        sections:
+          service_description:
+            type: fields
+            fields:
+              serviceDesc:
+                label: Service Description
+                type: blocks
+
+      sidebar:
+        width: 1/3
+        sections:
+          service_fields:
+            type: fields
+            fields:
+              coverImage:
+                label: Cover image
+                type: files
+                maxFiles: 1
+              description:
+                type: textarea
+                label: Description for header and listings.
+                size: medium
+
+  files:
+    label: Files
+    icon: upload
+    sections:
+      all_files:
+        type: files
+        label: All uploaded files
+        layout: cards
+        batch: true
+
+  seo:
+    extends: seo

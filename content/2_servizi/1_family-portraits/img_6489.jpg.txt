@@ -1,0 +1,5 @@
+Uuid: iht4jekyl699xrnh
+
+----
+
+Template: blocks/image

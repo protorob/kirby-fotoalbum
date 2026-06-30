@@ -39,7 +39,7 @@
   </div>
 
   <div class="max-w-5xl mx-auto px-4 py-24 grid grid-cols-1 md:grid-cols-3 gap-12">
-    <?php foreach (['Editorial', 'Portrait', 'Commercial'] as $label): ?>
+    <?php foreach (['Editorial', 'Portrait', 'Commercial', 'Another one'] as $label): ?>
       <div class="flex flex-col gap-4">
         <div class="bg-neutral-500 aspect-[4/5]"></div>
         <p class="text-xs tracking-widest uppercase"><?= $label ?></p>

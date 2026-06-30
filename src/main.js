@@ -3,6 +3,13 @@ import Splide from '@splidejs/splide'
 import PhotoSwipeLightbox from 'photoswipe/lightbox'
 import PhotoSwipe from 'photoswipe'
 
+// Measure 65ch in the paragraph font and expose as --prose-measure for consistent text width
+const ruler = document.createElement('div')
+ruler.style.cssText = 'position:absolute;visibility:hidden;width:65ch;font-family:var(--font-sans);font-size:1rem;pointer-events:none'
+document.body.appendChild(ruler)
+document.documentElement.style.setProperty('--prose-measure', ruler.offsetWidth + 'px')
+ruler.remove()
+
 // Scroll-aware header
 const siteHeader = document.getElementById('site-header')
 const mobileMenu = document.getElementById('mobile-menu')
@@ -146,3 +153,39 @@ if (galleryItems.length) {
     el.addEventListener('click', () => lightbox.loadAndOpen(i))
   })
 }
+
+// Block galleries — one independent PhotoSwipe instance per gallery block
+const blockGalleryGroups = {}
+document.querySelectorAll('[data-gallery]').forEach(el => {
+  const id = el.dataset.gallery
+  if (!blockGalleryGroups[id]) blockGalleryGroups[id] = []
+  blockGalleryGroups[id].push(el)
+})
+
+Object.values(blockGalleryGroups).forEach(items => {
+  const dataSource = items.map(el => ({
+    src: el.dataset.pswpSrc,
+    width: parseInt(el.dataset.pswpWidth),
+    height: parseInt(el.dataset.pswpHeight),
+    msrc: el.querySelector('img')?.src,
+  }))
+
+  const lb = new PhotoSwipeLightbox({
+    dataSource,
+    pswpModule: PhotoSwipe,
+    bgOpacity: 1,
+    padding: { top: 40, bottom: 40, left: 40, right: 40 },
+    getThumbBoundsFn: (index) => {
+      const el = items[index]?.querySelector('img')
+      if (!el) return
+      const rect = el.getBoundingClientRect()
+      return { x: rect.left, y: rect.top + window.scrollY, w: rect.width }
+    },
+  })
+
+  lb.init()
+
+  items.forEach((el, i) => {
+    el.addEventListener('click', () => lb.loadAndOpen(i))
+  })
+})

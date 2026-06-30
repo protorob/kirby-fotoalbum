@@ -10,7 +10,7 @@
   </div>
 
   <?php if ($page->text()->isNotEmpty()): ?>
-    <div class="max-w-5xl mx-auto px-4 py-12 page-content fade-in">
+    <div class="max-w-5xl mx-auto px-4 py-12 page-content fade-in prose prose-headings:font-serif">
       <?= $page->text()->toBlocks() ?>
     </div>
   <?php endif ?>
