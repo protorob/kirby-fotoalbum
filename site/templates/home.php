@@ -1,5 +1,7 @@
 <?php
-  $slides = $site->slideshow()->toFiles();
+  $slides        = $site->slideshow()->toFiles();
+  $servicesPage  = $site->find('servizi');
+  $services      = $servicesPage ? $servicesPage->children()->listed() : null;
 ?>
 <?php snippet('header', ['heroHeader' => true]) ?>
 
@@ -38,15 +40,54 @@
 
   </div>
 
-  <div class="max-w-5xl mx-auto px-4 py-24 grid grid-cols-1 md:grid-cols-3 gap-12">
-    <?php foreach (['Editorial', 'Portrait', 'Commercial', 'Another one'] as $label): ?>
-      <div class="flex flex-col gap-4">
-        <div class="bg-neutral-500 aspect-[4/5]"></div>
-        <p class="text-xs tracking-widest uppercase"><?= $label ?></p>
-        <p class="text-sm text-neutral-500 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+  <?php if ($services && $services->count() > 0): ?>
+  <div class="max-w-5xl mx-auto px-4 py-24">
+
+    <?php if ($services->count() <= 3): ?>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <?php foreach ($services as $service): ?>
+          <?php $cover = $service->coverImage()->toFile() ?>
+          <div class="flex flex-col gap-4">
+            <a href="<?= $service->url() ?>" class="fade-in block overflow-hidden group relative aspect-[4/5]">
+              <?php if ($cover): ?>
+                <img src="<?= $cover->url() ?>" alt="<?= $service->title() ?>" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+              <?php else: ?>
+                <div class="bg-neutral-200 absolute inset-0"></div>
+              <?php endif ?>
+            </a>
+            <p class="text-xs tracking-widest uppercase"><?= $service->title() ?></p>
+            <p class="text-sm text-neutral-500 leading-relaxed"><?= $service->description()->html() ?></p>
+          </div>
+        <?php endforeach ?>
       </div>
-    <?php endforeach ?>
+
+    <?php else: ?>
+      <div id="services-splide" class="splide">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <?php foreach ($services as $service): ?>
+              <?php $cover = $service->coverImage()->toFile() ?>
+              <li class="splide__slide">
+                <div class="flex flex-col gap-4">
+                  <a href="<?= $service->url() ?>" class="fade-in block overflow-hidden group relative aspect-[4/5]">
+                    <?php if ($cover): ?>
+                      <img src="<?= $cover->url() ?>" alt="<?= $service->title() ?>" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <?php else: ?>
+                      <div class="bg-neutral-200 absolute inset-0"></div>
+                    <?php endif ?>
+                  </a>
+                  <p class="text-xs tracking-widest uppercase"><?= $service->title() ?></p>
+                  <p class="text-sm text-neutral-500 leading-relaxed"><?= $service->description()->html() ?></p>
+                </div>
+              </li>
+            <?php endforeach ?>
+          </ul>
+        </div>
+      </div>
+    <?php endif ?>
+
   </div>
+  <?php endif ?>
 
   <div class="border-t border-neutral-200 max-w-5xl mx-auto px-4 py-24 text-center">
     <h2 class="font-serif text-3xl tracking-wide mb-6">Selected Work</h2>

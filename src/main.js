@@ -73,6 +73,21 @@ if (heroEl) {
   }).mount()
 }
 
+// Services carousel
+const servicesEl = document.getElementById('services-splide')
+if (servicesEl) {
+  new Splide('#services-splide', {
+    type      : 'loop',
+    perPage   : 3,
+    gap       : '3rem',
+    pagination: false,
+    breakpoints: {
+      768: { perPage: 2, gap: '1.5rem' },
+      640: { perPage: 1, gap: '1rem' },
+    },
+  }).mount()
+}
+
 // Scroll fade-in
 const fadeEls = document.querySelectorAll('.fade-in')
 if (fadeEls.length) {

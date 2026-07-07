@@ -163,6 +163,32 @@ body {
   box-shadow: none;
 }
 
+/* Services carousel arrows */
+#services-splide {
+  position: relative;
+}
+#services-splide .splide__arrow {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  z-index: 1;
+  background: white;
+  border: 1px solid #d4d4d4;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+#services-splide .splide__arrow:hover { border-color: #1a1a1a; }
+#services-splide .splide__arrow--prev { left: 0.5rem; }
+#services-splide .splide__arrow--next { right: 0.5rem; }
+#services-splide .splide__arrow svg   { width: 1rem; height: 1rem; fill: currentColor; }
+#services-splide .splide__arrow:disabled { opacity: 0.3; pointer-events: none; }
+
 /* Prose tweaks */
 
 .page-content.prose :is(p, h2, h3, h4, h5, h6, ul, ol, blockquote) {
