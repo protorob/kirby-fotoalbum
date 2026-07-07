@@ -10,8 +10,9 @@ A Kirby CMS site for a photographer. Clients receive a private, password-protect
 - **Tailwind CSS v4** via `@tailwindcss/vite`
 - **Vite** for asset bundling (entry: `src/main.js`, output: `assets/`)
 - **Bun** as package manager and script runner
-- **Splide.js** — hero slideshow on home page (fade, autoplay, no arrows/pagination)
+- **Splide.js** — hero slideshow on home page (fade, autoplay, no arrows/pagination); services carousel on home page (loop, perPage 3→2→1)
 - **PhotoSwipe v5** — lightbox for gallery images
+- **`@tailwindcss/typography`** — loaded via `@plugin` in `main.css`; used for `.prose` blocks on service detail pages
 
 ## Running locally
 
@@ -38,8 +39,8 @@ site/
   snippets/           ← header.php, footer.php
   templates/          ← one .php per page type
 src/
-  main.js             ← JS entry (imports main.css, mobile menu, selection counter, PhotoSwipe lightbox)
-  main.css            ← @import "tailwindcss"
+  main.js             ← JS entry (imports main.css, mobile menu, selection counter, PhotoSwipe lightbox, Splide carousels)
+  main.css            ← @import "tailwindcss" + @plugin "@tailwindcss/typography"
 assets/               ← Vite build output (gitignored)
 logs/                 ← email-debug.log when debug mode is on (gitignored)
 ```
@@ -111,3 +112,25 @@ The home page uses a full-viewport hero slideshow (Splide.js, fade mode) that fi
 - `h-svh` locks the body to the small viewport height; `overflow-y-auto` allows scroll if accessibility zoom causes overflow
 - `<main>` uses `flex-1 min-h-0` to fill remaining space between header and footer
 - Splide CSS is imported as `@splidejs/splide/css/core` (minimal, no theme chrome); slide images use `absolute inset-0 object-cover` inside `position: relative` slides
+
+### Services section on home page
+
+Pulled from `$site->find('servizi')->children()->listed()`. Renders conditionally:
+
+- **≤ 3 services** → static `grid grid-cols-1 md:grid-cols-3 gap-12` (same card layout as `services.php`)
+- **≥ 4 services** → Splide carousel (`#services-splide`), `type: loop`, `perPage: 3` (drops to 2 at 768px, 1 at 640px), `gap: 3rem`
+
+Arrow styles for `#services-splide` are in `main.css` (basic positioning only — styled separately).
+
+## Services pages
+
+**Templates:** `services.php` (listing) and `service.php` (detail)
+
+**Blueprints:** `services.yml` and `service.yml`
+
+**`service.yml` fields:**
+- `serviceDesc` (blocks) — rich content for the detail page body; rendered via `$page->serviceDesc()->toBlocks()` with `.prose` class
+- `coverImage` (files, maxFiles: 1) — used as the card thumbnail in listings
+- `description` (textarea) — short text shown below the card thumbnail and in the page header
+
+**Blocks available in `serviceDesc`:** default Kirby blocks + custom `gallery` (`site/snippets/blocks/gallery.php`) and `image` (`site/snippets/blocks/image.php`) block snippets. The gallery block renders a masonry-style columns layout with PhotoSwipe lightbox support.
