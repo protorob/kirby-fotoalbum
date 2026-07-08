@@ -4,11 +4,14 @@ import PhotoSwipeLightbox from 'photoswipe/lightbox'
 import PhotoSwipe from 'photoswipe'
 
 // Measure 65ch in the paragraph font and expose as --prose-measure for consistent text width
-const ruler = document.createElement('div')
-ruler.style.cssText = 'position:absolute;visibility:hidden;width:65ch;font-family:var(--font-sans);font-size:1rem;pointer-events:none'
-document.body.appendChild(ruler)
-document.documentElement.style.setProperty('--prose-measure', ruler.offsetWidth + 'px')
-ruler.remove()
+const measureProseWidth = () => {
+  const ruler = document.createElement('div')
+  ruler.style.cssText = 'position:absolute;visibility:hidden;width:65ch;font-family:var(--font-sans);font-size:1rem;pointer-events:none'
+  document.body.appendChild(ruler)
+  document.documentElement.style.setProperty('--prose-measure', ruler.offsetWidth + 'px')
+  ruler.remove()
+}
+document.fonts.ready.then(() => requestAnimationFrame(measureProseWidth))
 
 // Scroll-aware header
 const siteHeader = document.getElementById('site-header')

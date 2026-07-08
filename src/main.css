@@ -192,7 +192,7 @@ body {
 /* Prose tweaks */
 
 .page-content.prose :is(p, h2, h3, h4, h5, h6, ul, ol, blockquote) {
-    max-width: var(--prose-measure);
+    max-width: var(--prose-measure, 65ch);
     margin-left:auto;
     margin-right:auto;
   }
