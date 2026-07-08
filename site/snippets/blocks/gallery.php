@@ -4,7 +4,7 @@ $caption = $block->caption();
 $images  = $block->images()->toFiles();
 ?>
 <?php if ($images->count()): ?>
-<figure>
+<figure class="not-prose">
   <div class="columns-2 sm:columns-3 gap-3 space-y-3">
     <?php foreach ($images as $image): ?>
       <div class="break-inside-avoid relative group cursor-pointer"
