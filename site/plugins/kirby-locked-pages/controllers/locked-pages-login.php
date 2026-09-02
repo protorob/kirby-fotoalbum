@@ -1,10 +1,14 @@
 <?php
 
-use JohannSchopplich\LockedPages;
+declare(strict_types = 1);
 
-return function (\Kirby\Cms\App $kirby) {
-    $uri = get('redirect');
-    $targetPage = page($uri);
+use JohannSchopplich\LockedPages\Guard;
+use Kirby\Cms\App;
+use Kirby\Http\Response;
+
+return function (App $kirby) {
+    $uri = $kirby->request()->get('redirect');
+    $targetPage = $kirby->site()->find($uri);
 
     // Ensure target page exists
     if ($targetPage === null) {
@@ -14,8 +18,8 @@ return function (\Kirby\Cms\App $kirby) {
     }
 
     // If page is not locked or user has access already, just go to the page
-    if (!LockedPages::isLocked($targetPage)) {
-        go($uri);
+    if (!Guard::isLocked($targetPage)) {
+        Response::go($targetPage->url());
     }
 
     // Ensure it's a POST request
@@ -25,50 +29,25 @@ return function (\Kirby\Cms\App $kirby) {
         ];
     }
 
-    $csrfToken = get('csrf');
-
     // Verify the token of the form
-    if (csrf($csrfToken) === false) {
+    if ($kirby->csrf($kirby->request()->get('csrf')) === false) {
         return [
-            'error' => option('johannschopplich.locked-pages.error.csrf', 'The CSRF token is invalid')
+            'error' => $kirby->option('johannschopplich.locked-pages.error.csrf', 'The CSRF token is invalid')
         ];
     }
 
-    $protectedPage = LockedPages::find($targetPage);
+    $protectedPage = Guard::find($targetPage);
 
-    // Verify entered password
-    if ($protectedPage->lockedPagesPassword()->value() !== get('password')) {
+    // Verify entered password (constant-time; an empty stored password fails closed)
+    if (!Guard::verify($protectedPage, $kirby->request()->get('password'))) {
         return [
-            'error' => option('johannschopplich.locked-pages.error.password', 'The password is incorrect')
+            'error' => $kirby->option('johannschopplich.locked-pages.error.password', 'The password is incorrect')
         ];
     }
 
-    // Get list of pages where logged in already
-    $access = $kirby->session()->data()->get(LockedPages::SESSION_KEY, []);
-
-    // Clean up old format entries and entries for the same URI
-    $access = array_filter($access, function ($entry) use ($protectedPage) {
-        // Remove old string format entries
-        if (is_string($entry)) {
-            return false;
-        }
-        // Remove existing entries for the same URI (to update with new password hash)
-        if (is_array($entry) && isset($entry['uri']) && $entry['uri'] === $protectedPage->uri()) {
-            return false;
-        }
-        return true;
-    });
-
-    // Add new access entry with structured data
-    $access[] = [
-        'uri' => $protectedPage->uri(),
-        'password_hash' => password_hash(get('password'), PASSWORD_DEFAULT),
-        'granted_at' => time()
-    ];
-
-    // Save access list
-    $kirby->session()->data()->set(LockedPages::SESSION_KEY, $access);
+    // Grant this session access to the protected page
+    Guard::grant($protectedPage);
 
     // Finally, visit the page
-    go($uri);
+    Response::go($targetPage->url());
 };

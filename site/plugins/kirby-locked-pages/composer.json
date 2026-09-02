@@ -2,7 +2,7 @@
   "name": "johannschopplich/kirby-locked-pages",
   "description": "Password-protect pages for the Kirby CMS",
   "type": "kirby-plugin",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "keywords": [
     "kirby",
     "password",
@@ -23,10 +23,17 @@
     "getkirby/composer-installer": "^1"
   },
   "require-dev": {
-    "getkirby/cms": "^5"
+    "getkirby/cms": "^5",
+    "phpunit/phpunit": "^12"
+  },
+  "autoload": {
+    "psr-4": {
+      "JohannSchopplich\\LockedPages\\": "src/"
+    }
   },
   "scripts": {
     "csfix": "@php tools/phpcs/vendor/bin/php-cs-fixer fix",
+    "test": "phpunit",
     "dist": "composer install --no-dev --optimize-autoloader"
   },
   "config": {
