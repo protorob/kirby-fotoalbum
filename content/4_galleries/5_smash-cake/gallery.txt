@@ -1,0 +1,104 @@
+Title: Smash cake
+
+----
+
+Galleryimages:
+
+- file://suzp5w2vepdp0oeb
+- file://4fzewipbzwoq5jqv
+- file://rmsdbr18b7tbx2sr
+- file://ezoorwu1cilj5img
+- file://qe3vgtthzw3rhrcb
+- file://ciufy7pu1ccozcaa
+
+----
+
+Coverimage: - file://ezoorwu1cilj5img
+
+----
+
+Description: 
+
+----
+
+Date: 2026-07-07
+
+----
+
+Lockedpagesenable: false
+
+----
+
+Lockedpagespassword: 
+
+----
+
+Selectionopen: false
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Cropogimage: 
+
+----
+
+Robotsindex: default
+
+----
+
+Robotsfollow: default
+
+----
+
+Robotsarchive: default
+
+----
+
+Robotsimageindex: default
+
+----
+
+Robotssnippet: default
+
+----
+
+Metainherit: 
+
+----
+
+Selections: 
+
+----
+
+Uuid: h728j3dmcuvfpcdl

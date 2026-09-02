@@ -42,17 +42,23 @@
 
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
           <?php $i = 0; foreach ($images as $image): ?>
+            <?php $full = $image->resize(2400) ?>
             <div class="group/item group relative fade-in" style="transition-delay: <?= ($i % 3) * 80 ?>ms">
               <input type="checkbox" id="img-<?= $i ?>" name="images[]" value="<?= $image->filename() ?>" class="sr-only peer">
 
-              <div class="overflow-hidden cursor-pointer"
+              <div class="relative overflow-hidden aspect-square cursor-pointer"
                    data-lightbox="<?= $i ?>"
-                   data-pswp-src="<?= $image->url() ?>"
-                   data-pswp-width="<?= $image->width() ?>"
-                   data-pswp-height="<?= $image->height() ?>"
+                   data-pswp-src="<?= $full->url() ?>"
+                   data-pswp-width="<?= $full->width() ?>"
+                   data-pswp-height="<?= $full->height() ?>"
                    data-filename="<?= $image->filename() ?>">
-                <img src="<?= $image->url() ?>" alt="<?= $image->filename() ?>"
-                  class="w-full aspect-square object-cover transition-transform duration-500 group-hover/item:scale-[1.02]">
+                <img src="<?= $image->lqip() ?>" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-110 blur-xl">
+                <img src="<?= $image->resize(1200)->url() ?>"
+                  srcset="<?= $image->srcset([400, 800, 1200]) ?>"
+                  sizes="(min-width: 640px) 33vw, 50vw"
+                  alt="<?= $image->filename() ?>"
+                  loading="lazy"
+                  class="js-progressive absolute inset-0 w-full h-full object-cover opacity-0 transition-all duration-500 group-hover/item:scale-[1.02] [&.loaded]:opacity-100">
               </div>
 
               <div class="absolute inset-0 ring-2 ring-transparent peer-checked:ring-black pointer-events-none transition-all"></div>
@@ -106,16 +112,26 @@
         <div class="<?= $isPrivate ? 'grid grid-cols-2 sm:grid-cols-3 gap-3' : 'columns-2 sm:columns-3 gap-3 space-y-3' ?>">
           <?php $i = 0; foreach ($images as $image): ?>
             <?php $isSubmitted = in_array($image->filename(), $submittedImages) ?>
-            <div class="fade-in <?= $isPrivate ? 'relative group cursor-pointer' : 'break-inside-avoid relative group cursor-pointer' ?>"
-                 style="transition-delay: <?= ($i % 3) * 80 ?>ms"
+            <?php $dimmed = $isPrivate && $lastSubmission && !$isSubmitted ?>
+            <?php $full = $image->resize(2400) ?>
+            <?php
+              $style = ['transition-delay: ' . (($i % 3) * 80) . 'ms'];
+              if (!$isPrivate) $style[] = 'aspect-ratio: ' . $image->width() . ' / ' . $image->height();
+            ?>
+            <div class="fade-in relative overflow-hidden group cursor-pointer <?= $isPrivate ? 'aspect-square' : 'break-inside-avoid' ?>"
+                 style="<?= implode('; ', $style) ?>;"
                  data-lightbox="<?= $i ?>"
-                 data-pswp-src="<?= $image->url() ?>"
-                 data-pswp-width="<?= $image->width() ?>"
-                 data-pswp-height="<?= $image->height() ?>">
+                 data-pswp-src="<?= $full->url() ?>"
+                 data-pswp-width="<?= $full->width() ?>"
+                 data-pswp-height="<?= $full->height() ?>">
+              <img src="<?= $image->lqip() ?>" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-110 blur-xl">
               <img
-                src="<?= $image->url() ?>"
+                src="<?= $image->resize(1200)->url() ?>"
+                srcset="<?= $image->srcset([400, 800, 1200]) ?>"
+                sizes="(min-width: 640px) 33vw, 50vw"
                 alt="<?= $image->filename() ?>"
-                class="w-full <?= $isPrivate ? 'aspect-square object-cover' : 'object-cover' ?> transition-transform duration-500 group-hover:scale-[1.02] <?= ($isPrivate && $lastSubmission && !$isSubmitted) ? 'opacity-40' : '' ?>">
+                loading="lazy"
+                class="js-progressive absolute inset-0 w-full h-full object-cover opacity-0 transition-all duration-500 group-hover:scale-[1.02] <?= $dimmed ? '[&.loaded]:opacity-40' : '[&.loaded]:opacity-100' ?>">
               <?php if ($isSubmitted): ?>
                 <div class="absolute inset-0 ring-2 ring-black pointer-events-none"></div>
                 <span class="absolute top-2 right-2 w-6 h-6 rounded-full bg-black text-white text-xs flex items-center justify-center">✓</span>

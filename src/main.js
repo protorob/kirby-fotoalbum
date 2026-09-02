@@ -105,6 +105,16 @@ if (fadeEls.length) {
   fadeEls.forEach(el => observer.observe(el))
 }
 
+// Progressive image loading — fade in from blurred placeholder once loaded
+document.querySelectorAll('img.js-progressive').forEach((img) => {
+  if (img.complete && img.naturalWidth > 0) {
+    img.classList.add('loaded')
+  } else {
+    img.addEventListener('load', () => img.classList.add('loaded'), { once: true })
+    img.addEventListener('error', () => img.classList.add('loaded'), { once: true })
+  }
+})
+
 // Lightbox with PhotoSwipe
 const galleryItems = document.querySelectorAll('[data-lightbox]')
 
@@ -113,7 +123,7 @@ if (galleryItems.length) {
     src: el.dataset.pswpSrc,
     width: parseInt(el.dataset.pswpWidth),
     height: parseInt(el.dataset.pswpHeight),
-    msrc: el.querySelector('img')?.src,
+    msrc: el.querySelector('img.js-progressive')?.src,
     filename: el.dataset.filename || null,
   }))
 
@@ -123,7 +133,7 @@ if (galleryItems.length) {
     bgOpacity: 1,
     padding: { top: 40, bottom: 40, left: 40, right: 40 },
     getThumbBoundsFn: (index) => {
-      const el = galleryItems[index]?.querySelector('img')
+      const el = galleryItems[index]?.querySelector('img.js-progressive')
       if (!el) return
       const rect = el.getBoundingClientRect()
       return { x: rect.left, y: rect.top + window.scrollY, w: rect.width }
@@ -185,7 +195,7 @@ Object.values(blockGalleryGroups).forEach(items => {
     src: el.dataset.pswpSrc,
     width: parseInt(el.dataset.pswpWidth),
     height: parseInt(el.dataset.pswpHeight),
-    msrc: el.querySelector('img')?.src,
+    msrc: el.querySelector('img.js-progressive')?.src,
   }))
 
   const lb = new PhotoSwipeLightbox({
@@ -194,7 +204,7 @@ Object.values(blockGalleryGroups).forEach(items => {
     bgOpacity: 1,
     padding: { top: 40, bottom: 40, left: 40, right: 40 },
     getThumbBoundsFn: (index) => {
-      const el = items[index]?.querySelector('img')
+      const el = items[index]?.querySelector('img.js-progressive')
       if (!el) return
       const rect = el.getBoundingClientRect()
       return { x: rect.left, y: rect.top + window.scrollY, w: rect.width }

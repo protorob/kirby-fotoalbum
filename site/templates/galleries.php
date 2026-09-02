@@ -18,10 +18,14 @@
            class="fade-in block overflow-hidden group relative aspect-4/5"
            style="transition-delay: <?= ($i % 2) * 100 ?>ms">
           <?php if ($cover): ?>
+            <img src="<?= $cover->lqip() ?>" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-110 blur-xl">
             <img
-              src="<?= $cover->url() ?>"
+              src="<?= $cover->resize(800)->url() ?>"
+              srcset="<?= $cover->srcset([400, 800, 1200]) ?>"
+              sizes="50vw"
               alt="<?= $gallery->title() ?>"
-              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+              loading="lazy"
+              class="js-progressive absolute inset-0 w-full h-full object-cover opacity-0 transition-all duration-700 group-hover:scale-105 [&.loaded]:opacity-100">
           <?php else: ?>
             <div class="absolute inset-0 bg-neutral-100"></div>
           <?php endif ?>

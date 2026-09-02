@@ -1,0 +1,107 @@
+Title: Eventi di famiglia
+
+----
+
+Galleryimages:
+
+- file://q7v7egkndfvmjs1f
+- file://x2lzrzgga85foidk
+- file://hrbegtfeyooc4qjd
+- file://rtrdantdjllcrqz4
+- file://eyjw9winmlw60cdz
+- file://jq0uusa6xap8q4nf
+- file://awj41emyo02gushl
+- file://c1uqaizlujxbptq3
+- file://r4grz1uqf5tdkhax
+
+----
+
+Coverimage: - file://c1uqaizlujxbptq3
+
+----
+
+Description: 
+
+----
+
+Date: 2026-09-01
+
+----
+
+Lockedpagesenable: false
+
+----
+
+Lockedpagespassword: 
+
+----
+
+Selectionopen: false
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Cropogimage: 
+
+----
+
+Robotsindex: default
+
+----
+
+Robotsfollow: default
+
+----
+
+Robotsarchive: default
+
+----
+
+Robotsimageindex: default
+
+----
+
+Robotssnippet: default
+
+----
+
+Metainherit: 
+
+----
+
+Selections: 
+
+----
+
+Uuid: 5uikri20uyizoivn

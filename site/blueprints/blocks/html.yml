@@ -1,0 +1,11 @@
+name: HTML / Embed
+icon: code
+fields:
+  code:
+    label: HTML Code
+    type: textarea
+    buttons: false
+    font: monospace
+    size: large
+    placeholder: 'Paste an embed code (Calendly, YouTube, etc.) or custom HTML'
+    help: 'Rendered on the page exactly as typed — only paste code from sources you trust.'

@@ -1,0 +1,103 @@
+Title: Ritratti
+
+----
+
+Galleryimages:
+
+- file://gwkr4jtlxmvmlxuy
+- file://nojmkptmqyerfy7a
+- file://zdf6riwhf3yxly1x
+- file://gt0mdqz5toxzdnks
+- file://oonfhlltxwdirwh3
+
+----
+
+Coverimage: - file://gwkr4jtlxmvmlxuy
+
+----
+
+Description: Galleria Pubblica
+
+----
+
+Date: 2026-03-30
+
+----
+
+Lockedpagesenable: false
+
+----
+
+Lockedpagespassword: 
+
+----
+
+Selectionopen: false
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Cropogimage: 
+
+----
+
+Robotsindex: default
+
+----
+
+Robotsfollow: default
+
+----
+
+Robotsarchive: default
+
+----
+
+Robotsimageindex: default
+
+----
+
+Robotssnippet: default
+
+----
+
+Metainherit: 
+
+----
+
+Selections: 
+
+----
+
+Uuid: mrooxbxdn0jszxup

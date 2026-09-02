@@ -53,6 +53,7 @@ Icon
 # ---------------
 
 /deploy.sh
+/pull.sh
 
 # Cache Files
 # ---------------

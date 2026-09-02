@@ -1,0 +1,106 @@
+Title: Dog Photograph
+
+----
+
+Galleryimages:
+
+- file://hgvvhbbraw8bl6iy
+- file://5ohwind66bdipehk
+- file://9shgpsxyacw0w0ny
+- file://dgmgd6nfvrm8ob2e
+- file://mbqxe7kybl7dzpbb
+- file://y2mk8w4kmy9rwtub
+- file://f6iybp7yz3zgimlx
+- file://bpyjiaby4allxw54
+
+----
+
+Coverimage: - file://dgmgd6nfvrm8ob2e
+
+----
+
+Description: 
+
+----
+
+Date: 2026-09-01
+
+----
+
+Lockedpagesenable: false
+
+----
+
+Lockedpagespassword: 
+
+----
+
+Selectionopen: false
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Cropogimage: 
+
+----
+
+Robotsindex: default
+
+----
+
+Robotsfollow: default
+
+----
+
+Robotsarchive: default
+
+----
+
+Robotsimageindex: default
+
+----
+
+Robotssnippet: default
+
+----
+
+Metainherit: 
+
+----
+
+Selections: 
+
+----
+
+Uuid: 9mckydubzdbmjtoz

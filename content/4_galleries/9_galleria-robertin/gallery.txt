@@ -1,0 +1,124 @@
+Title: Galleria Robertin
+
+----
+
+Galleryimages:
+
+- file://b58obiuivtfgdw0n
+- file://zwutbk3gknjxrucu
+- file://anddm6ywmoehzacc
+- file://icdzvpmh0cgjzz9p
+- file://ynnzgzedpiaqyqny
+- file://rw6czbbwhcpgpbaw
+- file://vzbbizeo5vf0dala
+- file://vqkttobwniibuak0
+- file://distpsnog2uf71ec
+- file://fie7koxb9mg9gjld
+- file://4nissoq3xvo481cp
+- file://ovlxfyoacwpro9py
+
+----
+
+Coverimage: 
+
+----
+
+Description: 
+
+----
+
+Date: 2026-09-02
+
+----
+
+Lockedpagesenable: true
+
+----
+
+Lockedpagespassword: 123456
+
+----
+
+Selectionopen: false
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Cropogimage: 
+
+----
+
+Metainherit: 
+
+----
+
+Selections:
+
+- 
+  date: 2026-09-02 08:42
+  sender: Robertin
+  senderemail: protorob@gmail.com
+  message: >
+    Queste sobno bellissime e le voglio
+    stampare tutte
+  images: >
+    webres-dsc06924.jpg,
+    webres-dsc06933.jpg,
+    webres-dsc06949.jpg,
+    webres-dsc06951.jpg,
+    webres-dsc06975.jpg, webres-dsc06976.jpg
+
+----
+
+Robotsindex: default
+
+----
+
+Robotsfollow: default
+
+----
+
+Robotsarchive: default
+
+----
+
+Robotsimageindex: default
+
+----
+
+Robotssnippet: default
+
+----
+
+Uuid: 7j12gamxkcpqluoc

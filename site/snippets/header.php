@@ -29,9 +29,7 @@
 
     <nav class="hidden sm:flex gap-6 text-xs tracking-widest uppercase flex-1">
       <?php foreach ($leftNav as $item): ?>
-        <a href="<?= $item->url() ?>" class="hover:opacity-60 transition-opacity <?= $item->isActive() ? 'font-medium' : '' ?>">
-          <?= $item->title() ?>
-        </a>
+        <?php snippet('nav-item', ['item' => $item]) ?>
       <?php endforeach ?>
     </nav>
 
@@ -52,9 +50,7 @@
 
     <nav class="hidden sm:flex gap-6 text-xs tracking-widest uppercase flex-1 justify-end">
       <?php foreach ($rightNav as $item): ?>
-        <a href="<?= $item->url() ?>" class="hover:opacity-60 transition-opacity <?= $item->isActive() ? 'font-medium' : '' ?>">
-          <?= $item->title() ?>
-        </a>
+        <?php snippet('nav-item', ['item' => $item]) ?>
       <?php endforeach ?>
     </nav>
 
@@ -82,6 +78,18 @@
         <a href="<?= $item->url() ?>" class="h-8 <?= $item->isActive() ? 'font-medium' : '' ?>">
           <?= $item->title() ?>
         </a>
+        <?php if ($item->intendedTemplate()->name() === 'services'): ?>
+          <?php $subItems = $item->children()->listed() ?>
+          <?php if ($subItems->count()): ?>
+            <div class="flex flex-col gap-3 pl-4 -mt-1">
+              <?php foreach ($subItems as $child): ?>
+                <a href="<?= $child->url() ?>" class="h-6 text-[0.65rem] opacity-70 <?= $child->isActive() ? 'font-medium' : '' ?>">
+                  <?= $child->title() ?>
+                </a>
+              <?php endforeach ?>
+            </div>
+          <?php endif ?>
+        <?php endif ?>
       <?php endforeach ?>
     </div>
   </nav>

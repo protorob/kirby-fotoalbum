@@ -1,0 +1,102 @@
+Title: Wedding
+
+----
+
+Galleryimages:
+
+- file://93fwgnet7qsnupml
+- file://kaubzl5hpm5snmc1
+- file://w7llyagfi17nvehi
+- file://nlguzj2e2ajmotoh
+
+----
+
+Coverimage: - file://nlguzj2e2ajmotoh
+
+----
+
+Description: 
+
+----
+
+Date: 2026-07-07
+
+----
+
+Lockedpagesenable: false
+
+----
+
+Lockedpagespassword: 
+
+----
+
+Selectionopen: false
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Cropogimage: 
+
+----
+
+Robotsindex: default
+
+----
+
+Robotsfollow: default
+
+----
+
+Robotsarchive: default
+
+----
+
+Robotsimageindex: default
+
+----
+
+Robotssnippet: default
+
+----
+
+Metainherit: 
+
+----
+
+Selections: 
+
+----
+
+Uuid: dclmsfeweu9fitnq

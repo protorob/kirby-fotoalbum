@@ -14,13 +14,14 @@
         <div class="splide__track h-full">
           <ul class="splide__list h-full">
             <?php foreach ($slides as $slide): ?>
-              <li class="splide__slide">
+              <li class="splide__slide overflow-hidden">
+                <img src="<?= $slide->lqip() ?>" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-110 blur-xl">
                 <img
-                  src="<?= $slide->url() ?>"
+                  src="<?= $slide->resize(1400)->url() ?>"
                   srcset="<?= $slide->srcset([400, 800, 1400, 2000]) ?>"
                   sizes="100vw"
                   alt=""
-                  class="absolute inset-0 w-full h-full object-cover">
+                  class="js-progressive absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700 [&.loaded]:opacity-100">
               </li>
             <?php endforeach ?>
           </ul>
@@ -50,7 +51,13 @@
           <div class="flex flex-col gap-4">
             <a href="<?= $service->url() ?>" class="fade-in block overflow-hidden group relative aspect-[4/5]">
               <?php if ($cover): ?>
-                <img src="<?= $cover->url() ?>" alt="<?= $service->title() ?>" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <img src="<?= $cover->lqip() ?>" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-110 blur-xl">
+                <img
+                  src="<?= $cover->resize(800)->url() ?>"
+                  srcset="<?= $cover->srcset([400, 800, 1200]) ?>"
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  loading="lazy"
+                  alt="<?= $service->title() ?>" class="js-progressive absolute inset-0 w-full h-full object-cover opacity-0 transition-all duration-700 group-hover:scale-105 [&.loaded]:opacity-100">
               <?php else: ?>
                 <div class="bg-neutral-200 absolute inset-0"></div>
               <?php endif ?>
@@ -71,7 +78,13 @@
                 <div class="flex flex-col gap-4">
                   <a href="<?= $service->url() ?>" class="fade-in block overflow-hidden group relative aspect-[4/5]">
                     <?php if ($cover): ?>
-                      <img src="<?= $cover->url() ?>" alt="<?= $service->title() ?>" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                      <img src="<?= $cover->lqip() ?>" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-110 blur-xl">
+                      <img
+                        src="<?= $cover->resize(800)->url() ?>"
+                        srcset="<?= $cover->srcset([400, 800, 1200]) ?>"
+                        sizes="(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        loading="lazy"
+                        alt="<?= $service->title() ?>" class="js-progressive absolute inset-0 w-full h-full object-cover opacity-0 transition-all duration-700 group-hover:scale-105 [&.loaded]:opacity-100">
                     <?php else: ?>
                       <div class="bg-neutral-200 absolute inset-0"></div>
                     <?php endif ?>
