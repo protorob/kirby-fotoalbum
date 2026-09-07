@@ -1,0 +1,77 @@
+Title: Newborn
+
+----
+
+Servicedesc: [{"content":{"text":"<p>I primi giorni di vita racchiudono una magia speciale.</p><p>Con calma, sicurezza e dolcezza, realizzo fotografie che raccontano ogni piccolo dettaglio del vostro bambino.</p>"},"id":"4bafef8b-f815-4882-a481-28d6ad0c3087","isHidden":false,"type":"text"},{"content":{"images":["file://3w8kb089k0n0farl","file://ankufkay7hwt03bb"],"caption":"","ratio":"","crop":"false"},"id":"2d4c19b1-f8b6-4405-a776-a5313e6644b9","isHidden":false,"type":"gallery"}]
+
+----
+
+Coverimage: - file://ankufkay7hwt03bb
+
+----
+
+Description: 
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Cropogimage: 
+
+----
+
+Robotsindex: default
+
+----
+
+Robotsfollow: default
+
+----
+
+Robotsarchive: default
+
+----
+
+Robotsimageindex: default
+
+----
+
+Robotssnippet: default
+
+----
+
+Metainherit: 
+
+----
+
+Uuid: 4pl5vtsy5vipznbd

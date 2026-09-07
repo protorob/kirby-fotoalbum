@@ -1,0 +1,81 @@
+Title: My firsts
+
+----
+
+Servicedesc: [{"content":{"text":"<p>Un percorso fotografico pensato per accompagnare il vostro bimbo durante i suoi primi traguardi:</p><p>°New born</p><p>°Smash cake</p><p>°Primo natale</p><p>°Primo carnevale</p><p>Ogni servizio diventa una tappa di una storia piu' grande.</p><p>Un racconto che cresce insieme a lui e che, nel tempo, vi permetterà' di rivivere tutte quelle emozioni con la stessa dolcezza.</p><p>Un modo unico per raccontare il suo primo anno e oltre, attraverso immagini che cresceranno insieme a lui.</p>"},"id":"d1a368d1-4e55-4435-bc40-f5c382d5ceb5","isHidden":false,"type":"text"}]
+
+----
+
+Coverimage: 
+
+----
+
+Description: 
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Cropogimage: 
+
+----
+
+Robotsindex: default
+
+----
+
+Robotsfollow: default
+
+----
+
+Robotsarchive: default
+
+----
+
+Robotsimageindex: default
+
+----
+
+Robotssnippet: default
+
+----
+
+Metainherit: 
+
+----
+
+Uuid: ojbf3lvs7aw9ws4a
+
+----
+
+Lock: 5TeWz5Um

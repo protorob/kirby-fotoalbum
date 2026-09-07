@@ -1,0 +1,5 @@
+Uuid: ankufkay7hwt03bb
+
+----
+
+Template: blocks/image

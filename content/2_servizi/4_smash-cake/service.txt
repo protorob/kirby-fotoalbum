@@ -1,0 +1,77 @@
+Title: Smash cake
+
+----
+
+Servicedesc: [{"content":{"text":"<p>Un'esperienza divertente e colorata per celebrare il primo compleanno.</p><p>Tra sorrisi, curiosita', torta ovunque e tanta dolcezza, creeremo ricordi autentici di una tappa importante.</p>"},"id":"c8e00fa1-c9f1-4dd4-a341-605ec50ab721","isHidden":false,"type":"text"},{"content":{"images":["file://qrhevuljyuitfyuh","file://commue9pcdb8vej7","file://w73ndzt1avno27gw"],"caption":"","ratio":"","crop":"false"},"id":"8810f6b9-c6ee-46ce-827f-d6a1003a6b30","isHidden":false,"type":"gallery"}]
+
+----
+
+Coverimage: - file://qrhevuljyuitfyuh
+
+----
+
+Description: 
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Cropogimage: 
+
+----
+
+Robotsindex: default
+
+----
+
+Robotsfollow: default
+
+----
+
+Robotsarchive: default
+
+----
+
+Robotsimageindex: default
+
+----
+
+Robotssnippet: default
+
+----
+
+Metainherit: 
+
+----
+
+Uuid: 58j4cznuged8hbxs

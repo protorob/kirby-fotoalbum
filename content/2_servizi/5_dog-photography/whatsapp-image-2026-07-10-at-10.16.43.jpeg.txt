@@ -1,0 +1,5 @@
+Uuid: zinxord3l0agqvl8
+
+----
+
+Template: blocks/image

@@ -1,0 +1,77 @@
+Title: Eventi di famiglia
+
+----
+
+Servicedesc: [{"content":{"text":"<p>Battesimo, compleanni, anniversari e momenti da condividere con le persone piu' care.</p><p>Un racconto fotografico discreto e autentico per conservare ogni emozione vissuta.</p>"},"id":"2e2e3bef-fcdc-468c-935f-edbebb07bd8d","isHidden":false,"type":"text"},{"content":{"images":["file://cnmbjxwdhvlupy4k","file://fpv73j2npochfrbj","file://hyddliqlets440go","file://7xnpo4hbot02xam6"],"caption":"","ratio":"","crop":"false"},"id":"a2259dd5-0e00-43e9-96b0-2c4e14f18bca","isHidden":false,"type":"gallery"}]
+
+----
+
+Coverimage: - file://hyddliqlets440go
+
+----
+
+Description: 
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Cropogimage: 
+
+----
+
+Robotsindex: default
+
+----
+
+Robotsfollow: default
+
+----
+
+Robotsarchive: default
+
+----
+
+Robotsimageindex: default
+
+----
+
+Robotssnippet: default
+
+----
+
+Metainherit: 
+
+----
+
+Uuid: tppz18kjulamj8qk

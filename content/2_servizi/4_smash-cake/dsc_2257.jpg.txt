@@ -1,0 +1,5 @@
+Uuid: commue9pcdb8vej7
+
+----
+
+Template: blocks/image

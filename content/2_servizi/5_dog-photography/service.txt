@@ -1,0 +1,77 @@
+Title: Dog photography
+
+----
+
+Servicedesc: [{"content":{"text":"<p>Ogni animale ha una personalità unica.</p><p>attraverso immagini spontanee e naturali, racconteremo il legame speciale che vi unisce al vostro amico a quattro zampe.</p>"},"id":"569fbbee-5384-431f-b341-05681a718e16","isHidden":false,"type":"text"},{"content":{"images":["file://atqdvwq1s80hoqcu","file://zinxord3l0agqvl8","file://ure0zduoztumqe8p","file://vkl2tuppdvj96puk"],"caption":"","ratio":"","crop":"false"},"id":"cf9e567a-a81f-43da-b5ea-d006ec3e686b","isHidden":false,"type":"gallery"}]
+
+----
+
+Coverimage: - file://zinxord3l0agqvl8
+
+----
+
+Description: 
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Cropogimage: 
+
+----
+
+Robotsindex: default
+
+----
+
+Robotsfollow: default
+
+----
+
+Robotsarchive: default
+
+----
+
+Robotsimageindex: default
+
+----
+
+Robotssnippet: default
+
+----
+
+Metainherit: 
+
+----
+
+Uuid: njfgwn6v6ktmz2oq

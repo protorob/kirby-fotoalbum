@@ -1,0 +1,5 @@
+Uuid: vkl2tuppdvj96puk
+
+----
+
+Template: blocks/image
