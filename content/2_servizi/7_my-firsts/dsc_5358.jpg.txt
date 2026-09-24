@@ -1,0 +1,5 @@
+Uuid: u494valmdgbfh30b
+
+----
+
+Template: blocks/image
