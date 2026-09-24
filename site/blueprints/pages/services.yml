@@ -5,6 +5,14 @@ tabs:
     label: Content
     icon: image
     sections:
+      intro:
+        type: fields
+        fields:
+          description:
+            label: Description
+            type: textarea
+            buttons: false
+            help: Short introduction shown above the services on the home page
       galleries:
         type: pages
         label: Services

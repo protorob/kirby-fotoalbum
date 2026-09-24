@@ -43,7 +43,10 @@
 
   <?php if ($services && $services->count() > 0): ?>
   <div class="max-w-5xl mx-auto px-4 py-24">
-
+    <h2 class="font-serif text-3xl tracking-wide mb-6 text-center">Servizi</h2>
+    <?php if ($servicesPage->description()->isNotEmpty()): ?>
+      <p class="mx-auto mb-12 text-center text-sm tracking-wide max-w-md leading-relaxed opacity-80 fade-in"><?= $servicesPage->description()->html() ?></p>
+    <?php endif ?>
     <?php if ($services->count() <= 3): ?>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
         <?php foreach ($services as $service): ?>
@@ -102,15 +105,15 @@
   </div>
   <?php endif ?>
 
-  <div class="border-t border-neutral-200 max-w-5xl mx-auto px-4 py-24 text-center">
+  <!-- <div class="border-t border-neutral-200 max-w-5xl mx-auto px-4 py-24 text-center">
     <h2 class="font-serif text-3xl tracking-wide mb-6">Selected Work</h2>
     <p class="text-sm text-neutral-500 max-w-md mx-auto leading-relaxed">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
-      <?php foreach (range(1, 8) as $i): ?>
+      <?php // foreach (range(1, 8) as $i): ?>
         <div class="bg-neutral-500 aspect-square"></div>
-      <?php endforeach ?>
+      <?php // endforeach ?>
     </div>
-  </div>
+  </div> -->
 
 </main>
 
