@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="<?= url('assets/css/main.css') ?>">
   <?php snippet('seo/head'); ?>
 </head>
-<body class="min-h-screen flex flex-col bg-cream font-sans text-neutral-800 <?= $bodyClass ?? '' ?>">
+<body class="min-h-screen flex flex-col bg-cream font-sans text-darkbrown <?= $bodyClass ?? '' ?>">
 
 <header
   id="site-header"

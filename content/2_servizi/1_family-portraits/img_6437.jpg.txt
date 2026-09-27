@@ -1,5 +1,0 @@
-Uuid: 6zsr0dlwszilyziy
-
-----
-
-Template: blocks/image

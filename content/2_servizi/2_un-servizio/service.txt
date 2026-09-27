@@ -10,7 +10,7 @@ Coverimage: - file://1zhpa7ksonmwshyj
 
 ----
 
-Description: Descrizione del servizio...
+Description: 
 
 ----
 

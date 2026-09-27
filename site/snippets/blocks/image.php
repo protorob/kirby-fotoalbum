@@ -50,7 +50,7 @@ $imgClass    = $fill
   <?php endif ?>
 
   <?php if ($caption->isNotEmpty()): ?>
-    <figcaption class="text-sm text-neutral-500 mt-2"><?= $caption ?></figcaption>
+    <figcaption class="text-sm text-darkbrown/70 mt-2"><?= $caption ?></figcaption>
   <?php endif ?>
 </figure>
 <?php endif ?>

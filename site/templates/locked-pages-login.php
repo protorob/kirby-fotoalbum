@@ -23,7 +23,7 @@
 
       <input type="hidden" name="csrf" value="<?= csrf() ?>">
 
-      <button type="submit" class="border px-4 py-2 text-sm hover:bg-black hover:text-white transition-colors">
+      <button type="submit" class="border border-terracotta bg-terracotta text-cream px-4 py-2 text-sm hover:bg-darkbrown hover:border-darkbrown transition-colors">
         Accedi
       </button>
     </form>

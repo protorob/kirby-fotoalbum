@@ -1,5 +1,0 @@
-Uuid: h28qepvntnig5his
-
-----
-
-Template: blocks/image

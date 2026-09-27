@@ -1,5 +1,0 @@
-Uuid: t2hbco1842kyjek5
-
-----
-
-Template: blocks/image

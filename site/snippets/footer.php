@@ -1,11 +1,11 @@
 <?php $socialItems = $site->social_items()->toStructure() ?>
 
 <footer class="border-t border-neutral-200 mt-auto">
-  <div class="max-w-5xl md:max-w-8/10 mx-auto px-4 py-8 text-xs tracking-widest uppercase text-neutral-400">
+  <div class="max-w-5xl md:max-w-8/10 mx-auto px-4 py-8 text-xs tracking-widest uppercase text-darkbrown/70">
     <?php if ($socialItems->isNotEmpty()): ?>
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
         <?php if ($site->email()->isNotEmpty()): ?>
-          <a href="mailto:<?= $site->email() ?>" class="hover:text-neutral-800 transition-colors"><?= $site->email() ?></a>
+          <a href="mailto:<?= $site->email() ?>" class="hover:text-terracotta transition-colors"><?= $site->email() ?></a>
         <?php endif ?>
         <div class="flex items-center gap-5">
           <?php foreach ($socialItems as $item): ?>
@@ -23,7 +23,7 @@
     <?php else: ?>
       <?php if ($site->email()->isNotEmpty()): ?>
         <div class="text-center">
-          <a href="mailto:<?= $site->email() ?>" class="hover:text-neutral-800 transition-colors"><?= $site->email() ?></a>
+          <a href="mailto:<?= $site->email() ?>" class="hover:text-terracotta transition-colors"><?= $site->email() ?></a>
         </div>
       <?php endif ?>
     <?php endif ?>

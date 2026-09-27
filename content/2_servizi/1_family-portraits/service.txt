@@ -10,7 +10,7 @@ Coverimage: - file://mju4ikgr7lrksumt
 
 ----
 
-Description: Family portraits for everybody
+Description: 
 
 ----
 

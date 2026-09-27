@@ -6,7 +6,7 @@
 
     <div class="max-w-5xl mx-auto px-4 py-16 flex flex-col gap-4 items-center fade-in">
       <p class="border border-neutral-300 px-4 py-3 text-sm fade-in">Your selection has been sent successfully. Thank you!</p>
-      <a href="<?= $page->url() ?>" class="border border-neutral-800 px-4 py-2 text-xs tracking-widest uppercase hover:bg-black hover:text-white transition-colors fade-in">
+      <a href="<?= $page->url() ?>" class="border border-terracotta bg-terracotta text-cream px-4 py-2 text-xs tracking-widest uppercase hover:bg-darkbrown hover:border-darkbrown transition-colors fade-in">
         Back to gallery
       </a>
     </div>
@@ -27,7 +27,7 @@
     <div class="py-16 text-center border-b border-neutral-200 fade-in">
       <h1 class="font-serif text-3xl tracking-wide fade-in"><?= $page->title() ?></h1>
       <?php if ($page->description()->isNotEmpty()): ?>
-        <p class="mt-1 text-sm text-neutral-500 max-w-md mx-auto leading-relaxed fade-in"><?= $page->description()->html() ?></p>
+        <p class="mt-1 text-sm text-darkbrown/70 max-w-md mx-auto leading-relaxed fade-in"><?= $page->description()->html() ?></p>
       <?php endif ?>
     </div>
 
@@ -36,7 +36,7 @@
       <form method="post" id="selection-form" class="max-w-5xl mx-auto px-4 py-12">
         <input type="hidden" name="csrf" value="<?= csrf() ?>">
 
-        <p class="text-xs tracking-widest uppercase text-neutral-400 mb-8 text-center">
+        <p class="text-xs tracking-widest uppercase text-darkbrown/70 mb-8 text-center">
           Click an image to preview &middot; use + to select
         </p>
 
@@ -69,7 +69,7 @@
                        bg-white/70 border border-white/80 shadow-sm select-none
                        peer-checked:bg-black peer-checked:border-black
                        hover:bg-white transition-all">
-                <span class="text-neutral-600 text-base leading-none group-has-checked/item:hidden">+</span>
+                <span class="text-darkbrown/70 text-base leading-none group-has-checked/item:hidden">+</span>
                 <span class="text-white text-xs hidden group-has-checked/item:flex items-center justify-center">✓</span>
               </label>
             </div>
@@ -82,25 +82,25 @@
 
         <div class="mt-12 max-w-sm mx-auto flex flex-col gap-4">
           <div class="flex flex-col gap-1">
-            <label for="sender" class="text-xs tracking-widest uppercase text-neutral-500">Your name <span class="text-red-500">*</span></label>
+            <label for="sender" class="text-xs tracking-widest uppercase text-darkbrown/70">Your name <span class="text-red-500">*</span></label>
             <input type="text" id="sender" name="sender" required
               value="<?= esc(get('sender', '')) ?>"
               class="border border-neutral-300 px-3 py-2 text-sm bg-transparent focus:outline-none focus:border-neutral-800">
           </div>
           <div class="flex flex-col gap-1">
-            <label for="senderEmail" class="text-xs tracking-widest uppercase text-neutral-500">Your email</label>
+            <label for="senderEmail" class="text-xs tracking-widest uppercase text-darkbrown/70">Your email</label>
             <input type="email" id="senderEmail" name="senderEmail"
               value="<?= esc(get('senderEmail', '')) ?>"
               class="border border-neutral-300 px-3 py-2 text-sm bg-transparent focus:outline-none focus:border-neutral-800">
           </div>
           <div class="flex flex-col gap-1">
-            <label for="message" class="text-xs tracking-widest uppercase text-neutral-500">Message</label>
+            <label for="message" class="text-xs tracking-widest uppercase text-darkbrown/70">Message</label>
             <textarea id="message" name="message" rows="3"
               class="border border-neutral-300 px-3 py-2 text-sm bg-transparent focus:outline-none focus:border-neutral-800"><?= esc(get('message', '')) ?></textarea>
           </div>
 
           <button type="submit" id="submit-btn"
-            class="border border-neutral-800 px-4 py-3 text-xs tracking-widest uppercase hover:bg-black hover:text-white transition-colors">
+            class="border border-terracotta bg-terracotta text-cream px-4 py-3 text-xs tracking-widest uppercase hover:bg-darkbrown hover:border-darkbrown transition-colors">
             Send selection (<span id="selection-count">0</span> selected)
           </button>
         </div>
@@ -143,7 +143,7 @@
 
       <?php if ($isPrivate && $lastSubmission): ?>
         <div class="max-w-5xl mx-auto px-4 pb-12">
-          <p class="text-sm text-neutral-400 text-center">
+          <p class="text-sm text-darkbrown/70 text-center">
             The images have already been submitted. To request a new selection, please
             <?php if ($site->email()->isNotEmpty()): ?>
               <a href="mailto:<?= $site->email() ?>" class="underline">contact the photographer</a>.

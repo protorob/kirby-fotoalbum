@@ -27,7 +27,7 @@ $images  = $block->images()->toFiles();
   </div>
 
   <?php if ($caption->isNotEmpty()): ?>
-    <figcaption class="text-sm text-neutral-500 mt-4 text-center"><?= $caption ?></figcaption>
+    <figcaption class="text-sm text-darkbrown/70 mt-4 text-center"><?= $caption ?></figcaption>
   <?php endif ?>
 </figure>
 <?php endif ?>

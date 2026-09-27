@@ -92,7 +92,11 @@
 @theme {
   --font-serif: "IvyOraDisplay", Georgia, serif;
   --font-sans: "IvyOraText", sans-serif;
-  --color-cream: #f5f4f0;
+  --color-cream: /*#f5f4f0*/ #F3D8CA;
+  --color-lightblue: #CEE7E0;
+  --color-terracotta: #C96A40;
+  --color-lightpink: #F3D8CA;
+  --color-darkbrown: #593718;
 }
 
 /* Page load fade-in */
@@ -119,9 +123,9 @@ body {
 /* PhotoSwipe — match site's cream palette */
 .pswp {
   --pswp-bg: #f5f4f0;
-  --pswp-icon-color: #1a1a1a;
+  --pswp-icon-color: var(--color-darkbrown);
   --pswp-icon-color-secondary: #f5f4f0;
-  --pswp-error-text-color: #1a1a1a;
+  --pswp-error-text-color: var(--color-darkbrown);
 }
 
 /* Select button in lightbox */
@@ -139,7 +143,7 @@ body {
   font-size: 0.7rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #1a1a1a;
+  color: var(--color-darkbrown);
   padding: 0.5rem 1.5rem;
   white-space: nowrap;
   transition: background 0.2s, color 0.2s, border-color 0.2s;
@@ -196,3 +200,18 @@ body {
     margin-left:auto;
     margin-right:auto;
   }
+
+/* Prose text colours — match site palette */
+.prose {
+  --tw-prose-body: var(--color-darkbrown);
+  --tw-prose-headings: var(--color-darkbrown);
+  --tw-prose-lead: var(--color-darkbrown);
+  --tw-prose-links: var(--color-darkbrown);
+  --tw-prose-bold: var(--color-darkbrown);
+  --tw-prose-counters: var(--color-darkbrown);
+  --tw-prose-bullets: var(--color-darkbrown);
+  --tw-prose-quotes: var(--color-darkbrown);
+  --tw-prose-captions: var(--color-darkbrown);
+  --tw-prose-code: var(--color-darkbrown);
+  --tw-prose-th-borders: var(--color-darkbrown);
+}

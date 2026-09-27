@@ -1,5 +1,0 @@
-Uuid: fnvubbalt3sgkcwy
-
-----
-
-Template: blocks/image
