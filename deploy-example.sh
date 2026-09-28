@@ -44,8 +44,7 @@ rsync -avz --progress \
   --exclude='vendor/' \
   --exclude='kirby/' \
   --exclude='example/' \
-  --exclude='deploy.sh' \
-  --exclude='deploy-example.sh' \
+  --exclude='/*.sh' \
   --exclude='CLAUDE.md' \
   --exclude='PLAN.md' \
   --exclude='site/accounts' \

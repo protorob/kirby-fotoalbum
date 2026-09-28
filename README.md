@@ -55,7 +55,7 @@ The Kirby Panel is available at `http://localhost:8888/panel` — you will be pr
 
 ## Deploying to a live server
 
-A deploy script is included to push the site to any server via SSH/rsync.
+A deploy script is included to push the site to any server via SSH/rsync. For FTP-only hosts, see [Deploying via FTP](#deploying-via-ftp-no-ssh-access).
 
 ### First-time setup (local)
 
@@ -116,8 +116,45 @@ This will:
 
 - `.git`, `.gitignore`, `node_modules`, `src/`
 - `vendor/`, `kirby/` — installed on the server via Composer
-- `deploy.sh`, `deploy-example.sh`, `CLAUDE.md`, `PLAN.md`
+- All `.sh` scripts in the project root (`deploy.sh`, `pull.sh`, etc.), `CLAUDE.md`, `PLAN.md`
 - `site/accounts`, `site/sessions`, `site/cache`, `logs/`
+
+### Deploying via FTP (no SSH access)
+
+For hosts that only offer FTP, use `deploy-ftp.sh` instead. It requires [lftp](https://lftp.yar.ru/) locally (`sudo apt install lftp` / `brew install lftp`).
+
+```bash
+cp deploy-ftp-example.sh deploy-ftp.sh
+chmod +x deploy-ftp.sh
+```
+
+Open `deploy-ftp.sh` and fill in your FTP details:
+
+```bash
+FTP_USER="your-user"
+FTP_PASS=""                    # leave empty to be prompted on each deploy
+FTP_HOST="ftp.your-server.com"
+FTP_PORT=21
+FTP_TLS=true                   # false if the host doesn't support FTPS
+FTP_VERIFY_CERT=true           # false if the host's certificate doesn't match FTP_HOST
+REMOTE_PATH="/public_html"     # site root as seen from the FTP login
+```
+
+`deploy-ftp.sh` is gitignored — your credentials will never be committed.
+
+```bash
+./deploy-ftp.sh --dry-run   # preview what would be uploaded
+./deploy-ftp.sh             # upload
+```
+
+This will:
+1. Run `bun run build` to compile CSS and JS
+2. Run `composer install --no-dev` **locally** — Composer can't run on an FTP-only host, so `vendor/` and `kirby/` are uploaded. Your local PHP version must be compatible with the server's.
+3. Upload files via lftp — only files newer locally than on the server are transferred, so content edited in the live Panel is not overwritten by older local copies. Nothing is deleted on the server.
+
+Excluded from the upload: the same paths as the SSH deploy (except `vendor/` and `kirby/`), plus `media/` (Kirby regenerates thumbnails on the server).
+
+Permissions can't be set over FTP — if the Panel can't save, make `content/`, `media/`, `site/cache/`, `site/sessions/` and `site/accounts/` writable using your host's file manager.
 
 ### Before the first deploy
 
