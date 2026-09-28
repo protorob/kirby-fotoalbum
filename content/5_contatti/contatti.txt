@@ -6,7 +6,27 @@ Tagline: Siamo al tuo servizio.
 
 ----
 
-Text: [{"content":{"text":"<p><br>📱 +39 389 056 0862<br>🗺 Via Cortile Greco, 28A, Bagheria (PA), ITALIA - <a href=\"https://maps.app.goo.gl/W8FDDaxY4Rs6Uuys9\">Ottieni indicazioni →</a><br>💌 info@simonagioestudiofotografico.it</p>"},"id":"289a8c75-0ec6-4287-a558-c7b5dfcaf1cd","isHidden":false,"type":"text"}]
+Contacts:
+
+- 
+  icon:
+    - file://rzutg9uaf9rbgnhl
+  description: +39 389 056 0862
+  link: tel:+393890560862
+- 
+  icon:
+    - file://gvwspzamysgmmej9
+  description: >
+    Via Cortile Greco, 28A, Bagheria (PA),
+    ITALIA
+  link: >
+    https://maps.app.goo.gl/W8FDDaxY4Rs6Uuys9
+- 
+  icon:
+    - file://r04z4qrfxbbjtngw
+  description: info@simonagioestudiofotografico.it
+  link: >
+    mailto:info@simonagioestudiofotografico.it
 
 ----
 

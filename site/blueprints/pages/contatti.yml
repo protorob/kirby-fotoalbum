@@ -1,0 +1,39 @@
+title: Contatti
+
+tabs:
+  content:
+    label: Content
+    icon: text
+    columns:
+      main:
+        width: 2/3
+        sections:
+          fields:
+            type: fields
+            fields:
+              tagline:
+                type: text
+                label: Tagline
+              contacts:
+                type: structure
+                label: Contacts
+                fields:
+                  icon:
+                    type: files
+                    label: Icon / image
+                    max: 1
+                  description:
+                    type: text
+                    label: Description
+                  link:
+                    type: link
+                    label: Link
+      sidebar:
+        width: 1/3
+        sections:
+          files:
+            type: files
+            label: Icons & images
+
+  seo:
+    extends: seo

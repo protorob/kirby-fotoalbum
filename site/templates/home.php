@@ -30,7 +30,7 @@
       <div class="absolute inset-0 bg-black/40 pointer-events-none z-10"></div>
     <?php endif ?>
 
-    <div class="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-8 <?= $slides->isNotEmpty() ? 'text-white [text-shadow:0_2px_12px_rgba(0,0,0,0.4)]' : 'text-darkbrown' ?>">
+    <div class="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-8 <?= $slides->isNotEmpty() ? 'text-cream [text-shadow:0_2px_12px_rgba(0,0,0,0.4)]' : 'text-darkbrown' ?>">
       <?php if ($site->tagline()->isNotEmpty()): ?>
         <h1 class="font-serif text-3xl md:text-5xl tracking-wide fade-in"><?= $site->tagline()->html() ?></h1>
       <?php endif ?>

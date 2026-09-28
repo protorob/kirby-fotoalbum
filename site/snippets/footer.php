@@ -15,7 +15,7 @@
                <?= $item->inblank()->isTrue() ? 'target="_blank" rel="noopener noreferrer"' : '' ?>
                title="<?= $item->label()->html() ?>"
                class="opacity-40 hover:opacity-100 transition-opacity">
-              <img src="<?= $icon->url() ?>" alt="<?= $item->label()->html() ?>" class="w-5 h-5">
+              <span class="social-icon" role="img" aria-label="<?= $item->label()->html() ?>"><?= svg($icon) ?></span>
             </a>
           <?php endforeach ?>
         </div>

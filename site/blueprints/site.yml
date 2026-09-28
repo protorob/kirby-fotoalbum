@@ -79,6 +79,7 @@ tabs:
           - home
           - galleries
           - services
+          - contatti
           - default
 
   files:

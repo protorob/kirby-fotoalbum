@@ -23,11 +23,11 @@
 
 <header
   id="site-header"
-  class="fixed top-0 left-0 right-0 z-50<?= $isHero ? ' header--hero' : ' bg-cream border-b border-neutral-200' ?>"
+  class="fixed top-0 left-0 right-0 z-50<?= $isHero ? ' header--hero' : ' bg-cream border-b border-darkbrown/15' ?>"
 >
   <div class="max-w-5xl md:max-w-8/10 mx-auto px-4 h-20 relative flex items-center justify-between sm:justify-normal">
 
-    <nav class="hidden sm:flex gap-6 text-xs tracking-widest uppercase flex-1">
+    <nav class="hidden sm:flex gap-6 text-xs font-medium tracking-widest uppercase flex-1">
       <?php foreach ($leftNav as $item): ?>
         <?php snippet('nav-item', ['item' => $item]) ?>
       <?php endforeach ?>
@@ -48,7 +48,7 @@
       <?php endif ?>
     </a>
 
-    <nav class="hidden sm:flex gap-6 text-xs tracking-widest uppercase flex-1 justify-end">
+    <nav class="hidden sm:flex gap-6 text-xs font-medium tracking-widest uppercase flex-1 justify-end">
       <?php foreach ($rightNav as $item): ?>
         <?php snippet('nav-item', ['item' => $item]) ?>
       <?php endforeach ?>
@@ -72,8 +72,8 @@
   </a>
   <?php endif ?>
 
-  <nav id="mobile-menu" class="absolute top-full left-0 right-0 z-50 bg-cream border-b border-neutral-200 sm:hidden opacity-0 -translate-y-1 pointer-events-none transition-all duration-200">
-    <div class="max-w-5xl mx-auto px-4 py-4 flex flex-col gap-4 text-xs tracking-widest uppercase">
+  <nav id="mobile-menu" class="absolute top-full left-0 right-0 z-50 bg-cream border-b border-darkbrown/15 sm:hidden opacity-0 -translate-y-1 pointer-events-none transition-all duration-200">
+    <div class="max-w-5xl mx-auto px-4 py-4 flex flex-col gap-4 text-xs font-medium tracking-widest uppercase">
       <?php foreach ($site->children()->listed() as $item): ?>
         <a href="<?= $item->url() ?>" class="h-8 <?= $item->isActive() ? 'font-medium' : '' ?>">
           <?= $item->title() ?>
