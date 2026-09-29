@@ -1,6 +1,6 @@
 <?php $socialItems = $site->social_items()->toStructure() ?>
 
-<footer class="border-t border-neutral-200 mt-auto">
+<footer class="border-t border-darkbrown/15 mt-auto">
   <div class="max-w-5xl md:max-w-8/10 mx-auto px-4 py-8 text-xs tracking-widest uppercase text-darkbrown/70">
     <?php if ($socialItems->isNotEmpty()): ?>
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
