@@ -17,6 +17,8 @@
 # 4. Run it from the project root:
 #       ./deploy-ftp.sh            # actually upload
 #       ./deploy-ftp.sh --dry-run  # preview what would be uploaded
+#       ./deploy-ftp.sh --with-accounts  # also upload site/accounts/
+#                                        # (combinable with --dry-run)
 #
 # deploy-ftp.sh is gitignored — your credentials will never be committed.
 #
@@ -44,10 +46,23 @@ REMOTE_PATH="/public_html"              # site root as seen from the FTP login (
 set -e
 
 DRY_RUN=""
-if [ "$1" == "--dry-run" ]; then
-  DRY_RUN="--dry-run"
-  echo "→ Dry run — nothing will be uploaded."
-fi
+ACCOUNTS_EXCLUDE="--exclude '^site/accounts/'"
+for arg in "$@"; do
+  case "$arg" in
+    --dry-run)
+      DRY_RUN="--dry-run"
+      echo "→ Dry run — nothing will be uploaded."
+      ;;
+    --with-accounts)
+      ACCOUNTS_EXCLUDE=""
+      echo "→ Including site/accounts/ in the upload."
+      ;;
+    *)
+      echo "Unknown option: $arg" >&2
+      exit 1
+      ;;
+  esac
+done
 
 if [ -z "${FTP_PASS}" ]; then
   read -r -s -p "FTP password for ${FTP_USER}@${FTP_HOST}: " FTP_PASS
@@ -82,7 +97,7 @@ mirror --reverse --only-newer --no-perms --parallel=4 --verbose ${DRY_RUN} \
   --exclude '^media/' \
   --exclude '^example/' \
   --exclude '^site/example/' \
-  --exclude '^site/accounts/' \
+  ${ACCOUNTS_EXCLUDE} \
   --exclude '^site/sessions/' \
   --exclude '^site/cache/' \
   --exclude '^[^/]*\.sh$' \
