@@ -2,7 +2,7 @@
 
 <main class="flex-1 w-full">
 
-    <?php snippet('page-hero', ['eyebrow' => 'Portfolio', 'subtitle' => $page->description()]) ?>
+    <?php snippet('page-hero', ['subtitle' => $page->description()]) ?>
 
     <div class="max-w-5xl mx-auto px-4 py-24 grid grid-cols-1 md:grid-cols-3 gap-12">
         <?php $i = 0; foreach ($page->children()->listed() as $service): ?>

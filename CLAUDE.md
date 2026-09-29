@@ -36,7 +36,7 @@ site/
   config/config.php   ← email transport, debug flag
   controllers/        ← PHP controllers (same name as template)
   plugins/            ← kirby-locked-pages (password protection), kirby-seo (SEO/meta), lqip (blurred image placeholders)
-  snippets/           ← header.php, footer.php, page-hero.php (shared title block: eyebrow + title + subtitle, used by every template except home/login)
+  snippets/           ← header.php, footer.php, page-hero.php (shared title block: title + subtitle, used by every template except home/login)
   templates/          ← one .php per page type
 src/
   main.js             ← JS entry (imports main.css, scroll-aware header, mobile menu, selection counter, PhotoSwipe lightbox, Splide carousels, progressive image fade-in)

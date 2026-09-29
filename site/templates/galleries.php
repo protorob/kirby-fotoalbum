@@ -2,7 +2,7 @@
 
 <main class="flex-1 w-full">
 
-  <?php snippet('page-hero', ['eyebrow' => 'Portfolio', 'subtitle' => $page->description()]) ?>
+  <?php snippet('page-hero', ['subtitle' => $page->description()]) ?>
 
   <div class="max-w-5xl mx-auto px-4 py-12">
     <div class="grid grid-cols-2 gap-3">
