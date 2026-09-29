@@ -9,7 +9,7 @@ A Kirby CMS site for a photographer. Clients receive a private, password-protect
 - **Kirby CMS 5** — flat-file CMS, no database
 - **Tailwind CSS v4** via `@tailwindcss/vite`
 - **Vite** for asset bundling (entry: `src/main.js`, output: `assets/`)
-- **Bun** as package manager and script runner
+- **npm** as package manager and script runner
 - **Splide.js** — hero slideshow on home page (fade, autoplay, no arrows/pagination); services carousel on home page (loop, perPage 3→2→1)
 - **PhotoSwipe v5** — lightbox for gallery images
 - **`@tailwindcss/typography`** — loaded via `@plugin` in `main.css`; used for `.prose` blocks on service detail pages
@@ -21,12 +21,12 @@ A Kirby CMS site for a photographer. Clients receive a private, password-protect
 composer start
 
 # Terminal 2 — CSS/JS watch
-bun run dev
+npm run dev
 ```
 
-Panel: `http://localhost:8888/panel`
+`composer start` serves on `http://localhost:8000` (defined in `composer.json`'s `start` script — not 8888). Panel: `http://localhost:8000/panel`
 
-Always run `bun run build` after changing CSS classes or JS.
+Always run `npm run build` after changing CSS classes or JS.
 
 ## Project structure
 
@@ -35,11 +35,11 @@ site/
   blueprints/pages/   ← Panel field definitions per template
   config/config.php   ← email transport, debug flag
   controllers/        ← PHP controllers (same name as template)
-  plugins/            ← kirby-locked-pages (password protection), kirby-seo (SEO/meta)
-  snippets/           ← header.php, footer.php
+  plugins/            ← kirby-locked-pages (password protection), kirby-seo (SEO/meta), lqip (blurred image placeholders)
+  snippets/           ← header.php, footer.php, page-hero.php (shared title block: eyebrow + title + subtitle, used by every template except home/login)
   templates/          ← one .php per page type
 src/
-  main.js             ← JS entry (imports main.css, mobile menu, selection counter, PhotoSwipe lightbox, Splide carousels)
+  main.js             ← JS entry (imports main.css, scroll-aware header, mobile menu, selection counter, PhotoSwipe lightbox, Splide carousels, progressive image fade-in)
   main.css            ← @import "tailwindcss" + @plugin "@tailwindcss/typography"
 assets/               ← Vite build output (gitignored)
 logs/                 ← email-debug.log when debug mode is on (gitignored)
@@ -66,6 +66,8 @@ logs/                 ← email-debug.log when debug mode is on (gitignored)
 3. Controller (`site/controllers/gallery.php`) sends email, sets `selectionOpen = false`, appends to `selections` log
 4. Gallery shows submitted images highlighted; non-selected images dimmed; contact message shown
 5. Admin re-enables `selectionOpen` to allow a new round
+
+**Layout:** while `lockedPagesEnable` is on (whether or not selection is currently open), `gallery.php` renders a uniform square-grid (`grid grid-cols-2 sm:grid-cols-3`) instead of the masonry `columns-2 sm:columns-3` layout used by public galleries — keeps the grid consistent across the selection and review phases.
 
 **Email debug mode** (`site/config/config.php`):
 - `'fotoalbum.email.debug' => true` — writes to `logs/email-debug.log` instead of sending
@@ -96,22 +98,28 @@ Installed as a composer dependency (`^2.0.0-beta`). Requires Kirby 5.
 - Every page blueprint and `site.yml` has a `seo` tab added via `extends: seo`.
 - Automatically handles `/sitemap.xml` and `/robots.txt` routes — no extra config needed.
 
+## lqip plugin (site/plugins/lqip)
+
+Adds a `lqip($width = 24)` file method that returns a tiny resized image inlined as a base64 data URI. Used across templates as the blurred placeholder image (`scale-110 blur-xl`, absolutely positioned behind the real `<img>`) so galleries and the hero don't pop in while photos load — paired with the `js-progressive` class and `.loaded` opacity transition set up in `main.js`.
+
 ## Site-level fields (site.yml)
 
-- `tagline`, `about` — shown on home page
+- `tagline`, `about` — overlay text centered on the home page hero
 - `slideshow` — files field; images used as the full-screen hero slideshow on the home page
 - `email` — used as recipient for selection emails and in footer
-- `logo` — shown in header (falls back to site title text)
+- `logo` / `logo_light` — desktop header logo, dark-on-light and light-on-dark variants (large centered logo on the hero header)
+- `logo_mobile` / `logo_mobile_light` — small header logo shown once scrolled/on mobile; falls back to `logo` / `logo_light` if not set
 - `social_items` — structure field (icon file, label, url, inblank toggle); rendered as icon links in the footer
 
 ## Home page layout
 
-The home page uses a full-viewport hero slideshow (Splide.js, fade mode) that fills the space between header and footer with no scrollbar.
+`home.php` renders a full-viewport (`h-screen`) hero slideshow (Splide.js, fade mode) with `$site->tagline()`/`$site->about()` centered on top of it, followed by a conditional services section and the footer. The `home` template also has `intro` (textarea) and `hero` (single file) fields on its blueprint, but `home.php` does not currently read them.
 
-- `header.php` accepts an optional `$bodyClass` variable on `<body>`: `<?php snippet('header', ['bodyClass' => 'h-svh overflow-y-auto']) ?>`
-- `h-svh` locks the body to the small viewport height; `overflow-y-auto` allows scroll if accessibility zoom causes overflow
-- `<main>` uses `flex-1 min-h-0` to fill remaining space between header and footer
-- Splide CSS is imported as `@splidejs/splide/css/core` (minimal, no theme chrome); slide images use `absolute inset-0 object-cover` inside `position: relative` slides
+- `header.php` takes an optional `heroHeader` param: `<?php snippet('header', ['heroHeader' => true]) ?>` (only `home.php` passes this)
+- The header is `fixed`, transparent over the hero (`header--hero` class, no background/border), and gains a cream background + border once the page scrolls past 80px (`is-scrolled`, toggled in `main.js`) or the mobile menu opens
+- On the hero, a large centered logo (`#logo-large`, uses `logo`/`logo_light`) appears below the nav; it fades out and the normal small header logo (`#logo-small`) fades in once scrolled — see the `header--hero`/`is-scrolled` rules in `main.css`
+- Non-hero pages skip `heroHeader` and get the plain solid header plus a `<div class="h-20">` spacer since the header is `fixed`
+- Splide CSS is imported as `@splidejs/splide/css/core` (minimal, no theme chrome); slide images use `absolute inset-0 object-cover` inside `position: relative` slides, with a blurred `lqip()` placeholder image (see the `lqip` plugin) underneath that fades out via the shared `js-progressive`/`.loaded` pattern used across the site
 
 ### Services section on home page
 
@@ -120,7 +128,7 @@ Pulled from `$site->find('servizi')->children()->listed()`. Renders conditionall
 - **≤ 3 services** → static `grid grid-cols-1 md:grid-cols-3 gap-12` (same card layout as `services.php`)
 - **≥ 4 services** → Splide carousel (`#services-splide`), `type: loop`, `perPage: 3` (drops to 2 at 768px, 1 at 640px), `gap: 3rem`
 
-Arrow styles for `#services-splide` are in `main.css` (basic positioning only — styled separately).
+Arrow styles for `#services-splide` are in `main.css`: round, `--color-darkbrown` background, cream chevrons at 0.7 opacity (1 on hover). The prev arrow needs an explicit `transform: scaleX(-1)` on its SVG — Splide's minimal `core` CSS (see Tech stack) ships no default arrow styling or mirroring, unlike its full theme CSS.
 
 ## Services pages
 

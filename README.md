@@ -46,12 +46,12 @@ In two separate terminals:
 composer start
 
 # Terminal 2 — CSS/JS watch mode
-bun run dev
+npm run dev
 ```
 
-Then open `http://localhost:8888` in your browser.
+Then open `http://localhost:8000` in your browser.
 
-The Kirby Panel is available at `http://localhost:8888/panel` — you will be prompted to create an admin account on first visit.
+The Kirby Panel is available at `http://localhost:8000/panel` — you will be prompted to create an admin account on first visit.
 
 ## Deploying to a live server
 
@@ -107,7 +107,7 @@ mkdir -p ~/your-site/site/cache ~/your-site/site/sessions ~/your-site/site/accou
 ```
 
 This will:
-1. Run `bun run build` to compile CSS and JS
+1. Run `npm run build` to compile CSS and JS
 2. Upload all required files via rsync (only changed files are transferred)
 3. Run `composer install` on the server to build `vendor/` and `kirby/`
 4. Set correct write permissions on Kirby's data directories
@@ -148,7 +148,7 @@ REMOTE_PATH="/public_html"     # site root as seen from the FTP login
 ```
 
 This will:
-1. Run `bun run build` to compile CSS and JS
+1. Run `npm run build` to compile CSS and JS
 2. Run `composer install --no-dev` **locally** — Composer can't run on an FTP-only host, so `vendor/` and `kirby/` are uploaded. Your local PHP version must be compatible with the server's.
 3. Upload files via lftp — only files newer locally than on the server are transferred, so content edited in the live Panel is not overwritten by older local copies. Nothing is deleted on the server.
 
@@ -166,8 +166,8 @@ Permissions can't be set over FTP — if the Panel can't save, make `content/`, 
 ## Frontend build
 
 ```bash
-bun run build   # production build → assets/css/ and assets/js/
-bun run dev     # watch mode, rebuilds on changes
+npm run build   # production build → assets/css/ and assets/js/
+npm run dev     # watch mode, rebuilds on changes
 ```
 
 ## Project structure

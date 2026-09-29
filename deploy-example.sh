@@ -32,7 +32,7 @@ COMPOSER_BIN="~/composer"              # path to composer on the server
 set -e
 
 echo "→ Building assets..."
-bun run build
+npm run build
 
 echo "→ Deploying to ${SSH_USER}@${SSH_HOST}:${REMOTE_PATH}"
 rsync -avz --progress \

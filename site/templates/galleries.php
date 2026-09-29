@@ -2,13 +2,7 @@
 
 <main class="flex-1 w-full">
 
-  <div class="py-16 text-center border-b border-darkbrown/15 fade-in">
-    <p class="text-xs tracking-widest uppercase text-darkbrown/70 mb-1 fade-in">Portfolio</p>
-    <h1 class="font-serif text-3xl tracking-wide fade-in"><?= $page->title() ?></h1>
-    <?php if ($page->description()->isNotEmpty()): ?>
-      <p class="mt-1 text-sm text-darkbrown/70 max-w-md mx-auto leading-relaxed fade-in"><?= $page->description()->html() ?></p>
-    <?php endif ?>
-  </div>
+  <?php snippet('page-hero', ['eyebrow' => 'Portfolio', 'subtitle' => $page->description()]) ?>
 
   <div class="max-w-5xl mx-auto px-4 py-12">
     <div class="grid grid-cols-2 gap-3">

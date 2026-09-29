@@ -210,8 +210,10 @@ body {
   top: 40%;
   transform: translateY(-50%);
   z-index: 1;
-  background: white;
-  border: 1px solid #d4d4d4;
+  background: var(--color-darkbrown);
+  color: var(--color-cream);
+  border: none;
+  border-radius: 9999px;
   width: 2.5rem;
   height: 2.5rem;
   display: flex;
@@ -219,12 +221,14 @@ body {
   justify-content: center;
   padding: 0;
   cursor: pointer;
-  transition: border-color 0.2s;
+  opacity: 0.7;
+  transition: opacity 0.2s;
 }
-#services-splide .splide__arrow:hover { border-color: #1a1a1a; }
+#services-splide .splide__arrow:hover { opacity: 1; }
 #services-splide .splide__arrow--prev { left: 0.5rem; }
 #services-splide .splide__arrow--next { right: 0.5rem; }
 #services-splide .splide__arrow svg   { width: 1rem; height: 1rem; fill: currentColor; }
+#services-splide .splide__arrow--prev svg { transform: scaleX(-1); }
 #services-splide .splide__arrow:disabled { opacity: 0.3; pointer-events: none; }
 
 /* Prose tweaks */

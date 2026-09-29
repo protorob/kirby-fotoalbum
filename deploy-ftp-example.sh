@@ -55,7 +55,7 @@ if [ -z "${FTP_PASS}" ]; then
 fi
 
 echo "→ Building assets..."
-bun run build
+npm run build
 
 echo "→ Installing production dependencies locally (vendor/, kirby/)..."
 composer install --no-dev --optimize-autoloader --no-interaction

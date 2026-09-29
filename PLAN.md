@@ -1,5 +1,7 @@
 # Kirby CMS - Photographer Gallery Project
 
+> **Superseded.** This was the original design doc, written before implementation started. The actual build diverged in several ways: selection is handled by `site/controllers/gallery.php` (no separate `gallery-likes` plugin or `/api/gallery-likes` route), the form collects the visitor's name/email/message rather than being anonymous, and submissions are logged in a `selections` structure field instead of email-only. See `CLAUDE.md` and `README.md` for how the feature actually works today. Kept here for historical context on the initial architecture decisions (e.g. why `kirby-locked-pages` was chosen).
+
 ## Requirements Summary
 - Per-gallery password protection (custom, not kirby-password-guard)
 - Image selection ("likes") by visitor
