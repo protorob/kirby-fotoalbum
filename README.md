@@ -143,9 +143,12 @@ REMOTE_PATH="/public_html"     # site root as seen from the FTP login
 `deploy-ftp.sh` is gitignored — your credentials will never be committed.
 
 ```bash
-./deploy-ftp.sh --dry-run   # preview what would be uploaded
-./deploy-ftp.sh             # upload
+./deploy-ftp.sh --dry-run        # preview what would be uploaded
+./deploy-ftp.sh                  # upload
+./deploy-ftp.sh --with-accounts  # also upload site/accounts/ (combinable with --dry-run)
 ```
+
+`site/accounts/` (Panel users and their passwords) is skipped by default, so a deploy never overwrites users created on the live site. Use `--with-accounts` for the first deploy, so you can log into the live Panel with your local user. Use it again only when you deliberately want to push local users. Only newer files are uploaded and nothing is deleted, but a newer local copy of an account does replace the server's. To bring live users down first, run `./pull-ftp.sh --with-accounts`.
 
 This will:
 1. Run `npm run build` to compile CSS and JS
@@ -271,6 +274,9 @@ Clicking any image in a gallery opens a fullscreen lightbox powered by [PhotoSwi
 - Clicking it toggles the image's checkbox in the underlying form
 - The button updates to **✓ Selected** when the image is selected
 
+**Colours**
+- The lightbox uses the site colours: background colour behind the image, text colour for icons and the Select button. It follows the colour widget (see [Site colours](#site-colours)).
+
 ## Private gallery layout
 
 When a gallery has password protection (`lockedPagesEnable`) enabled — whether or not image selection is currently open — it uses a uniform square-grid layout instead of masonry. This keeps the visual experience consistent for the client across both the selection and review phases.
@@ -287,7 +293,8 @@ The main background and text colours can be changed without touching code.
 Notes:
 - The background colour is also used for the light text and header over the home page slideshow.
 - SVG logos follow the colours automatically: text colour normally, background colour over the home page slideshow. PNG/JPG logos don't change colour; for those, upload both the dark and light versions.
-- Other accent colours (terracotta, light blue) are not affected.
+- The gallery lightbox follows the colours too: its background uses the background colour, and its icons and Select button use the text colour.
+- Not affected: the accent colours (terracotta, light blue), the dark overlays on photos, the selection checkboxes in private galleries, and the contact form fields.
 
 ## SEO
 

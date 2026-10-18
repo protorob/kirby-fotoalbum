@@ -113,6 +113,8 @@ Lets admins change the main background and text colours at runtime, without a re
   - Reset reads the main.css defaults by disabling `#theme-colors` and removing the inline overrides for a moment. Saving after a Reset stores empty values.
 - Save goes to `POST /theme-colors` (plugin route). The route requires an admin and a valid `csrf`, checks for hex, then runs `site()->update()`. No `impersonate()` is needed because a real user is logged in.
 - Snippets use the `kirby()` / `site()` helpers rather than `$kirby` / `$site`, so they also render outside a normal template call.
+- **Rule for new styles:** use `cream` / `darkbrown` utilities (`bg-cream`, `text-darkbrown/70`, …) or `var(--color-cream)` / `var(--color-darkbrown)` in `main.css`. Use `color-mix(in oklab, var(--color-…) N%, transparent)` for translucent versions. Never hard-code hex/rgba for page backgrounds or text, or that element will ignore the picker. The PhotoSwipe theme (`--pswp-bg`, icon colours, `.pswp__select-btn`) follows this rule. `main.css` has no hard-coded colours outside `@theme`.
+- **Intentionally not themed:** `black`/`white` utilities used for overlays on photos (`galleries.php`, `home.php`), the private-gallery selection checkboxes/rings (`gallery.php`) and the contact form (`contatti.php`).
 - **Limitations:** `--color-cream` is also the light text/header colour over the home hero. SVG logos are recoloured (see `logo.php` below), raster logos aren't. `lightpink` currently has the same value as `cream` but is a separate variable and is not overridden.
 
 ## Site-level fields (site.yml)

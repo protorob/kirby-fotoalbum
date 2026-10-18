@@ -140,9 +140,9 @@ body {
 
 /* PhotoSwipe — match site's cream palette */
 .pswp {
-  --pswp-bg: #f5f4f0;
+  --pswp-bg: var(--color-cream);
   --pswp-icon-color: var(--color-darkbrown);
-  --pswp-icon-color-secondary: #f5f4f0;
+  --pswp-icon-color-secondary: var(--color-cream);
   --pswp-error-text-color: var(--color-darkbrown);
 }
 
@@ -155,8 +155,8 @@ body {
   z-index: 10;
   width: auto;
   height: auto;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(26, 26, 26, 0.35);
+  background: color-mix(in oklab, var(--color-cream) 80%, transparent);
+  border: 1px solid color-mix(in oklab, var(--color-darkbrown) 35%, transparent);
   cursor: pointer;
   font-size: 0.7rem;
   letter-spacing: 0.12em;
@@ -170,8 +170,8 @@ body {
 .pswp__select-btn:active,
 .pswp__select-btn:focus {
   padding: 0.5rem 1.5rem;
-  border: 1px solid #1a1a1a;
-  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--color-darkbrown);
+  background: color-mix(in oklab, var(--color-cream) 80%, transparent);
   box-shadow: none;
 }
 .pswp__select-btn.is-selected,
@@ -179,9 +179,9 @@ body {
 .pswp__select-btn.is-selected:active,
 .pswp__select-btn.is-selected:focus {
   padding: 0.5rem 1.5rem;
-  background: #1a1a1a;
-  color: #f5f4f0;
-  border: 1px solid #1a1a1a;
+  background: var(--color-darkbrown);
+  color: var(--color-cream);
+  border: 1px solid var(--color-darkbrown);
   box-shadow: none;
 }
 
