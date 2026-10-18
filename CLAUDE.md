@@ -35,8 +35,8 @@ site/
   blueprints/pages/   ← Panel field definitions per template
   config/config.php   ← email transport, debug flag
   controllers/        ← PHP controllers (same name as template)
-  plugins/            ← kirby-locked-pages (password protection), kirby-seo (SEO/meta), lqip (blurred image placeholders)
-  snippets/           ← header.php, footer.php, page-hero.php (shared title block: title + subtitle, used by every template except home/login)
+  plugins/            ← kirby-locked-pages (password protection), kirby-seo (SEO/meta), lqip (blurred image placeholders), theme-colors (admin colour picker)
+  snippets/           ← header.php, footer.php, page-hero.php (shared title block: title + subtitle, used by every template except home/login), logo.php (inline-SVG / raster site logo)
   templates/          ← one .php per page type
 src/
   main.js             ← JS entry (imports main.css, scroll-aware header, mobile menu, selection counter, PhotoSwipe lightbox, Splide carousels, progressive image fade-in)
@@ -102,6 +102,19 @@ Installed as a composer dependency (`^2.0.0-beta`). Requires Kirby 5.
 
 Adds a `lqip($width = 24)` file method that returns a tiny resized image inlined as a base64 data URI. Used across templates as the blurred placeholder image (`scale-110 blur-xl`, absolutely positioned behind the real `<img>`) so galleries and the hero don't pop in while photos load — paired with the `js-progressive` class and `.loaded` opacity transition set up in `main.js`.
 
+## theme-colors plugin (site/plugins/theme-colors)
+
+Lets admins change the main background and text colours at runtime, without a rebuild.
+
+- **Why it works:** every `bg-cream`, `text-darkbrown(/xx)` and `border-darkbrown/xx` utility compiles to `var(--color-cream)` / `var(--color-darkbrown)` (Tailwind v4 `@theme` in `main.css`). Overriding those two variables on `:root` recolours the whole site.
+- `snippet('theme-colors/style')` in `header.php` (before `seo/head`) prints `<style id="theme-colors">:root{…}</style>` from `site()->bgColor()` / `textColor()`. It only prints valid `#rrggbb` values; when the fields are empty it prints an empty tag and main.css defaults apply.
+- `snippet('theme-colors/widget')` in `footer.php` renders a floating picker only when `kirby()->user()?->isAdmin()`. Its CSS and JS are inline in the snippet with fixed neutral colours. They're not in `main.js`/`main.css`, so public visitors get no extra code and the widget stays readable whatever colours are previewed.
+  - Picking updates `document.documentElement.style` live.
+  - Reset reads the main.css defaults by disabling `#theme-colors` and removing the inline overrides for a moment. Saving after a Reset stores empty values.
+- Save goes to `POST /theme-colors` (plugin route). The route requires an admin and a valid `csrf`, checks for hex, then runs `site()->update()`. No `impersonate()` is needed because a real user is logged in.
+- Snippets use the `kirby()` / `site()` helpers rather than `$kirby` / `$site`, so they also render outside a normal template call.
+- **Limitations:** `--color-cream` is also the light text/header colour over the home hero. SVG logos are recoloured (see `logo.php` below), raster logos aren't. `lightpink` currently has the same value as `cream` but is a separate variable and is not overridden.
+
 ## Site-level fields (site.yml)
 
 - `tagline`, `about` — overlay text centered on the home page hero
@@ -109,7 +122,21 @@ Adds a `lqip($width = 24)` file method that returns a tiny resized image inlined
 - `email` — used as recipient for selection emails and in footer
 - `logo` / `logo_light` — desktop header logo, dark-on-light and light-on-dark variants (large centered logo on the hero header)
 - `logo_mobile` / `logo_mobile_light` — small header logo shown once scrolled/on mobile; falls back to `logo` / `logo_light` if not set
+
+### Logo snippet (`site/snippets/logo.php`)
+
+`header.php` renders both logos via `snippet('logo', ['logo' => $dark, 'logoLight' => $light, 'class' => 'h-9 w-auto'])`. It also takes an optional `textClass` for the text fallback.
+
+- **SVG** (either variant, dark preferred):
+  - Inlined with `svg()`.
+  - The XML header, comments, the Illustrator `<style>` block and all `class`/`id` attributes are stripped. `.st0{fill:…}` would otherwise leak globally, and `id="Layer_1"` would be duplicated.
+  - The root `<svg>` is rebuilt with only `viewBox`, `width`/`height` from the viewBox (so `h-* w-auto` keeps the ratio), `fill="currentColor"`, `role="img"` and an `aria-label`.
+  - The logo therefore takes the header's text colour: `darkbrown`, or `cream` over the hero, with the header's 0.4s colour transition. It also follows the theme-colors picker. The light SVG files aren't used.
+  - Assumes single-colour logos: any per-shape fills set via classes are lost.
+- **Raster:** falls back to the dark/light `<img>` pair crossfaded by `.logo-dark-img` / `.logo-light-img` in `main.css`.
+- **No logo:** shows the site title as text.
 - `social_items` — structure field (icon file, label, url, inblank toggle); rendered as icon links in the footer
+- `bgColor` / `textColor` — optional hex colours overriding `--color-cream` / `--color-darkbrown` (see theme-colors plugin)
 
 ## Home page layout
 

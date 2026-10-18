@@ -43,6 +43,14 @@ Logo-mobile-light: - file://2rn8xubzxmomrlht
 
 ----
 
+Bgcolor: 
+
+----
+
+Textcolor: 
+
+----
+
 Social-items:
 
 - 
@@ -72,7 +80,15 @@ Social-items:
 
 ----
 
+Metatitle: 
+
+----
+
 Metatemplate: 
+
+----
+
+Usetitletemplate: true
 
 ----
 
@@ -84,11 +100,11 @@ Ogtemplate:
 
 ----
 
-Ogdescription: 
+Useogtemplate: true
 
 ----
 
-Ogsitename: 
+Ogdescription: 
 
 ----
 
@@ -97,6 +113,14 @@ Ogimage:
 ----
 
 Cropogimage: true
+
+----
+
+Metainherit: 
+
+----
+
+Ogsitename: 
 
 ----
 

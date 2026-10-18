@@ -277,6 +277,18 @@ When a gallery has password protection (`lockedPagesEnable`) enabled — whether
 
 Public galleries always use the masonry layout.
 
+## Site colours
+
+The main background and text colours can be changed without touching code.
+
+- **From the website:** log into the Panel, then open any page of the site. A round colour button appears in the bottom-right corner (admins only). Pick a background and text colour; the page updates live as you pick. Click **Save** to store them for all visitors. **Reset** previews the original colours, and Save then goes back to them.
+- **From the Panel:** *Site → Colours* has the same two fields. Leave them empty to use the defaults.
+
+Notes:
+- The background colour is also used for the light text and header over the home page slideshow.
+- SVG logos follow the colours automatically: text colour normally, background colour over the home page slideshow. PNG/JPG logos don't change colour; for those, upload both the dark and light versions.
+- Other accent colours (terracotta, light blue) are not affected.
+
 ## SEO
 
 SEO is handled by the [kirby-seo](https://github.com/tobimori/kirby-seo) plugin (`tobimori/kirby-seo`). It provides an **SEO tab** on every page and on the site, with fields for:

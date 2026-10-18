@@ -17,6 +17,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="<?= url('assets/css/main.css') ?>">
+  <?php snippet('theme-colors/style') ?>
   <?php snippet('seo/head'); ?>
 </head>
 <body class="min-h-screen flex flex-col bg-cream font-sans text-darkbrown <?= $bodyClass ?? '' ?>">
@@ -34,18 +35,7 @@
     </nav>
 
     <a href="<?= $site->url() ?>" id="logo-small" class="sm:absolute sm:left-1/2 sm:-translate-x-1/2 flex items-center">
-      <?php if ($smallLogoLight || $smallLogoDark): ?>
-        <div class="relative flex items-center h-10">
-          <?php if ($smallLogoLight): ?>
-            <img src="<?= $smallLogoLight->url() ?>" alt="<?= $site->title() ?>" class="logo-light-img h-9 w-auto">
-          <?php endif ?>
-          <?php if ($smallLogoDark): ?>
-            <img src="<?= $smallLogoDark->url() ?>" alt="<?= $site->title() ?>" class="logo-dark-img h-9 w-auto<?= $smallLogoLight ? ' absolute top-0 left-0' : '' ?>">
-          <?php endif ?>
-        </div>
-      <?php else: ?>
-        <span class="font-serif text-xl tracking-widest uppercase"><?= $site->title() ?></span>
-      <?php endif ?>
+      <?php snippet('logo', ['logo' => $smallLogoDark, 'logoLight' => $smallLogoLight, 'class' => 'h-9 w-auto']) ?>
     </a>
 
     <nav class="hidden sm:flex gap-6 text-xs font-medium tracking-widest uppercase flex-1 justify-end">
@@ -63,12 +53,7 @@
 
   <?php if ($isHero): ?>
   <a href="<?= $site->url() ?>" id="logo-large" class="hidden sm:flex absolute top-8 left-1/2 -translate-x-1/2">
-    <?php $heroLogo = $logoLight ?: $logoDark; ?>
-    <?php if ($heroLogo): ?>
-      <img src="<?= $heroLogo->url() ?>" alt="<?= $site->title() ?>" class="h-28 w-auto">
-    <?php else: ?>
-      <span class="font-serif text-4xl tracking-widest uppercase"><?= $site->title() ?></span>
-    <?php endif ?>
+    <?php snippet('logo', ['logo' => $logoDark, 'logoLight' => $logoLight, 'class' => 'h-28 w-auto', 'textClass' => 'font-serif text-4xl tracking-widest uppercase']) ?>
   </a>
   <?php endif ?>
 

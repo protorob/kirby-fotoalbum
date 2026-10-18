@@ -30,6 +30,7 @@
   </div>
 </footer>
 
+<?php snippet('theme-colors/widget') ?>
 <?php snippet('seo/schemas') ?>
 <script type="module" src="<?= url('assets/js/main.js') ?>"></script>
 </body>

@@ -38,6 +38,7 @@ tabs:
                 type: files
                 label: Logo — light (for dark backgrounds)
                 max: 1
+                help: Only needed for PNG/JPG logos. SVG logos are recoloured automatically to match the site colours.
               logo_mobile:
                 type: files
                 label: Mobile logo — dark (sticky header & mobile)
@@ -46,6 +47,23 @@ tabs:
                 type: files
                 label: Mobile logo — light (transparent mobile header)
                 max: 1
+                help: Only needed for PNG/JPG logos. SVG logos are recoloured automatically to match the site colours.
+          design:
+            type: fields
+            label: Colours
+            fields:
+              bgColor:
+                type: color
+                label: Background colour
+                format: hex
+                alpha: false
+                help: Leave empty for the default. Also editable from the front-end widget.
+              textColor:
+                type: color
+                label: Text colour
+                format: hex
+                alpha: false
+                help: Leave empty for the default.
           social:
             type: fields
             label: Social media
