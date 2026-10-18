@@ -1,0 +1,5 @@
+Uuid: lezwm8srcxgaqvrk
+
+----
+
+Template: blocks/image

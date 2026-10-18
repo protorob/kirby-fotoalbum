@@ -2,7 +2,7 @@ Title: Dog photography
 
 ----
 
-Servicedesc: [{"content":{"text":"<p>Ogni animale ha una personalità unica.</p><p>attraverso immagini spontanee e naturali, racconteremo il legame speciale che vi unisce al vostro amico a quattro zampe.</p>"},"id":"569fbbee-5384-431f-b341-05681a718e16","isHidden":false,"type":"text"},{"content":{"images":["file://atqdvwq1s80hoqcu","file://zinxord3l0agqvl8","file://ure0zduoztumqe8p","file://vkl2tuppdvj96puk"],"caption":"","ratio":"","crop":"false"},"id":"cf9e567a-a81f-43da-b5ea-d006ec3e686b","isHidden":false,"type":"gallery"}]
+Servicedesc: [{"content":{"text":"<p>I nostri amici a quattro zampe fanno parte della famiglia e meritano di essere ricordati per ciò che li rende unici.</p><p>Questa sessione è dedicata a loro: agli sguardi pieni di fiducia, alle corse, alle coccole e a tutte quelle piccole caratteristiche che li rendono speciali. Un modo per conservare ricordi che, con il tempo, diventano ancora più preziosi.</p><p>Durata: Circa 1 ora                                                                                                                                  Per chi e' pensato: cani di ogni età e le loro famiglie                                                                             Cosa comprende: fotografie del cane da solo e insieme alle persone che ama</p>"},"id":"569fbbee-5384-431f-b341-05681a718e16","isHidden":false,"type":"text"},{"content":{"images":["file://atqdvwq1s80hoqcu","file://zinxord3l0agqvl8","file://ure0zduoztumqe8p","file://vkl2tuppdvj96puk"],"caption":"","ratio":"","crop":"false"},"id":"cf9e567a-a81f-43da-b5ea-d006ec3e686b","isHidden":false,"type":"gallery"}]
 
 ----
 

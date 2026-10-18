@@ -156,6 +156,25 @@ Excluded from the upload: the same paths as the SSH deploy (except `vendor/` and
 
 Permissions can't be set over FTP — if the Panel can't save, make `content/`, `media/`, `site/cache/`, `site/sessions/` and `site/accounts/` writable using your host's file manager.
 
+### Pulling content via FTP
+
+Content edited in the live Panel (pages, uploads, gallery selection logs) lives only on the server until you pull it. Pull before each deploy so your local copy is up to date:
+
+```bash
+cp pull-ftp-example.sh pull-ftp.sh
+chmod +x pull-ftp.sh
+```
+
+Fill in the same FTP details as in `deploy-ftp.sh`. `pull-ftp.sh` is gitignored.
+
+```bash
+./pull-ftp.sh --dry-run        # preview what would be downloaded
+./pull-ftp.sh                  # download content/
+./pull-ftp.sh --with-accounts  # also download site/accounts/ (Panel users)
+```
+
+Only files newer on the server are downloaded, and nothing is deleted locally. Server timestamps are kept, so the next `./deploy-ftp.sh` won't upload them back. A typical round: `./pull-ftp.sh` → review with `git status` / `git diff` and commit → `./deploy-ftp.sh`.
+
 ### Before the first deploy
 
 - Set `'fotoalbum.email.debug' => false` in `site/config/config.php`

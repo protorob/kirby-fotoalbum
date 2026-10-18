@@ -55,6 +55,7 @@ Icon
 /deploy.sh
 /deploy-ftp.sh
 /pull.sh
+/pull-ftp.sh
 
 # Cache Files
 # ---------------

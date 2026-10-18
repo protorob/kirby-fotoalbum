@@ -2,7 +2,7 @@ Title: Smash cake
 
 ----
 
-Servicedesc: [{"content":{"text":"<p>Un'esperienza divertente e colorata per celebrare il primo compleanno.</p><p>Tra sorrisi, curiosita', torta ovunque e tanta dolcezza, creeremo ricordi autentici di una tappa importante.</p>"},"id":"c8e00fa1-c9f1-4dd4-a341-605ec50ab721","isHidden":false,"type":"text"},{"content":{"images":["file://qrhevuljyuitfyuh","file://commue9pcdb8vej7","file://w73ndzt1avno27gw"],"caption":"","ratio":"","crop":"false"},"id":"8810f6b9-c6ee-46ce-827f-d6a1003a6b30","isHidden":false,"type":"gallery"}]
+Servicedesc: [{"content":{"text":"<p>Un compleanno è molto più di una torta: è il racconto di un anno pieno di scoperte, conquiste e amore.</p><p>La sessione Smash Cake celebra questo traguardo in modo divertente e spontaneo, lasciando spazio alla curiosità e alla personalità del vostro bambino. Ogni reazione, dalla prima occhiata alla torta fino alle mani piene di crema, diventa un ricordo prezioso.</p><p>Durata: Circa 1 ora                                                                                                                                      Per chi e' pensato: bambini che festeggiano il primo compleanno                                                     Cosa comprende: set dedicato e fotografie di famiglia</p>"},"id":"c8e00fa1-c9f1-4dd4-a341-605ec50ab721","isHidden":false,"type":"text"},{"content":{"images":["file://qrhevuljyuitfyuh","file://commue9pcdb8vej7","file://w73ndzt1avno27gw"],"caption":"","ratio":"","crop":"false"},"id":"8810f6b9-c6ee-46ce-827f-d6a1003a6b30","isHidden":false,"type":"gallery"}]
 
 ----
 

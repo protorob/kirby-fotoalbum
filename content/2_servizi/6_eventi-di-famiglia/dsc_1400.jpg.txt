@@ -1,0 +1,5 @@
+Uuid: krs2dgovyikwbwfb
+
+----
+
+Template: blocks/image

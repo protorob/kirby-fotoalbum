@@ -4,7 +4,7 @@ $alt     = $block->alt();
 $caption = $block->caption();
 $crop    = $block->crop()->isTrue();
 $link    = $block->link();
-$ratio   = $block->ratio()->or('auto');
+$ratio   = $block->ratio()->or('auto')->value();
 $src     = null;
 $image   = null;
 
@@ -25,29 +25,31 @@ if ($block->location() == 'web') {
 // which is also what lets us layer the blurred placeholder underneath.
 $fill = $image && ($crop || $ratio === 'auto');
 
-$figureStyle = match (true) {
+$boxStyle = match (true) {
     $ratio !== 'auto' => 'aspect-ratio: ' . str_replace('/', ' / ', $ratio) . ';',
     $image !== null    => 'aspect-ratio: ' . $image->width() . ' / ' . $image->height() . ';',
     default            => '',
 };
-$figureClass = ($crop || $fill) ? 'relative overflow-hidden' : '';
+$boxClass = ($crop || $fill) ? 'relative overflow-hidden' : '';
 $imgClass    = $fill
     ? 'js-progressive absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 [&.loaded]:opacity-100'
     : 'w-full' . ($crop ? ' h-full object-cover' : '');
 ?>
 <?php if ($src): ?>
-<figure class="<?= $figureClass ?>"<?= $figureStyle ? ' style="' . $figureStyle . '"' : '' ?>>
-  <?php if ($lqip): ?>
-    <img src="<?= $lqip ?>" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-110 blur-xl">
-  <?php endif ?>
+<figure>
+  <div class="<?= $boxClass ?>"<?= $boxStyle ? ' style="' . $boxStyle . '"' : '' ?>>
+    <?php if ($lqip && $fill): ?>
+      <img src="<?= $lqip ?>" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-110 blur-xl">
+    <?php endif ?>
 
-  <?php if ($link->isNotEmpty()): ?>
-    <a href="<?= Str::esc($link->toUrl()) ?>">
+    <?php if ($link->isNotEmpty()): ?>
+      <a href="<?= Str::esc($link->toUrl()) ?>">
+        <img src="<?= $src ?>"<?= $srcset ? ' srcset="' . $srcset . '" sizes="(min-width: 1024px) 1024px, 100vw"' : '' ?> alt="<?= $alt->esc() ?>" loading="lazy" class="<?= $imgClass ?>">
+      </a>
+    <?php else: ?>
       <img src="<?= $src ?>"<?= $srcset ? ' srcset="' . $srcset . '" sizes="(min-width: 1024px) 1024px, 100vw"' : '' ?> alt="<?= $alt->esc() ?>" loading="lazy" class="<?= $imgClass ?>">
-    </a>
-  <?php else: ?>
-    <img src="<?= $src ?>"<?= $srcset ? ' srcset="' . $srcset . '" sizes="(min-width: 1024px) 1024px, 100vw"' : '' ?> alt="<?= $alt->esc() ?>" loading="lazy" class="<?= $imgClass ?>">
-  <?php endif ?>
+    <?php endif ?>
+  </div>
 
   <?php if ($caption->isNotEmpty()): ?>
     <figcaption class="text-sm text-darkbrown/70 mt-2"><?= $caption ?></figcaption>

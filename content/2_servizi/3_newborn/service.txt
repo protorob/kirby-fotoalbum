@@ -2,7 +2,7 @@ Title: Newborn
 
 ----
 
-Servicedesc: [{"content":{"text":"<p>I primi giorni di vita racchiudono una magia speciale.</p><p>Con calma, sicurezza e dolcezza, realizzo fotografie che raccontano ogni piccolo dettaglio del vostro bambino.</p>"},"id":"4bafef8b-f815-4882-a481-28d6ad0c3087","isHidden":false,"type":"text"},{"content":{"images":["file://3w8kb089k0n0farl","file://ankufkay7hwt03bb"],"caption":"","ratio":"","crop":"false"},"id":"2d4c19b1-f8b6-4405-a776-a5313e6644b9","isHidden":false,"type":"gallery"}]
+Servicedesc: [{"content":{"text":"<p>I primi giorni passano in un soffio. Le manine minuscole, gli sbadigli, il modo in cui si addormenta tra le vostre braccia: dettagli che meritano di essere custoditi.</p><p>La sessione Newborn si svolge seguendo i ritmi del vostro bambino, senza fretta e nel pieno rispetto delle sue esigenze. Dedicheremo il tempo necessario a coccole, pause e cambi, creando immagini delicate e autentiche che raccontino l'inizio della vostra storia insieme.</p><p>Durata: circa 2-3 ore                                                                                                                                 Quando realizzarle: Preferibilmente i primi 15 giorni di vita                                                                   Include: Fotografie del neonato da solo, con genitori e fratellini</p>"},"id":"4bafef8b-f815-4882-a481-28d6ad0c3087","isHidden":false,"type":"text"},{"content":{"images":["file://3w8kb089k0n0farl","file://ankufkay7hwt03bb"],"caption":"","ratio":"","crop":"false"},"id":"2d4c19b1-f8b6-4405-a776-a5313e6644b9","isHidden":false,"type":"gallery"}]
 
 ----
 

@@ -1,0 +1,5 @@
+Uuid: npstf8mn542ee5vq
+
+----
+
+Template: blocks/image
